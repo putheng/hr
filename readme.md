@@ -2,9 +2,10 @@
 
 #### Vue header activities notification component
 ```vue
-<!-- activities -->
 <activities></activities>
-<!-- /activities -->
 ```
 
-
+#### Vue header messages notification component
+```vue
+<messages></messages>
+```
