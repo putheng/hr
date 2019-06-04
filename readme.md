@@ -1,11 +1,16 @@
-## HR Project
+## Vue components
 
-#### Vue header activities notification component
+#### header activities notification
 ```vue
 <activities></activities>
 ```
 
-#### Vue header messages notification component
+#### header messages notification
 ```vue
 <messages></messages>
+```
+
+#### header sheets
+```vue
+<sheets></sheets>
 ```
