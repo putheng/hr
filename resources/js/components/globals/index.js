@@ -1,0 +1,8 @@
+export { default as Activities } from './admin/Activities'
+export { default as Messages } from './admin/Messages'
+export { default as Sheets } from './admin/Sheets'
+export { default as UserSetting } from './admin/UserSetting'
+export { default as LeftUserSetting } from './admin/LeftUserSetting'
+export { default as LeftMenu } from './admin/LeftMenu'
+export { default as MainSearch } from './admin/MainSearch'
+export { default as MainFooter } from './admin/MainFooter'
