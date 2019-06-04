@@ -5,32 +5,39 @@
 			<span class="user-avatar user-avatar-md">
 				<img src="/images/avatars/profile.jpg" alt=""></span>
 				<span class="account-summary pr-lg-4 d-none d-lg-block">
-					<span class="account-name">Beni Arisandi</span>
-					<span class="account-description">Marketing Manager</span>
+					<span class="account-name">{{ username }}</span>
+					<span class="account-description">{{ userrole }}</span>
 				</span>
 		</button>
 		<div class="dropdown-arrow dropdown-arrow-left"></div>
 		<!-- .dropdown-menu -->
 		<div class="dropdown-menu">
-			<h6 class="dropdown-header d-none d-md-block d-lg-none"> Beni Arisandi </h6>
-			<a class="dropdown-item" href="user-profile.html">
+			<h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ username }} </h6>
+			<a class="dropdown-item" href="#">
 				<span class="dropdown-icon oi oi-person"></span>
 				Profile
 			</a>
-				<a class="dropdown-item" href="auth-signin-v1.html">
-					<span class="dropdown-icon oi oi-account-logout"></span>
-					Logout
-				</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">Help Center</a>
-			<a class="dropdown-item" href="#">Ask Forum</a>
-			<a class="dropdown-item" href="#">Keyboard Shortcuts</a>
+			<a class="dropdown-item" href="#">
+				<span class="dropdown-icon oi oi-account-logout"></span>
+				Logout
+			</a>
 		</div>
 		<!-- /.dropdown-menu -->
 	</div>
 </template>
 <script>
-	export default{
-		
-	}
+export default {
+	data(){
+		return {
+			username: '',
+			userrole: ''
+		}
+	},
+	mounted(){
+		axios.get('/admin/api/user').then((response) => {
+			this.username = response.data.name
+			this.userrole = response.data.roles[0].name
+		})
+	},
+}
 </script>

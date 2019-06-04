@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +14,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', 'Admin\HomeController@index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], function(){
-	Route::get('dashboard', 'HomeController@index')->name('index');
+/* Admin block */
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => ['role:admin']], function(){
+
+	Route::get('/', 'HomeController@index')->name('index');
+
+
+	Route::get('/api/user', 'AuthController@index')->name('user');
 });

@@ -2090,11 +2090,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      username: '',
+      userrole: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/admin/api/user').then(function (response) {
+      _this.username = response.data.name;
+      _this.userrole = response.data.roles[0].name;
+    });
+  }
+});
 
 /***/ }),
 
@@ -37974,95 +37985,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "dropdown" }, [
+    _c(
+      "button",
+      {
+        staticClass: "btn-account d-none d-md-flex",
+        attrs: {
+          type: "button",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "account-summary pr-lg-4 d-none d-lg-block" },
+          [
+            _c("span", { staticClass: "account-name" }, [
+              _vm._v(_vm._s(_vm.username))
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "account-description" }, [
+              _vm._v(_vm._s(_vm.userrole))
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "dropdown-arrow dropdown-arrow-left" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "dropdown-menu" }, [
+      _c("h6", { staticClass: "dropdown-header d-none d-md-block d-lg-none" }, [
+        _vm._v(" " + _vm._s(_vm.username) + " ")
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn-account d-none d-md-flex",
-          attrs: {
-            type: "button",
-            "data-toggle": "dropdown",
-            "aria-haspopup": "true",
-            "aria-expanded": "false"
-          }
-        },
-        [
-          _c("span", { staticClass: "user-avatar user-avatar-md" }, [
-            _c("img", {
-              attrs: { src: "/images/avatars/profile.jpg", alt: "" }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "span",
-            { staticClass: "account-summary pr-lg-4 d-none d-lg-block" },
-            [
-              _c("span", { staticClass: "account-name" }, [
-                _vm._v("Beni Arisandi")
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "account-description" }, [
-                _vm._v("Marketing Manager")
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "dropdown-arrow dropdown-arrow-left" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "dropdown-menu" }, [
-        _c(
-          "h6",
-          { staticClass: "dropdown-header d-none d-md-block d-lg-none" },
-          [_vm._v(" Beni Arisandi ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-item",
-            attrs: { href: "user-profile.html" }
-          },
-          [
-            _c("span", { staticClass: "dropdown-icon oi oi-person" }),
-            _vm._v("\n\t\t\tProfile\n\t\t")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-item",
-            attrs: { href: "auth-signin-v1.html" }
-          },
-          [
-            _c("span", { staticClass: "dropdown-icon oi oi-account-logout" }),
-            _vm._v("\n\t\t\t\tLogout\n\t\t\t")
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown-divider" }),
-        _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("Help Center")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("Ask Forum")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("Keyboard Shortcuts")
-        ])
-      ])
+    return _c("span", { staticClass: "user-avatar user-avatar-md" }, [
+      _c("img", { attrs: { src: "/images/avatars/profile.jpg", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("span", { staticClass: "dropdown-icon oi oi-person" }),
+      _vm._v("\n\t\t\tProfile\n\t\t")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+      _c("span", { staticClass: "dropdown-icon oi oi-account-logout" }),
+      _vm._v("\n\t\t\tLogout\n\t\t")
     ])
   }
 ]
