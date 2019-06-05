@@ -10,6 +10,16 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+
+// mix.webpackConfig({
+// 	resolve: {
+// 		extensions: ['.js', '.vue'],
+// 		alias: {
+// 			'@': __dirname + '/resources'
+// 		}
+// 	}
+// });
+
 mix.scripts([
     './resources/js/vendors/pace.min.js',
     './resources/js/vendors/perfect-scrollbar.min.js',

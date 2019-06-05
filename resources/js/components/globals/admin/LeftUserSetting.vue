@@ -9,17 +9,22 @@
 				<span class="fa fa-caret-down fa-lg"></span>
 			</span>
 			<span class="account-summary">
-				<span class="account-name">Beni Arisandi</span>
-				<span class="account-description">Marketing Manager</span>
+				<span class="account-name">{{ username }}</span>
+				<span class="account-description">{{ userrole }}</span>
 			</span>
 		</button> <!-- /.btn-account -->
 		<!-- .dropdown-aside -->
 		<div id="dropdown-aside" class="dropdown-aside collapse">
 			<!-- dropdown-items -->
 			<div class="pb-3">
-				<a class="dropdown-item" href="user-profile.html"><span class="dropdown-icon oi oi-person"></span> Profile</a> <a class="dropdown-item" href="auth-signin-v1.html"><span class="dropdown-icon oi oi-account-logout"></span> Logout</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Help Center</a> <a class="dropdown-item" href="#">Ask Forum</a> <a class="dropdown-item" href="#">Keyboard Shortcuts</a>
+				<a class="dropdown-item" href="#">
+					<span class="dropdown-icon oi oi-person"></span>
+					Profile
+				</a>
+				<a class="dropdown-item" href="#">
+					<span class="dropdown-icon oi oi-account-logout"></span>
+					Logout
+				</a>
 			</div>
 			<!-- /dropdown-items -->
 		</div>
@@ -28,7 +33,18 @@
 </template>
 
 <script>
-	export default {
-
-	}
+export default {
+	data(){
+		return {
+			username: '',
+			userrole: ''
+		}
+	},
+	mounted(){
+		axios.get('/admin/api/user').then((response) => {
+			this.username = response.data.name
+			this.userrole = response.data.roles[0].name
+		})
+	},
+}
 </script>
