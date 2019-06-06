@@ -52,7 +52,7 @@ export default {
 				method: this.method
 			}).then((response) => {
 				if (response.data.success){
-					return window.location.href = this.redirect
+					this.$router.replace(this.redirect);
 				}
 			})
 		},

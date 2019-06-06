@@ -2,6 +2,7 @@ import store from '../vuex'
 import localforage from 'localforage'
 
 const beforeEach = ((to, from, next) => {
+    store.dispatch('clearValidationErrors')
     store.dispatch('auth/checkTokenExists').then(() => {
         if (to.meta.guest) {
             next({ name: 'home' })

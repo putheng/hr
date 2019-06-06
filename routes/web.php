@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 	Route::get('/', 'HomeController@index')->name('index');
 
 	Route::post('/api/package/create', 'PackageController@store')->name('package.store');
+	Route::get('/api/package/all', 'PackageController@all');
+	Route::get('/api/package/all/{package}', 'PackageController@get');
+	Route::post('/api/package/all/{package}', 'PackageController@update');
 
 
 	Route::get('/api/user', 'AuthController@index')->name('user');

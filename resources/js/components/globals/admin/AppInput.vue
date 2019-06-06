@@ -41,7 +41,7 @@ export default{
 		},
 		value: {
 			required: false,
-			type: String
+			default: ''
 		}
 	},
 	data(){

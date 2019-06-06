@@ -18,6 +18,9 @@
 						<router-link class="menu-link" :to="{ name: 'create-package' }">
 							Create
 						</router-link>
+						<router-link class="menu-link" :to="{ name: 'all-packages' }">
+							Packages
+						</router-link>
 					</li>
 				</ul>
 				<!-- /child menu -->

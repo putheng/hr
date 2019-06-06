@@ -17,5 +17,9 @@ axios.interceptors.response.use((response) => {
 		store.dispatch('setErrors', "Status Code: 500, look like something went wrong. please try again later or report to your system administrator.")
 	}
 
+	if(error.response.status === 404){
+		store.dispatch('setErrors', "Oop, look like something went wrong. please try again later or report to your system administrator.")
+	}
+
 	return Promise.reject(error)
 })
