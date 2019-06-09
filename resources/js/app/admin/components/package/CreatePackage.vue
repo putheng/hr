@@ -5,7 +5,7 @@
 
 		<p class="text-danger" v-if="errors">{{ errors }}</p>
 		
-		<app-form action="/admin/api/package/create" method="post" redirect="/admin/package/all">
+		<app-form action="/api/package/create" method="post" redirect="/admin/package/all">
 			<div class="col-md-7 mb-7">
 				<app-input name="title" label="Title"/>
 			</div>
