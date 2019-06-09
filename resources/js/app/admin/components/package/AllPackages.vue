@@ -13,8 +13,8 @@
 				<th></th>
 			</thead>
 			<tbody>
-				<template v-for="item in packages">
-					<tr>
+				<template v-if="packages.length">
+					<tr v-for="item in packages">
 						<td>{{ item.title }}</td>
 						<td>{{ item.post }}</td>
 						<td>{{ item.cv }}</td>
@@ -25,7 +25,16 @@
 								<i class="fa fa-pencil-alt"></i>
 								<span class="sr-only">Edit</span>
 							</router-link>
-							<modal-button :label="item.title" :title="item.title"></modal-button>
+						</td>
+					</tr>
+				</template>
+
+				<template v-else>
+					<tr>
+						<td colspan="6">
+							<p class="text-center">Empty
+								<router-link :to="{ name: 'create-package' }">Create</router-link>
+							</p>
 						</td>
 					</tr>
 				</template>

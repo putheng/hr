@@ -1,17 +1,15 @@
 <template>
-	<div class="form-group">
-		<button 
-			class="btn btn-primary" 
-			:type="type"
-			v-bind="$attrs"
-			:disabled="loading"
-		>
-			<span v-if="loading" 
-				class="spinner-border spinner-border-sm"
-				role="status" aria-hidden="true"></span>
-			<slot/>
-		</button>
-	</div>
+	<button 
+		class="btn btn-primary" 
+		:type="type"
+		v-bind="$attrs"
+		:disabled="loading"
+	>
+		<span v-if="loading" 
+			class="spinner-border spinner-border-sm"
+			role="status" aria-hidden="true"></span>
+		<slot/>
+	</button>
 </template>
 
 <script>

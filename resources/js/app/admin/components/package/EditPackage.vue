@@ -12,8 +12,6 @@
 				</div>
 			</template>
 
-			
-
 			<br>
 			<div class="col-md-7 mb-7 text-center">
 				<app-button type="submit">Submit</app-button>
@@ -48,7 +46,7 @@
 			})
 		},
 		mounted(){
-			this.url = '/admin/api/package/all/'+ this.id
+			this.url = '/api/package/all/'+ this.id
 			this.fetchPackage(this.id)
 		}
 	}

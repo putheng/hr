@@ -1,5 +1,7 @@
 export default {
 	validation: [],
 	error: null,
-	loading: false
+	loading: false,
+	message: null,
+	showMessage: false
 }

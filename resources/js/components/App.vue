@@ -1,5 +1,6 @@
 <template>
 <div>
+	<app-alert></app-alert>
 <!-- .app-header -->
 <header class="app-header app-header-dark">
 	<!-- .top-bar -->
@@ -79,7 +80,16 @@
 </template>
 
 <script>
-	export default {
+	import { mapActions } from 'vuex'
 
+	export default {
+		methods: {
+			...mapActions({
+				fetchUser: 'employer/fetchUser'
+			})
+		},
+		mounted(){
+			this.fetchUser()
+		},
 	}
 </script>

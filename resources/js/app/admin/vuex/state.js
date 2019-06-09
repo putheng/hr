@@ -1,4 +1,14 @@
 export default {
 	packages: [],
-	package: []
+	package: [],
+	categories: [],
+	companyType: [],
+	educations: [],
+	experiences: [],
+	levels: [],
+	locations: [],
+	salaries: [],
+	terms: [],
+	employee: [],
+	paymentGatway: [],
 }

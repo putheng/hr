@@ -1,0 +1,15 @@
+<template>
+<div class="card">
+	<div class="card-body">
+		<h3 class="card-title"> All Packages </h3>
+
+
+	</div>
+</div>
+</template>
+
+<script>
+	export default {
+
+	}
+</script>

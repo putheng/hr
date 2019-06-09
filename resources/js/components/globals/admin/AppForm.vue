@@ -24,7 +24,11 @@ export default {
 			default: 'post'
 		},
 		redirect: {
-			required: true,
+			required: false,
+			type: String
+		},
+		commit: {
+			required: false,
 			type: String
 		}
 	},
@@ -51,13 +55,22 @@ export default {
 				payload: this.form,
 				method: this.method
 			}).then((response) => {
-				if (response.data.success){
+				if(this.commit){
+					this.$store.commit(this.commit, response.data.data)
+				}
+
+				if(response.data.type == 'updateUser'){
+					this.setUser(response.data.data)
+				}
+
+				if (response.data.success && this.redirect != undefined){
 					this.$router.replace(this.redirect);
 				}
 			})
 		},
 		...mapActions({
-			sendRequest: 'submit'
+			sendRequest: 'submit',
+			setUser: 'employer/setUser'
 		})
 	}
 }

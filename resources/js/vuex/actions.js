@@ -20,7 +20,10 @@ export const setErrors = ({commit}, error) => {
 
 export const clearErrors = ({commit}) => {
 	commit('setErrors')
-	
+}
+
+export const resetLoading = ({commit}) => {
+	commit('clearLoading')
 }
 
 export const clearValidateFor = ({commit}, error) => {
@@ -29,4 +32,8 @@ export const clearValidateFor = ({commit}, error) => {
 
 export const clearValidationErrors = ({commit}) => {
 	commit('clearValidationErrors')
+}
+
+export const clearMessage = ({commit}) => {
+	commit('clearMessage')
 }

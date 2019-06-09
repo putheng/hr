@@ -9,8 +9,8 @@
 				<span class="fa fa-caret-down fa-lg"></span>
 			</span>
 			<span class="account-summary">
-				<span class="account-name">{{ username }}</span>
-				<span class="account-description">{{ userrole }}</span>
+				<span class="account-name">{{ users.name }}</span>
+				<span class="account-description">{{ users.role }}</span>
 			</span>
 		</button> <!-- /.btn-account -->
 		<!-- .dropdown-aside -->
@@ -33,18 +33,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-	data(){
-		return {
-			username: '',
-			userrole: ''
-		}
-	},
-	mounted(){
-		axios.get('/admin/api/user').then((response) => {
-			this.username = response.data.name
-			this.userrole = response.data.roles[0].name
+	computed: {
+		...mapGetters({
+			users: 'employer/getUser'
 		})
-	},
+	}
 }
 </script>

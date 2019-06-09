@@ -17,6 +17,7 @@ localforage.config({
 require('./bootstrap');
 require('./interceptors');
 
+window.config = require('./config');
 window.Vue = require('vue');
 
 /**
@@ -32,6 +33,7 @@ window.Vue = require('vue');
 
 Vue.component('AppMain', require('./components/AppMain.vue').default);
 Vue.component('App', require('./components/App.vue').default);
+Vue.component('AppEmployer', require('./components/employer/AppEmployer.vue').default);
 
 Object.keys(components).forEach((key) => {
 	Vue.component(key, components[key])

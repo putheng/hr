@@ -3,5 +3,6 @@ import home from './home/routes'
 import timeline from './timeline/routes'
 import errors from './errors/routes'
 import admin from './admin/routes'
+import employer from './employer/routes'
 
-export default [...home, ...auth, ...timeline, ...errors, ...admin]
+export default [...home, ...auth, ...timeline, ...errors, ...admin, ...employer]

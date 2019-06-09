@@ -6,39 +6,34 @@
 				<img src="/images/avatars/profile.jpg" alt="">
 			</span>
 			<span class="account-summary pr-lg-4 d-none d-lg-block">
-				<span class="account-name">{{ username }}</span>
-				<span class="account-description">{{ userrole }}</span>
+				<span class="account-name">{{ users.name }}</span>
+				<span class="account-description">{{ users.role }}</span>
 			</span>
 		</button>
 		<div class="dropdown-arrow dropdown-arrow-left"></div>
 		<!-- .dropdown-menu -->
 		<div class="dropdown-menu">
-			<h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ username }} </h6>
+			<h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ users.name }} </h6>
 			<a class="dropdown-item" href="#">
 				<span class="dropdown-icon oi oi-person"></span>
 				Profile
 			</a>
 			<a class="dropdown-item" href="#">
-				<span class="dropdown-icon oi oi-account-logout"></span>
-				Logout
+				<span class="dropdown-icon fa fa-hand-holding-usd"></span>
+				$ {{ users.usd }}
 			</a>
+			<app-log-out></app-log-out>
 		</div>
 		<!-- /.dropdown-menu -->
 	</div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
-	data(){
-		return {
-			username: '',
-			userrole: ''
-		}
-	},
-	mounted(){
-		axios.get('/admin/api/user').then((response) => {
-			this.username = response.data.name
-			this.userrole = response.data.roles[0].name
+	computed: {
+		...mapGetters({
+			users: 'employer/getUser'
 		})
-	},
+	}
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-	<div class="form-group">
+	<div class="form-group" :class="{'d-none':inputType == 'hidden' }">
 		<label :for="id" class="col-form-label">{{ label }}</label>
 		<input
 			:name="inputName"
@@ -36,7 +36,7 @@ export default{
 			default: 'text'
 		},
 		label: {
-			required: true,
+			required: false,
 			type: String
 		},
 		value: {

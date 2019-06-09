@@ -1,36 +1,44 @@
 <template>
 	<div class="modal modal-alert fade" :id="id" data-backdrop="static" tabindex="-1" role="dialog" :aria-labelledby="id" aria-hidden="true">
-		<!-- .modal-dialog -->
 		<div class="modal-dialog" role="document">
-			<!-- .modal-content -->
 			<div class="modal-content">
-				<!-- .modal-header -->
 				<div class="modal-header">
-					<h5 id="exampleModalAlertDangerLabel" class="modal-title">
-						<i class="fa fa-exclamation-triangle text-red mr-1"></i> {{ title }}
+					<h5 :id="id" class="modal-title">
+						{{ title }}
 					</h5>
 				</div>
-				<!-- /.modal-header -->
-				<!-- .modal-body -->
 				<div class="modal-body">
 					<p class="text-center">
-						Are you sure you want to permanently delete this file ?
+						<slot/>
 					</p>
+					<p v-if="errors" class="text-danger">{{ errors }}</p>
 				</div>
-				<!-- /.modal-body -->
-				<!-- .modal-footer -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+					<app-form :action="option.url" method="post" :redirect="option.redirect">
+						
+							<template v-for="(item, key, index) in data">
+								<app-input type="hidden" :name="key" :value="item" />
+							</template>
+						
+						<app-button type="submit">{{ option.title }}</app-button>
+					</app-form>
+
+					<button 
+						type="button"
+						@click="resetLoading"
+						class="btn btn-warning"
+						data-dismiss="modal"
+					>
+						{{ cancel }}
+					</button>
 				</div>
-				<!-- /.modal-footer -->
 			</div>
-			<!-- /.modal-content -->
 		</div>
-		<!-- /.modal-dialog -->
 	</div>
-	<!-- /.modal -->
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
 	props: {
 		id: {
@@ -40,7 +48,35 @@ export default {
 		title: {
 			required: true,
 			type: String
+		},
+		option: {
+			required: true,
+			type: Object
+		},
+		data: {
+			required: false,
+			type: Object
+		},
+		cancel: {
+			required: true,
+			type: String
+		},
+		body: {
+			required: false,
+			type: String,
+			default: 'Are you sure you want to delete this package ?'
 		}
 	},
+	computed: {
+		...mapGetters({
+			loading: 'getLoading',
+			'errors': 'getError'
+		})
+	},
+	methods: {
+		...mapActions({
+			'resetLoading': 'resetLoading'
+		})
+	}
 }
 </script>

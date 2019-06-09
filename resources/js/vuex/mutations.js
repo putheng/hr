@@ -25,3 +25,13 @@ export const setLoading = (state) => {
 export const clearLoading = (state) => {
 	state.loading = false
 }
+
+export const setMessage = (state, message) => {
+	state.message = message
+	state.showMessage = true
+}
+
+export const clearMessage = (state) => {
+	state.message = null
+	state.showMessage = false
+}

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from '../app/auth/vuex'
 import admin from '../app/admin/vuex'
+import employer from '../app/employer/vuex'
 
 import state from './state'
 import * as actions from './actions'
@@ -17,6 +18,7 @@ export default new Vuex.Store({
 	getters,
     modules: {
         auth: auth,
-        admin: admin
+        admin: admin,
+        employer: employer
     }
 })

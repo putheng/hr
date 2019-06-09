@@ -26,6 +26,75 @@
 				<!-- /child menu -->
 			</li>
 			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
+				<a href="#" class="menu-link"><span class="menu-icon far fa-list-alt"></span> <span class="menu-text">Filters</span></a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name: 'add-company-type' }">
+							Company Type
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-education' }">
+							Education
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-category' }">
+							Category
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-experience' }">
+							Experience
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-level' }">
+							Level
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-location' }">
+							Location
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-salary' }">
+							Salary
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-term' }">
+							Term
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-employee-type' }">
+							Employee Type
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
+				<a href="#" class="menu-link"><span class="menu-icon fas fa-money-check-alt"></span> <span class="menu-text">Payments</span></a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'add-payment-gateway' }">
+							Gateway
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-change-password' }">
+							Deposit
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
+				<a href="#" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Setting</span></a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'update-profile' }">
+							Profile
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-change-password' }">
+							Password
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
 		</ul>
 		<!-- /.menu -->
 	</nav>

@@ -4,12 +4,19 @@ import store from './vuex'
 axios.interceptors.response.use((response) => {
 	if(response.status === 200){
 		store.dispatch('clearErrors')
+		if(response.data.message){
+			store.commit('setMessage', response.data.message)
+		}
 	}
 	
 	return response
 }, (error) => {
 	if(error.response.status === 422){
 		store.dispatch('setValidationErrors', error.response.data.errors)
+		store.dispatch('setErrors', error.response.data.message)
+	}
+
+	if(error.response.status === 402){
 		store.dispatch('setErrors', error.response.data.message)
 	}
 
