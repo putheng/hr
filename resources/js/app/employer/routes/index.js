@@ -7,7 +7,8 @@ import {
     CompanyProfile,
     Wallet,
     Transaction,
-    Deposit
+    Deposit,
+    CreateListing
 } from '../components'
 
 export default [
@@ -55,5 +56,10 @@ export default [
         path: '/employer/payments/transaction',
         component: Transaction,
         name: 'my-transaction'
+    },
+    {
+        path: '/employer/listing/create',
+        component: CreateListing,
+        name: 'create-listing'
     }
 ]

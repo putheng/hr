@@ -15,6 +15,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
 
+	Route::get('/api/filter/all', 'Api\FilterController@all');
+
 	Route::get('/api/payment/gateway', 'Api\PaymentController@show');
 	Route::post('/api/payment/gateway', 'Api\PaymentController@store');
 

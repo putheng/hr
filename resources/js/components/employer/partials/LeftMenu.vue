@@ -12,11 +12,18 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
-				<a href="#" class="menu-link"><span class="menu-icon oi oi-list-rich"></span> <span class="menu-text">Listings</span></a> <!-- child menu -->
+				<a href="#" class="menu-link">
+					<span class="menu-icon oi oi-list-rich"></span>
+					<span class="menu-text">Listings</span>
+				</a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">
-						<a href="" class="menu-link">Listings</a>
-						<a href="" class="menu-link">Create listing</a>
+						<router-link class="menu-link" :to="{ name: 'create-listing' }">
+							Create
+						</router-link>
+						<a href="" class="menu-link">Publish</a>
+						<a href="" class="menu-link">Unpublish</a>
+						<a href="" class="menu-link">Expired</a>
 					</li>
 				</ul>
 				<!-- /child menu -->
