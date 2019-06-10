@@ -2,7 +2,7 @@
 <div>
 	<header class="page-title-bar">
 		<h1 class="page-title"> Create Listing </h1>
-		<p class="text-muted"> A process/progress indicator component communicates to the user the progress of a particular process. </p>
+		<p class="text-muted"> Please fill in the form below to create listings</p>
 	</header>
 	<div class="page-section">
 		<!-- .section-block -->
@@ -20,7 +20,7 @@
 									<a href="#" class="step-trigger" tabindex="-1" aria-selected="true"><span class="step-indicator step-indicator-icon"><i class="oi oi-account-login"></i></span> <span class="d-none d-sm-inline">Listing</span></a>
 								</li>
 								<li class="step" :class="{active: step == 2, success: step > 2 }">
-									<a @click.prevent="step == 2" href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-person"></i></span> <span class="d-none d-sm-inline">Personal</span></a>
+									<a @click.prevent="step == 2" href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-person"></i></span> <span class="d-none d-sm-inline">Filters</span></a>
 								</li>
 								<li @click.prevent="step == 3" class="step" :class="{active: step == 3, success: step > 3 }">
 									<a href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-credit-card"></i></span> <span class="d-none d-sm-inline">Payment</span></a>
@@ -35,45 +35,30 @@
 					<!-- /.card-header -->
 					<!-- .card-body -->
 					<div class="card-body">
-						<form id="stepper-form" name="stepperForm" class="p-lg-4 p-sm-3 p-0" novalidate="">
+						<app-form action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" >
 							<!-- .content -->
 							<div class="content" :class="{active: step == 1, 'dstepper-none': step !== 1, 'dstepper-block': step == 1 }">
 								<!-- fieldset -->
 								<fieldset>
 									<legend>Listing details</legend>
 
-									<div class="row">
-										<div class="col-md-6">
-											<app-input name="location" label="Locations"/>
+										<div class="row">
+											<div class="col-md-12">
+												<app-input name="title" label="Title" />
+											</div>
+											<div class="col-md-6">
+												<app-text max="1000" name="description" label="Description"/>
+											</div>
+											<div class="col-md-6">
+												<app-text max="1000" name="requirements" label="Requirements"/>
+											</div>
+											<div class="col-md-6">
+												<app-input type="date" name="start_date" label="Start Date" />
+											</div>
+											<div class="col-md-6">
+												<app-input type="date" name="closing_date" label="Closing Date" />
+											</div>
 										</div>
-										<div class="col-md-6">
-											<app-input name="category" label="Category"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<app-input name="term" label="Job Term"/>
-										</div>
-										<div class="col-md-6">
-											<app-input name="level" label="Career Level"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<app-input name="education" label="Education"/>
-										</div>
-										<div class="col-md-6">
-											<app-input name="salary" label="Salary"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<app-input name="age" label="Age"/>
-										</div>
-										<div class="col-md-6">
-											<app-input name="gender" label="Gender"/>
-										</div>
-									</div>
 
 									<hr class="mt-5">
 									<!-- .d-flex -->
@@ -89,33 +74,40 @@
 							<div class="content" :class="{active: step == 2, 'dstepper-none': step !== 2, 'dstepper-block': step == 2 }">
 								<!-- fieldset -->
 								<fieldset>
-									<legend>Personal Information</legend>
+									<legend>Filter Information</legend>
 									<!-- .row -->
 									<div class="row">
-										<!-- grid column -->
-										<div class="col-md-6 mb-4">
-											<div class="form-label-group">
-												<input type="text" id="firstName" class="form-control parsley-success" name="firstName" value="Beni" data-parsley-group="fieldset02" required="" data-parsley-id="7"> <label for="firstName">First name</label>
-											</div>
-											<div class="invalid-feedback"> Valid first name is required. </div>
+										<div class="col-md-6">
+											<app-select commit="Location" name="location" label="Locations"/>
 										</div>
-										<!-- /grid column -->
-										<!-- grid column -->
-										<div class="col-md-6 mb-4">
-											<div class="form-label-group">
-												<input type="text" id="lastName" class="form-control parsley-success" name="lastName" value="Arisandi" data-parsley-group="fieldset02" required="" data-parsley-id="9"> <label for="lastName">Last name</label>
-											</div>
-											<div class="invalid-feedback"> Valid last name is required. </div>
+										<div class="col-md-6">
+											<app-select commit="Categories" name="category" label="Category"/>
 										</div>
-										<!-- /grid column -->
 									</div>
-									<!-- /.row -->
-									<!-- .form-group -->
-									<!-- /.form-group -->
-									<!-- .form-group -->
-									<!-- /.form-group -->
-									<!-- .row -->
-									<!-- /.row -->
+									<div class="row">
+										<div class="col-md-6">
+											<app-select commit="Term" name="term" label="Job Term"/>
+										</div>
+										<div class="col-md-6">
+											<app-select commit="Level" name="level" label="Career Level"/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<app-select commit="Education" name="education" label="Education"/>
+										</div>
+										<div class="col-md-6">
+											<app-select commit="Salary" name="salary" label="Salary"/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<app-input name="age" label="Age"/>
+										</div>
+										<div class="col-md-6">
+											<app-input name="gender" label="Gender"/>
+										</div>
+									</div>
 									<hr class="mt-5">
 									<div class="d-flex">
 										<button @click.prevent="previousStep" type="button" class="prev btn btn-secondary">Previous</button>
@@ -136,9 +128,15 @@
 									<!-- /.custom-control -->
 									<!-- .custom-control -->
 									<div class="custom-control custom-radio mb-4">
-										<input type="radio" id="pmd3" class="custom-control-input" name="paymentMethod" value="stripe" data-parsley-multiple="paymentMethod"> <label class="custom-control-label" for="pmd3">Stripe</label> <!-- .custom-control-hint -->
+										<input type="radio" id="pmd3" class="custom-control-input" name="paymentMethod" value="stripe" data-parsley-multiple="paymentMethod">
+										<label class="custom-control-label" for="pmd3">
+											Basic packagek
+										</label> <!-- .custom-control-hint -->
 										<div class="custom-control-hint">
-											<button class="btn btn-primary" type="button">Connect with <strong><em>Stripe</em></strong></button>
+											<button class="btn btn-primary" type="button">
+												Buy
+												<strong><em>a package</em></strong>
+											</button>
 										</div>
 										<!-- /.custom-control-hint -->
 									</div>
@@ -153,7 +151,7 @@
 										<button @click.prevent="nextStep" type="button" 
 											class="next btn btn-primary ml-auto"
 											data-validate="fieldset03">
-											Next step
+											Continue to Payment
 										</button>
 									</div>
 								</fieldset>
@@ -175,21 +173,33 @@
 									<div class="form-group">
 										<!-- .custom-control -->
 										<div class="custom-control custom-checkbox">
-											<input type="checkbox" id="agreement" name="agreement" class="custom-control-input" data-parsley-group="agreement" required="" data-parsley-multiple="agreement"> <label class="custom-control-label" for="agreement">Agree to terms and conditions</label>
+											<input type="checkbox" id="agreement" name="agreement" class="custom-control-input"> 
+											<label class="custom-control-label" for="agreement">Agree to terms and conditions</label>
 										</div>
 										<!-- /.custom-control -->
 									</div>
 									<!-- /.form-group -->
 									<hr class="mt-5">
 									<div class="d-flex">
-										<button @click.prevent="previousStep" type="button" class="prev btn btn-secondary">Previous</button>
-										<button @click.prevent="submit" type="submit" class="submit btn btn-primary ml-auto" data-validate="agreement">Submit</button>
+										<button @click.prevent="previousStep"
+											type="button"
+											class="prev btn btn-secondary">
+											Previous
+										</button>
+										&nbsp;&nbsp;&nbsp;
+										<button @click.prevent="submit"
+											type="submit"
+											class="submit btn btn-secondary">
+											Save
+										</button>
+
+										<app-button class="ml-auto" type="submit">Publish</app-button>
 									</div>
 								</fieldset>
 								<!-- /fieldset -->
 							</div>
 							<!-- /.content -->
-						</form>
+						</app-form>
 						<!-- /form -->
 					</div>
 					<!-- /.card-body -->

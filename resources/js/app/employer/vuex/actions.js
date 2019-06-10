@@ -26,3 +26,10 @@ export const getPackage = ({commit}, id) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchFilter = ({commit}, url) => {
+	return axios.get(url).then((response) => {
+		commit('setPackage', response.data.data)
+		return Promise.resolve(response)
+	})
+}
