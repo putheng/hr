@@ -100,18 +100,10 @@
 											<app-select commit="Salary" name="salary" label="Salary"/>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<app-input name="age" label="Age"/>
-										</div>
-										<div class="col-md-6">
-											<app-input name="gender" label="Gender"/>
-										</div>
-									</div>
 									<hr class="mt-5">
 									<div class="d-flex">
 										<button @click.prevent="previousStep" type="button" class="prev btn btn-secondary">Previous</button>
-										<button @click.prevent="nextStep" type="button" class="next btn btn-primary ml-auto" data-validate="fieldset02">Next step</button>
+										<button @click.prevent="nextStep" type="button" class="next btn btn-primary ml-auto" data-validate="fieldset02">Continue to Payment</button>
 									</div>
 								</fieldset>
 								<!-- /fieldset -->
@@ -151,7 +143,7 @@
 										<button @click.prevent="nextStep" type="button" 
 											class="next btn btn-primary ml-auto"
 											data-validate="fieldset03">
-											Continue to Payment
+											Complete
 										</button>
 									</div>
 								</fieldset>
@@ -165,7 +157,14 @@
 									<!-- .card -->
 									<div class="card bg-light">
 										<div class="card-body overflow-auto" style="height: 260px">
-											<p> Dicta asperiores ea voluptatum nihil quasi, officia tempora voluptates. Quidem reprehenderit nesciunt culpa, architecto iure, neque itaque suscipit, iusto, porro ipsum consequatur! </p>
+											<p>HR Dimension operates as a talent solutions company with expertise in specialised permanent and contracting recruitment, using database and websites. Our solutions are built on trust and privacy. This is why we are committed to protecting the personal information of employers and candidates. We encourage you to review the statements below explaining how we collect and use information you share with us.</p>
+											<p>The HR Dimension Privacy Policy outlines how HR Dimension collects, discloses, uses, stores or otherwise handles your personal information.</p>
+
+											<h7>CONSENT</h7>
+											<p>By accessing HR Dimension websites and/or submitting your personal information to HR Dimension through any means, you consent to the use of your information as set out in the Policy. If you do not agree with any term of the Policy, please do not use HR Dimension's services or website.</p>
+
+											<h7>DATA SECURITY AND STORAGE</h7>
+											<p>HR Dimension takes reasonable steps to protect the personal information we hold from loss, unauthorised access, and misuse. The use of locks and security systems assist HR Dimension in protecting your personal information. Your personal information may be stored in hard copy documents, or electronically on HR Dimension's software or systems. When no longer required, personal information is destroyed in a secure manner or deleted.</p>
 										</div>
 									</div>
 									<!-- /.card -->
@@ -217,7 +216,7 @@
 	export default {
 		data(){
 			return {
-				step: 1,
+				step: 4,
 			}
 		},
 		methods: {

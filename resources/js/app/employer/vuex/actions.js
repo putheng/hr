@@ -11,7 +11,7 @@ export const fetchUser = ({commit}) => {
 	return axios.get('/api/user/profile').then((response) => {
 		commit('setUser', response.data.data)
 
-		return Promise.resolve(resolve)
+		return Promise.resolve(response)
 	})
 }
 
