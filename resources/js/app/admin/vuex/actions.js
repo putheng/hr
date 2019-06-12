@@ -23,6 +23,14 @@ export const fetchCategories = ({commit}) => {
 	})
 }
 
+export const fetchIndustries = ({commit}) => {
+	return axios.get('/api/industry/all').then((response) => {
+		commit('setIndustries', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchCompanyType = ({commit}) => {
 	return axios.get('/api/company-type/all').then((response) => {
 		commit('setCompanyType', response.data.data)

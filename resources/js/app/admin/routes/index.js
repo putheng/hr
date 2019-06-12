@@ -13,7 +13,8 @@ import {
     Experience,
     UpdateProfile,
     ChangePassword,
-    Gateway
+    Gateway,
+    Industry
 } from '../components'
 
 export default [
@@ -76,6 +77,11 @@ export default [
         path: '/admin/filter/term',
         component: Term,
         name: 'add-term'
+    },
+    {
+        path: '/admin/filter/industry',
+        component: Industry,
+        name: 'add-industry'
     },
     {
         path: '/admin/filter/company-type',

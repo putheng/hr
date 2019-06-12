@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreListingFromRequest extends FormRequest
+class StoreListingFirstStep extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,15 +26,9 @@ class StoreListingFromRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required|max:1000',
-            'requirements' => 'required|max:1000',
+            'requirement' => 'required|max:1000',
             'start_date' => 'required',
             'closing_date' => 'required',
-            'location' => 'required|exists:locations,name',
-            'category' => 'required|exists:categories,name',
-            'term' => 'required|exists:terms,name',
-            'level' => 'required|exists:levels,name',
-            'education' => 'required|exists:education,name',
-            'salary' => 'required|exists:salaries,name',
         ];
     }
 }

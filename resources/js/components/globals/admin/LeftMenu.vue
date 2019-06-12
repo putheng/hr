@@ -34,6 +34,9 @@
 						<router-link class="menu-link" :to="{ name: 'add-company-type' }">
 							Company Type
 						</router-link>
+						<router-link class="menu-link" :to="{ name: 'add-industry' }">
+							Industry
+						</router-link>
 						<router-link class="menu-link" :to="{ name: 'add-education' }">
 							Education
 						</router-link>

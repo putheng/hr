@@ -26,6 +26,10 @@ export const setExperience = (state, experiences) => {
 	state.experiences = experiences
 }
 
+export const setIndustries = (state, industries) => {
+	state.industries = industries
+}
+
 export const setLevel = (state, levels) => {
 	state.levels = levels
 }

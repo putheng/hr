@@ -22,6 +22,10 @@ export const getExperience = (state) => {
     return state.experiences
 }
 
+export const getIndustries = (state) => {
+    return state.industries
+}
+
 export const getLevel = (state) => {
     return state.levels
 }

@@ -11,4 +11,5 @@ export default {
 	terms: [],
 	employee: [],
 	paymentGatway: [],
+	industries: [],
 }

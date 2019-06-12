@@ -12,6 +12,9 @@ axios.interceptors.response.use((response) => {
 	return response
 }, (error) => {
 	if(error.response.status === 422){
+		
+		store.commit('setMessage', error.response.data.message)
+		
 		store.dispatch('setValidationErrors', error.response.data.errors)
 		store.dispatch('setErrors', error.response.data.message)
 	}

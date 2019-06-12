@@ -35,35 +35,40 @@
 					<!-- /.card-header -->
 					<!-- .card-body -->
 					<div class="card-body">
-						<app-form action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" >
+						<app-form id="create-listing-form" action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" >
 							<!-- .content -->
 							<div class="content" :class="{active: step == 1, 'dstepper-none': step !== 1, 'dstepper-block': step == 1 }">
 								<!-- fieldset -->
 								<fieldset>
 									<legend>Listing details</legend>
-
 										<div class="row">
 											<div class="col-md-12">
-												<app-input name="title" label="Title" />
+												<app-input v-model="listing.title" name="title" label="Title" />
 											</div>
 											<div class="col-md-6">
-												<app-text max="1000" name="description" label="Description"/>
+												<app-text v-model="listing.description" max="1000" name="description" label="Description"/>
 											</div>
 											<div class="col-md-6">
-												<app-text max="1000" name="requirements" label="Requirements"/>
+												<app-text v-model="listing.requirement" max="1000" name="requirements" label="Requirements"/>
 											</div>
 											<div class="col-md-6">
-												<app-input type="date" name="start_date" label="Start Date" />
+												<app-input v-model="listing.start_date" type="date" name="start_date" label="Start Date" />
 											</div>
 											<div class="col-md-6">
-												<app-input type="date" name="closing_date" label="Closing Date" />
+												<app-input v-model="listing.closing_date" type="date" name="closing_date" label="Closing Date" />
 											</div>
 										</div>
 
 									<hr class="mt-5">
 									<!-- .d-flex -->
 									<div class="d-flex">
-										<button @click.prevent="nextStep" type="button" class="next btn btn-primary ml-auto" data-validate="fieldset01">Next step</button>
+										<button @click.prevent="nextStep"
+											class="btn btn-primary ml-auto" :disabled="loading">
+											<span v-if="loading" 
+												class="spinner-border spinner-border-sm"
+												role="status" aria-hidden="true"></span>
+											Next step
+										</button>
 									</div>
 									<!-- /.d-flex -->
 								</fieldset>
@@ -78,32 +83,38 @@
 									<!-- .row -->
 									<div class="row">
 										<div class="col-md-6">
-											<app-select commit="Location" name="location" label="Locations"/>
+											<app-select v-model="second.location" commit="Location" name="location" label="Locations"/>
 										</div>
 										<div class="col-md-6">
-											<app-select commit="Categories" name="category" label="Category"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<app-select commit="Term" name="term" label="Job Term"/>
-										</div>
-										<div class="col-md-6">
-											<app-select commit="Level" name="level" label="Career Level"/>
+											<app-select v-model="second.category" commit="Categories" name="category" label="Category"/>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-md-6">
-											<app-select commit="Education" name="education" label="Education"/>
+											<app-select v-model="second.term" commit="Term" name="term" label="Job Term"/>
 										</div>
 										<div class="col-md-6">
-											<app-select commit="Salary" name="salary" label="Salary"/>
+											<app-select v-model="second.level" commit="Level" name="level" label="Career Level"/>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<app-select v-model="second.education" commit="Education" name="education" label="Education"/>
+										</div>
+										<div class="col-md-6">
+											<app-select v-model="second.salary" commit="Salary" name="salary" label="Salary"/>
 										</div>
 									</div>
 									<hr class="mt-5">
 									<div class="d-flex">
 										<button @click.prevent="previousStep" type="button" class="prev btn btn-secondary">Previous</button>
-										<button @click.prevent="nextStep" type="button" class="next btn btn-primary ml-auto" data-validate="fieldset02">Continue to Payment</button>
+										<button @click.prevent="secondStep"
+											class="btn btn-primary ml-auto" :disabled="loading">
+											<span v-if="loading" 
+												class="spinner-border spinner-border-sm"
+												role="status" aria-hidden="true"></span>
+											Next step
+										</button>
 									</div>
 								</fieldset>
 								<!-- /fieldset -->
@@ -140,10 +151,10 @@
 											Previous
 										</button>
 
-										<button @click.prevent="nextStep" type="button" 
+										<button @click.prevent="thirdStep" type="button" 
 											class="next btn btn-primary ml-auto"
 											data-validate="fieldset03">
-											Complete
+											Next step
 										</button>
 									</div>
 								</fieldset>
@@ -160,10 +171,10 @@
 											<p>HR Dimension operates as a talent solutions company with expertise in specialised permanent and contracting recruitment, using database and websites. Our solutions are built on trust and privacy. This is why we are committed to protecting the personal information of employers and candidates. We encourage you to review the statements below explaining how we collect and use information you share with us.</p>
 											<p>The HR Dimension Privacy Policy outlines how HR Dimension collects, discloses, uses, stores or otherwise handles your personal information.</p>
 
-											<h7>CONSENT</h7>
+											<h6>CONSENT</h6>
 											<p>By accessing HR Dimension websites and/or submitting your personal information to HR Dimension through any means, you consent to the use of your information as set out in the Policy. If you do not agree with any term of the Policy, please do not use HR Dimension's services or website.</p>
 
-											<h7>DATA SECURITY AND STORAGE</h7>
+											<h6>DATA SECURITY AND STORAGE</h6>
 											<p>HR Dimension takes reasonable steps to protect the personal information we hold from loss, unauthorised access, and misuse. The use of locks and security systems assist HR Dimension in protecting your personal information. Your personal information may be stored in hard copy documents, or electronically on HR Dimension's software or systems. When no longer required, personal information is destroyed in a secure manner or deleted.</p>
 										</div>
 									</div>
@@ -211,19 +222,52 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { mapGetters, mapActions } from 'vuex'
+	import axios from 'axios'
 
 	export default {
 		data(){
 			return {
-				step: 4,
+				step: 3,
+				loading: false,
+				listing: {
+					title: '',
+					description: '',
+					requirement: '',
+					start_date: '',
+					closing_date: '',
+				},
+				second: {
+					location: '',
+					category: '',
+					term: '',
+					level: '',
+					education: '',
+					salary: '',
+				}
 			}
 		},
 		methods: {
 			nextStep(){
-				if(this.step <= 4){
+				this.loading = true
+				axios.post('/api/listing/create/a', this.listing).then((response) => {
+					this.loading = false
 					this.step++
-				}
+				}).catch((error) => {
+					this.loading = false
+				})
+			},
+			secondStep(){
+				this.loading = true
+				axios.post('/api/listing/create/b', this.second).then((response) => {
+					this.loading = false
+					this.step++
+				}).catch((error) => {
+					this.loading = false
+				})
+			},
+			thirdStep(){
+				this.step++
 			},
 			previousStep(){
 				this.step--

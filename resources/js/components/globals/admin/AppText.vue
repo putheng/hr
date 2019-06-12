@@ -85,7 +85,10 @@ export default{
 			validation: 'getValidationErrors'
 		}),
 		rows(){
-			return Math.max(4, this.inputValue.split("\n").length)
+			if(this.value){
+				return Math.max(4, this.inputValue.split("\n").length)
+			}
+			return 4
 		}
 	}
 }

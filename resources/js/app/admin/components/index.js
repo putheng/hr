@@ -11,6 +11,7 @@ export const Level = Vue.component('level', require('./filters/Level.vue').defau
 export const Location = Vue.component('location', require('./filters/Location.vue').default)
 export const Salary = Vue.component('salary', require('./filters/Salary.vue').default)
 export const Term = Vue.component('term', require('./filters/Term.vue').default)
+export const Industry = Vue.component('industry', require('./filters/Industry.vue').default)
 
 export const CompanyType = Vue.component('company-type', require('./filters/CompanyType.vue').default)
 export const EmployeeType = Vue.component('employee-type', require('./filters/EmployeeType.vue').default)

@@ -15,6 +15,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function(){
 
+	Route::post('/api/listing/create/a', 'Api\ListingController@firstStep');
+	Route::post('/api/listing/create/b', 'Api\ListingController@secondStep');
+
 	Route::post('/api/listing/create', 'Api\ListingController@store');
 	Route::get('/api/filter/all', 'Api\FilterController@all');
 
@@ -34,7 +37,14 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/api/location/all', 'Admin\LocationController@show');
 	Route::get('/api/salary/all', 'Admin\SalaryController@show');
 	Route::get('/api/term/all', 'Admin\TermController@show');
+	Route::get('/api/industry/all', 'Admin\IndustryController@show');
 	Route::get('/api/employee-type/all', 'Admin\EmployeeTypeController@show');
+
+	Route::group(['middleware' => ['role:employer']], function(){
+
+		Route::post('/api/package/buy', 'Api\PackageController@buy');
+
+	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
 
@@ -47,6 +57,7 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/api/education/create', 'Admin\EducationController@store');
 		Route::post('/api/experience/create', 'Admin\ExperienceController@store');
 		Route::post('/api/level/create', 'Admin\LevelController@store');
+		Route::post('/api/industry/create', 'Admin\IndustryController@store');
 
 		Route::post('/api/location/create', 'Admin\LocationController@store');
 		Route::post('/api/salary/create', 'Admin\SalaryController@store');
@@ -67,11 +78,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 Route::group(['prefix' => 'employer', 'namespace' => 'Employer', 'as' => 'employer.', 'middleware' => ['role:employer']], function(){
 
 	Route::get('/{vue?}', 'HomeController@index')->name('index')->where('vue', '[\/\w\.-]*');
-
-});
-
-Route::group(['prefix' => 'api', 'namespace' => 'Api', 'middleware' => ['permission:buy package']], function(){
-
-	Route::post('/package/buy', 'PackageController@buy');
 
 });
