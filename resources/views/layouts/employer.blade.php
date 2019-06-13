@@ -8,7 +8,7 @@
 		<!-- Begin SEO tag -->
 		<title> Dashboard </title>
 
-    	<link rel="shortcut icon" href="/favicon.png">
+    	<link rel="shortcut icon" href="/images/logo-t.png">
 		<!-- End FAVICONS -->
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		    <!-- CSRF Token -->

@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="/images/logo-t.png">
     <title>Hello, world!</title>
   </head>
   <body>
@@ -90,44 +91,9 @@
       </div>
       <!--end container-->
     </div>
-    <div class="container-fluid body-search">
-      <div class="container">
-        <div class="row">
 
-          <div class="col-md-4 col-sm-12">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action active">
-                 <h3>HR Dimension</h3>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-              <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
-            </div>
-
-          </div>
-          <!--left sidebar-->
-
-          <div class="col-md-8 col-sm-12">
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
-            <img class="w-100" src="/images/add.jpg">
-            <p class="pt-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </div>
-          <!--body content-->
-
-        </div>
-        <!--end row-->
-      </div>
-      <!--end container-->
-    </div> 
+    @yield('content')
+    
     <!--end container fluid-->
 
     <footer>

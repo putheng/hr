@@ -1,17 +1,8 @@
 <?php
 
-Route::get('/test', function(){
-	// $role = Spatie\Permission\Models\Role::findByName('super-admin');
-	// $role->givePermissionTo('buy package');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::group(['middleware' => ['guest'], 'prefix' => 'register', 'as' => 'register.'], function(){
 	Route::get('/employer', 'Employer\RegisterController@index')->name('employer');
