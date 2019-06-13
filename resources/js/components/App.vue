@@ -8,7 +8,7 @@
 		<!-- .top-bar-brand -->
 		<div class="top-bar-brand">
 			<a href="index.html">
-				<img src="/images/brand-inverse.png" alt="" style="height: 32px;width: auto;">
+				<img src="/images/logo-t.png" alt="" style="height: 32px;width: auto;">
 			</a>
 		</div>
 		<!-- /.top-bar-brand -->

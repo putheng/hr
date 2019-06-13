@@ -13,6 +13,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['middleware' => ['guest'], 'prefix' => 'register', 'as' => 'register.'], function(){
+	Route::get('/employer', 'Employer\RegisterController@index')->name('employer');
+});
+
 Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('/api/listing/create/a', 'Api\ListingController@firstStep');
@@ -43,6 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::group(['middleware' => ['role:employer']], function(){
 
 		Route::post('/api/package/buy', 'Api\PackageController@buy');
+		Route::post('/api/profile/edit', 'Api\ProfileController@store');
 
 	});
 

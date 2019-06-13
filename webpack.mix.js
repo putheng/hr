@@ -29,3 +29,11 @@ mix.scripts([
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.sass('resources/sass/home/style.scss', 'public/css')
+.scripts([
+	'./resources/js/vendors/home/jquery.min.js',
+	'./resources/js/vendors/home/custom.js',
+	'./resources/js/vendors/home/bootstrap.min.js',
+	'./resources/js/vendors/home/bootstrap.bundle.min.js',
+], 'public/js/script.js');

@@ -14,10 +14,10 @@
 		<!-- .dropdown-menu -->
 		<div class="dropdown-menu">
 			<h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ users.name }} </h6>
-			<a class="dropdown-item" href="#">
+			<router-link class="dropdown-item" :to="{ name:'my-profile' }">
 				<span class="dropdown-icon oi oi-person"></span>
 				Profile
-			</a>
+			</router-link>
 			<a class="dropdown-item" href="#">
 				<span class="dropdown-icon fa fa-hand-holding-usd"></span>
 				$ {{ users.usd }}

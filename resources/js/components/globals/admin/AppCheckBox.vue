@@ -1,23 +1,26 @@
 <template>
-	<div class="form-group" :class="{'d-none':inputType == 'hidden' }">
-		<label :for="id" class="col-form-label">{{ label }}</label>
-		<input
+<div class="form-group">
+	<div class="custom-control custom-switch">
+		<input 
 			:name="inputName"
-			:type="inputType"
 			v-bind="$attrs"
+			type="checkbox"
+			class="custom-control-input"
 			:id="id"
-			class="form-control"
 			@input="$emit('input', $event.target.value)"
 			v-model="inputValue"
-			@keyup="clearValidation"
+			@change="clearValidation"
 			:value="value"
 			v-bind:class="{'is-invalid': validation[inputName]}"
+
 		>
+		<label class="custom-control-label" :for="id">{{ label }}</label>
 		<div class="invalid-feedback" v-if="validation[inputName]">
             <i class="fa fa-exclamation-circle fa-fw"></i>
             {{ validation[inputName] +'' }}
         </div>
 	</div>
+</div>
 </template>
 
 <script>
@@ -47,7 +50,6 @@ export default {
 	data(){
 		return {
 			id: this.formtedInputName(),
-			inputType: this.formtedInputType(),
 			inputName: this.formtedInputName(),
 			inputValue: this.value
 		}
@@ -55,9 +57,6 @@ export default {
 	methods: {
 		clearValidation(){
 			this.$store.dispatch('clearValidateFor', this.inputName)
-		},
-		formtedInputType(){
-			return this.type == 'email' ? 'text' : this.type
 		},
 		formtedInputName(){
 			return this.name.replace(/\s+/g, '_').toLowerCase()
