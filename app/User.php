@@ -70,4 +70,15 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasOne(Company::class);
     }
+
+    public function dashboard()
+    {
+        if($this->hasRole('admin|super-admin')){
+            return route('admin.index');
+        }
+
+        if($this->hasRole('employer')){
+            return route('employer.index');
+        }
+    }
 }
