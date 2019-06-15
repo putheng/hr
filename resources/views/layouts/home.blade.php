@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="/images/logo-t.png">
-    <title>Hello, world!</title>
+    <title>Home</title>
   </head>
   <body>
     <!--back to top button-->
@@ -19,7 +19,7 @@
     <div class="container-fluid container">  
         <header class="row">
           <div class="col-md-4 col-sm-12">
-            <div class="logo"><a href="#"><img class="img-fluid" src="/images/logo.png"/></a></div>
+            <div class="logo"><a href="{{ route('home.index') }}"><img class="img-fluid" src="/images/logo.png"/></a></div>
           </div>
           <div class="col-md-8 col-sm-12">
             <div class="banner-slide">
@@ -94,6 +94,7 @@
 
     @yield('content')
     
+    
     <!--end container fluid-->
 
     <footer>
@@ -115,7 +116,7 @@
             </div>
             <div class="col-md-4 col-sm-12">
               <h3>Employer</h3>
-              <p>Post a Job</p>
+              <p><a href="{{ route('register.employer') }}">Post a Job</a></p>
               <p>Post an Urgent Job</p>
               <p>CV Search</p>
               <p>Purchase Service Packages</p>

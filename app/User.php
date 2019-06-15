@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Company;
 use App\Models\Package;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -63,5 +64,10 @@ class User extends Authenticatable implements JWTSubject
     public function packages()
     {
         return $this->belongsToMany(Package::class);
+    }
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
     }
 }

@@ -4,8 +4,31 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
 
-Route::group(['middleware' => ['guest'], 'prefix' => 'register', 'as' => 'register.'], function(){
-	Route::get('/employer', 'Employer\RegisterController@index')->name('employer');
+Route::group(
+	['middleware' => ['guest']], function(){
+
+	Route::get('/register/employer', 'Employer\RegisterController@index')
+		->name('register.employer');
+	Route::post('/register/employer', 'Employer\RegisterController@store');
+
+	Route::post('/login/employer', 'Employer\LoginController@login');
+	Route::get('/login/employer', 'Employer\LoginController@index')
+		->name('login.employer');
+
+
+});
+
+Route::group(['prefix' => 'api'], function(){
+	Route::get('category/all', 'Admin\CategoryController@show');
+	Route::get('company-type/all', 'Admin\CompanyTypeController@show');
+	Route::get('education/all', 'Admin\EducationController@show');
+	Route::get('experience/all', 'Admin\ExperienceController@show');
+	Route::get('level/all', 'Admin\LevelController@show');
+	Route::get('location/all', 'Admin\LocationController@show');
+	Route::get('salary/all', 'Admin\SalaryController@show');
+	Route::get('term/all', 'Admin\TermController@show');
+	Route::get('industry/all', 'Admin\IndustryController@show');
+	Route::get('employee-type/all', 'Admin\EmployeeTypeController@show');
 });
 
 Route::group(['middleware' => 'auth'], function(){
@@ -24,16 +47,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('/api/user/profile', 'Employer\HomeController@profile');
 	Route::post('/api/user/profile', 'Employer\HomeController@store');
-	Route::get('/api/category/all', 'Admin\CategoryController@show');
-	Route::get('/api/company-type/all', 'Admin\CompanyTypeController@show');
-	Route::get('/api/education/all', 'Admin\EducationController@show');
-	Route::get('/api/experience/all', 'Admin\ExperienceController@show');
-	Route::get('/api/level/all', 'Admin\LevelController@show');
-	Route::get('/api/location/all', 'Admin\LocationController@show');
-	Route::get('/api/salary/all', 'Admin\SalaryController@show');
-	Route::get('/api/term/all', 'Admin\TermController@show');
-	Route::get('/api/industry/all', 'Admin\IndustryController@show');
-	Route::get('/api/employee-type/all', 'Admin\EmployeeTypeController@show');
 
 	Route::group(['middleware' => ['role:employer']], function(){
 

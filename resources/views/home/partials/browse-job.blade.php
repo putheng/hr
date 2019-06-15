@@ -5,101 +5,11 @@
         <h2 class="mt-3 table-urgent-job">Browse Jobs</h2>
 
         <div class="row table-urgent-job pb-3">
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div><div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
-          <div class="col-md-3 col-sm-12">
-            Category here
-          </div>
+          @foreach($categories as $category)
+            <div class="col-md-3 col-sm-12">
+              <a href="#">{{ $category->name }}</a>
+            </div>
+          @endforeach
         </div>
       </div>
       <!--end col-md-8-->

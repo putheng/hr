@@ -21,8 +21,9 @@ class CreateCompaniesTable extends Migration
             $table->string('website')->nullable();
             $table->string('phone');
             $table->text('description')->nullable();
-            $table->integer('variation_id')->unsigned();
-            $table->integer('variation_type')->unsigned();
+            $table->integer('industry_id')->nullable();
+            $table->integer('type_id')->nullable();
+            $table->integer('employee_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

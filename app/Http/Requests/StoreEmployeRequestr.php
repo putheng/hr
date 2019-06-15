@@ -1,10 +1,10 @@
-sa<?php
+<?php
 
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCompanyProfileRequest extends FormRequest
+class StoreEmployeRequestr extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,12 @@ class StoreCompanyProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'phone' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'website' => 'required|max:255',
-            'address' => 'required|max:500',
-            'about' => 'required|max:2000',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'company' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:500'],
+            'phone' => ['required', 'unique:companies'],
             'term' => 'accepted',
         ];
     }
@@ -37,7 +37,7 @@ class StoreCompanyProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'term.required' => 'You must agree to the terms of service'
+            'term.accepted' => 'You must agree to the terms of service'
         ];
     }
 }
