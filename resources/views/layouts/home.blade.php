@@ -70,6 +70,9 @@
                 <a class="nav-link" href="#">Candidate</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#">Employers</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
             </ul>
@@ -87,8 +90,8 @@
                   Account
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}"> {{ Auth::user()->name }}</a>
-                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}/setting/profile"> {{ Auth::user()->name }}</a>
+                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}">Dashboard</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}" 
                       onclick="event.preventDefault();

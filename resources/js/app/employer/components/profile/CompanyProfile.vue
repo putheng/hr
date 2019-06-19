@@ -8,25 +8,47 @@
 			<div class="card-body">
 				<app-form action="/api/profile/edit">
 					<fieldset>
-						<app-input name="name" label="Company name" />
-
-						<div class="row">
-							<div class="col-md-6">
-								<app-input name="phone" label="Contact phone number" />
+						<template v-for="(item, index, key) in company">
+							
+							<div class="row">
+								<div class="col-md-6">
+									<app-input :value="item" v-if="index == 'name'" name="name" label="Company name" />
+								</div>
 							</div>
-							<div class="col-md-6">
-								<app-input name="email" label="Contact email" />
+
+							<div class="row">
+								<div class="col-md-6">
+									<app-input :value="item" v-if="index == 'phone'" name="phone" label="Contact phone number" />
+								</div>
 							</div>
-						</div>
-						<app-input name="website" label="Website" />
-						
 
-						<app-text name="address" max="500" label="Address"/>
-						<app-text name="about" max="2000" label="About company"/>
+							<div class="row">
+								<div class="col-md-6">
+									<app-input :value="item" v-if="index == 'email'" name="email" label="Contact email" />
+								</div>
+							</div>
 
-						<app-check-box name="term" label="By editing an account you agree to the Terms of Use and Privacy Policy."/>
+							<div class="row">
+								<div class="col-md-6">
+									<app-input :value="item" v-if="index == 'website'" name="phone" label="Website" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-9">
+									<app-text :value="item" v-if="index == 'address'" name="address" max="500" label="Address"/>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-9">
+									<app-text :value="item" v-if="index == 'about'" name="about" max="2000" label="About company"/>
+								</div>
+							</div>
+						</template>
+
+						<app-checkbox name="term" label="By editing an account you agree to the Terms of Use and Privacy Policy."/>
 						<!-- /.form-group -->
-
 						<app-button type="submit">Update</app-button>
 					</fieldset>
 					<!-- /.fieldset -->
@@ -39,13 +61,21 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
 		computed: {
 			...mapGetters({
-				user: 'employer/getUser'
+				company: 'employer/getCompany'
 			})
+		},
+		methods: {
+			...mapActions({
+				fetchCompany: 'employer/fetchCompany'
+			})
+		},
+		mounted(){
+			this.fetchCompany()
 		}
 	}
 </script>

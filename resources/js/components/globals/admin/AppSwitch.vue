@@ -1,18 +1,19 @@
 <template>
 <div class="form-group">
-	<div class="custom-control custom-checkbox">
-		<input
-			type="checkbox"
-			v-bind="$attrs"
+	<div class="custom-control custom-switch">
+		<input 
 			:name="inputName"
-			:id="id"
+			v-bind="$attrs"
+			type="checkbox"
 			class="custom-control-input"
+			:id="id"
 			@input="$emit('input', $event.target.value)"
 			v-model="inputValue"
 			@change="clearValidation"
 			:value="value"
 			v-bind:class="{'is-invalid': validation[inputName]}"
-		> 
+
+		>
 		<label class="custom-control-label" :for="id">{{ label }}</label>
 		<div class="invalid-feedback" v-if="validation[inputName]">
             <i class="fa fa-exclamation-circle fa-fw"></i>

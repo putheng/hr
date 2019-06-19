@@ -14,6 +14,10 @@ export const setUser = (state, user) => {
 	return state.user = user
 }
 
+export const setCompany = (state, company) => {
+	return state.company = company
+}
+
 export const clearUserState = (state) => {
 	return state.user = []
 }

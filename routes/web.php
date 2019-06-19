@@ -15,7 +15,6 @@ Route::group(
 	Route::get('/login/employer', 'Employer\LoginController@index')
 		->name('login.employer');
 
-
 });
 
 Route::group(['prefix' => 'api'], function(){
@@ -49,6 +48,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/api/user/profile', 'Employer\HomeController@store');
 
 	Route::group(['middleware' => ['role:employer']], function(){
+
+		Route::get('/api/employer/profile', 'Employer\ProfileController@show');
 
 		Route::post('/api/package/buy', 'Api\PackageController@buy');
 		Route::post('/api/profile/edit', 'Api\ProfileController@store');

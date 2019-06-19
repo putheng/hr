@@ -9,3 +9,7 @@ export const getPackage = (state) => {
 export const getUser = (state) => {
 	return state.user
 }
+
+export const getCompany = (state) => {
+	return state.company
+}

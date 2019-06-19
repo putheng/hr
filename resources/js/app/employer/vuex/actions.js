@@ -33,3 +33,10 @@ export const fetchFilter = ({commit}, url) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchCompany = ({commit}) => {
+	return axios.get('/api/employer/profile').then((response) => {
+		commit('setCompany', response.data.data)
+		return Promise.resolve(response)
+	})
+}

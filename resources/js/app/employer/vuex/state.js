@@ -1,5 +1,6 @@
 export default {
 	packages: [],
 	package: [],
-	user: []
+	user: [],
+	company: []
 }

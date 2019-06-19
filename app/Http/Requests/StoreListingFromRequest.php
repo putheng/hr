@@ -35,6 +35,7 @@ class StoreListingFromRequest extends FormRequest
             'level' => 'required|exists:levels,name',
             'education' => 'required|exists:education,name',
             'salary' => 'required|exists:salaries,name',
+            'terms_conditions' => 'accepted'
         ];
     }
 }

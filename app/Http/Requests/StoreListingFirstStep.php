@@ -26,7 +26,7 @@ class StoreListingFirstStep extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required|max:1000',
-            'requirement' => 'required|max:1000',
+            'requirements' => 'required|max:1000',
             'start_date' => 'required',
             'closing_date' => 'required',
         ];

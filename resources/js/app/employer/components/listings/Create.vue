@@ -49,7 +49,7 @@
 												<app-text v-model="listing.description" max="1000" name="description" label="Description"/>
 											</div>
 											<div class="col-md-6">
-												<app-text v-model="listing.requirement" max="1000" name="requirements" label="Requirements"/>
+												<app-text v-model="listing.requirements" max="1000" name="requirements" label="Requirements"/>
 											</div>
 											<div class="col-md-6">
 												<app-input v-model="listing.start_date" type="date" name="start_date" label="Start Date" />
@@ -180,14 +180,7 @@
 									</div>
 									<!-- /.card -->
 									<!-- .form-group -->
-									<div class="form-group">
-										<!-- .custom-control -->
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" id="agreement" name="agreement" class="custom-control-input"> 
-											<label class="custom-control-label" for="agreement">Agree to terms and conditions</label>
-										</div>
-										<!-- /.custom-control -->
-									</div>
+									<app-checkbox name="terms_conditions" label="Agree to terms and conditions"/>
 									<!-- /.form-group -->
 									<hr class="mt-5">
 									<div class="d-flex">
@@ -228,12 +221,12 @@
 	export default {
 		data(){
 			return {
-				step: 3,
+				step: 4,
 				loading: false,
 				listing: {
 					title: '',
 					description: '',
-					requirement: '',
+					requirements: '',
 					start_date: '',
 					closing_date: '',
 				},
