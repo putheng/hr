@@ -13,3 +13,6 @@ export const Transaction = Vue.component('transaction', require('./payments/Tran
 export const Deposit = Vue.component('deposit', require('./payments/Deposit.vue').default)
 
 export const CreateListing = Vue.component('create-listing', require('./listings/Create.vue').default)
+export const ExpiredListing = Vue.component('create-listing', require('./listings/Expired.vue').default)
+export const PublishListing = Vue.component('create-listing', require('./listings/Publish.vue').default)
+export const UnpublishListing = Vue.component('create-listing', require('./listings/Unpublish.vue').default)

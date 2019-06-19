@@ -35,7 +35,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/api/listing/create/a', 'Api\ListingController@firstStep');
 	Route::post('/api/listing/create/b', 'Api\ListingController@secondStep');
 
-	Route::post('/api/listing/create', 'Api\ListingController@store');
 	Route::get('/api/filter/all', 'Api\FilterController@all');
 
 	Route::get('/api/payment/gateway', 'Api\PaymentController@show');
@@ -53,6 +52,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 		Route::post('/api/package/buy', 'Api\PackageController@buy');
 		Route::post('/api/profile/edit', 'Api\ProfileController@store');
+		
+		Route::post('/api/listing/create', 'Api\ListingController@store');
 
 	});
 

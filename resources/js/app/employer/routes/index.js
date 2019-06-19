@@ -8,7 +8,10 @@ import {
     Wallet,
     Transaction,
     Deposit,
-    CreateListing
+    CreateListing,
+    PublishListing,
+    UnpublishListing,
+    ExpiredListing,
 } from '../components'
 
 export default [
@@ -61,5 +64,20 @@ export default [
         path: '/employer/listing/create',
         component: CreateListing,
         name: 'create-listing'
+    },
+    {
+        path: '/employer/listing/publish',
+        component: PublishListing,
+        name: 'publish-listing'
+    },
+    {
+        path: '/employer/listing/unpublish',
+        component: UnpublishListing,
+        name: 'unpublish-listing'
+    },
+    {
+        path: '/employer/listing/expired',
+        component: ExpiredListing,
+        name: 'expired-listing'
     }
 ]

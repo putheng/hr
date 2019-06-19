@@ -24,12 +24,12 @@ class StoreListingSecondStep extends FormRequest
     public function rules()
     {
         return [
-            'location' => 'required|exists:locations,name',
-            'category' => 'required|exists:categories,name',
-            'term' => 'required|exists:terms,name',
-            'level' => 'required|exists:levels,name',
-            'education' => 'required|exists:education,name',
-            'salary' => 'required|exists:salaries,name',
+            'location' => 'required|exists:locations,id',
+            'category' => 'required|exists:categories,id',
+            'term' => 'required|exists:terms,id',
+            'level' => 'required|exists:levels,id',
+            'education' => 'required|exists:education,id',
+            'salary' => 'required|exists:salaries,id',
         ];
     }
 }

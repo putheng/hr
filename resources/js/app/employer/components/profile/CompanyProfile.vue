@@ -30,7 +30,7 @@
 
 							<div class="row">
 								<div class="col-md-6">
-									<app-input :value="item" v-if="index == 'website'" name="phone" label="Website" />
+									<app-input :value="item" v-if="index == 'website'" name="website" label="Website" />
 								</div>
 							</div>
 

@@ -27,7 +27,6 @@ class StoreCompanyProfileRequest extends FormRequest
             'name' => 'required|max:255',
             'phone' => 'required|max:255',
             'email' => 'required|email|max:255',
-            'website' => 'required|max:255',
             'address' => 'required|max:500',
             'about' => 'required|max:2000',
             'term' => 'accepted',

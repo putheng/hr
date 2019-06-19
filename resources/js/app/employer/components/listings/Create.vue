@@ -35,7 +35,7 @@
 					<!-- /.card-header -->
 					<!-- .card-body -->
 					<div class="card-body">
-						<app-form id="create-listing-form" action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" >
+						<app-form id="create-listing-form" action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" redirect="/employer/listing/publish">
 							<!-- .content -->
 							<div class="content" :class="{active: step == 1, 'dstepper-none': step !== 1, 'dstepper-block': step == 1 }">
 								<!-- fieldset -->
@@ -103,6 +103,9 @@
 										</div>
 										<div class="col-md-6">
 											<app-select v-model="second.salary" commit="Salary" name="salary" label="Salary"/>
+										</div>
+										<div class="col-md-6">
+											<app-select v-model="second.experience" commit="Experience" name="experience" label="Experiences"/>
 										</div>
 									</div>
 									<hr class="mt-5">
@@ -221,7 +224,7 @@
 	export default {
 		data(){
 			return {
-				step: 4,
+				step: 1,
 				loading: false,
 				listing: {
 					title: '',
@@ -237,6 +240,7 @@
 					level: '',
 					education: '',
 					salary: '',
+					experience: '',
 				}
 			}
 		},

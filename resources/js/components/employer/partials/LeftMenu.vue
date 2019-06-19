@@ -21,9 +21,15 @@
 						<router-link class="menu-link" :to="{ name: 'create-listing' }">
 							Create
 						</router-link>
-						<a href="" class="menu-link">Publish</a>
-						<a href="" class="menu-link">Unpublish</a>
-						<a href="" class="menu-link">Expired</a>
+						<router-link class="menu-link" :to="{ name: 'publish-listing' }">
+							Publish
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'unpublish-listing' }">
+							Unpublish
+						</router-link>
+						<router-link class="menu-link" :to="{ name: 'expired-listing' }">
+							Expired
+						</router-link>
 					</li>
 				</ul>
 				<!-- /child menu -->

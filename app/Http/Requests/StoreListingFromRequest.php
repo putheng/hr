@@ -29,13 +29,13 @@ class StoreListingFromRequest extends FormRequest
             'requirements' => 'required|max:1000',
             'start_date' => 'required',
             'closing_date' => 'required',
-            'location' => 'required|exists:locations,name',
-            'category' => 'required|exists:categories,name',
-            'term' => 'required|exists:terms,name',
-            'level' => 'required|exists:levels,name',
-            'education' => 'required|exists:education,name',
-            'salary' => 'required|exists:salaries,name',
-            'terms_conditions' => 'accepted'
+            'location' => 'required|exists:locations,id',
+            'category' => 'required|exists:categories,id',
+            'term' => 'required|exists:terms,id',
+            'level' => 'required|exists:levels,id',
+            'education' => 'required|exists:education,id',
+            'salary' => 'required|exists:salaries,id',
+            'terms_conditions' => 'accepted',
         ];
     }
 }
