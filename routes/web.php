@@ -4,8 +4,13 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
 
-Route::group(
-	['middleware' => ['guest']], function(){
+Route::group(['prefix' => 'api'], function(){
+	Route::get('listing/publish', 'Api\ListingController@publish');
+	Route::get('listing/unpublish', 'Api\ListingController@unpublish');
+	Route::get('listing/expired', 'Api\ListingController@expired');
+});
+
+Route::group(['middleware' => ['guest']], function(){
 
 	Route::get('/register/employer', 'Employer\RegisterController@index')
 		->name('register.employer');

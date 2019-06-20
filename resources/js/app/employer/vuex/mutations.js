@@ -18,6 +18,10 @@ export const setCompany = (state, company) => {
 	return state.company = company
 }
 
+export const setListing = (state, listing) => {
+	return state.listing = listing
+}
+
 export const clearUserState = (state) => {
 	return state.user = []
 }

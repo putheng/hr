@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Http\View\Composers\CategoryComposer;
+use App\Http\View\Composers\HomeFilter;
+use App\Http\View\Composers\HomeListing;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +30,16 @@ class ViewComposerServicesProvider extends ServiceProvider
         View::composer(
             ['home.partials.browse-job'], 
             CategoryComposer::class
+        );
+
+        View::composer(
+            ['home.partials.home-filter'], 
+            HomeFilter::class
+        );
+
+        View::composer(
+            ['home.partials.popular-search'], 
+            HomeListing::class
         );
     }
 }

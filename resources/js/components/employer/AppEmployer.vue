@@ -8,7 +8,7 @@
 	<div class="top-bar">
 		<!-- .top-bar-brand -->
 		<div class="top-bar-brand">
-			<a href="index.html">
+			<a href="/" target="_blank">
 				<img src="/images/logo-t.png" alt="" style="height: 32px;width: auto;">
 			</a>
 		</div>

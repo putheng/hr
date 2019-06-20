@@ -3,6 +3,7 @@ import axios from 'axios'
 export const fetchPackages = ({commit}) => {
 	return axios.get('/api/package/all').then((response) => {
 		commit('allPackages', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }
@@ -23,6 +24,7 @@ export const getPackage = ({commit}, id) => {
 	commit('clearPackage')
 	return axios.get('/api/package/all/'+ id).then((response) => {
 		commit('setPackage', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }
@@ -30,6 +32,7 @@ export const getPackage = ({commit}, id) => {
 export const fetchFilter = ({commit}, url) => {
 	return axios.get(url).then((response) => {
 		commit('setPackage', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }
@@ -37,6 +40,31 @@ export const fetchFilter = ({commit}, url) => {
 export const fetchCompany = ({commit}) => {
 	return axios.get('/api/employer/profile').then((response) => {
 		commit('setCompany', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchListing = ({commit}) => {
+	return axios.get('/api/listing/publish').then((response) => {
+		commit('setListing', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchUnListing = ({commit}) => {
+	return axios.get('/api/listing/unpublish').then((response) => {
+		commit('setListing', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchExpiredListing = ({commit}) => {
+	return axios.get('/api/listing/expired').then((response) => {
+		commit('setListing', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }

@@ -2,5 +2,6 @@ export default {
 	packages: [],
 	package: [],
 	user: [],
-	company: []
+	company: [],
+	listing: [],
 }

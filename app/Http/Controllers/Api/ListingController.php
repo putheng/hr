@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Listing;
 use App\Http\Requests\StoreListingFirstStep;
 use App\Http\Requests\StoreListingFromRequest;
 use App\Http\Requests\StoreListingSecondStep;
+use App\Http\Resources\ListingResource;
+use App\Models\Listing;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -29,6 +31,8 @@ class ListingController extends Controller
         $listing->closing = $request->closing_date;
         $listing->description = $request->description;
         $listing->requirement = $request->requirements;
+        $listing->live = 1;
+        $listing->expires_at = Carbon::now()->addMonth('1 month');
         $listing->slug = str_slug($request->title) .'-'. str_random(7) .'.html';
 
         $listing->save();
@@ -47,5 +51,29 @@ class ListingController extends Controller
     public function secondStep(StoreListingSecondStep $request)
     {
     	
+    }
+
+    public function publish(Request $request)
+    {
+        return ListingResource::collection(
+            Listing::orderBy('id', 'desc')
+            ->where('live', 1)->get()
+        );
+    }
+
+    public function unpublish(Request $request)
+    {
+        return ListingResource::collection(
+            Listing::orderBy('id', 'desc')
+            ->where('live', 0)->get()
+        );
+    }
+
+    public function expired(Request $request)
+    {
+        return ListingResource::collection(
+            Listing::orderBy('id', 'desc')
+            ->whereDate('expires_at', '<=', Carbon::now())->get()
+        );
     }
 }

@@ -12,72 +12,21 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Closing Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
+                @foreach($listings as $listing)
+                  <tr>
+                    <th scope="row">{{ $listing->title }}</th>
+                    <td>{{ $listing->company->name }}</td>
+                    <td>{{ $listing->location->name }}</td>
+                    <td>{{ $listing->closingDate }}</td>
+                  </tr>
+                @endforeach
               </tbody>
             </table>
             <input type="button" class="btn btn-info mx-auto" value="More Jobs">
@@ -92,23 +41,17 @@
               <table class="table table-hover table-urgent-job">
                 <thead>
                   <tr>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Location</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                  </tr>
-                  <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                  </tr>
-                  <tr>
-                    <td >Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  @foreach($urgents as $urgent)
+                    <tr>
+                      <td>{{ $urgent->title }}</td>
+                      <td>{{ $urgent->location->name }}</td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -116,23 +59,17 @@
               <table class="table table-hover table-urgent-job">
                 <thead>
                   <tr>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Location</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                  </tr>
-                  <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                  </tr>
-                  <tr>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  @foreach($urgents as $urgent)
+                    <tr>
+                      <td>{{ $urgent->title }}</td>
+                      <td>{{ $urgent->location->name }}</td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>

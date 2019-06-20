@@ -13,3 +13,7 @@ export const getUser = (state) => {
 export const getCompany = (state) => {
 	return state.company
 }
+
+export const getListing = (state) => {
+	return state.listing
+}
