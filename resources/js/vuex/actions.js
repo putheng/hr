@@ -6,6 +6,7 @@ export const submit = ({commit}, {endpoint, payload, method}) => {
 	
 	return axios({ method: method, url: endpoint, data: payload }).then((response) => {
 		commit('clearValidationErrors', '', {root:true})
+		
 		return Promise.resolve(response)
 	})
 }

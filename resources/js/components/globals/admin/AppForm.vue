@@ -30,6 +30,10 @@ export default {
 		commit: {
 			required: false,
 			type: String
+		},
+		hideModal: {
+			required: false,
+			type: String
 		}
 	},
 	data(){
@@ -55,6 +59,10 @@ export default {
 				payload: this.form,
 				method: this.method
 			}).then((response) => {
+				if(this.hideModal != undefined){
+					$('#'+ this.hideModal).modal('hide')
+				}
+
 				if(this.commit){
 					this.$store.commit(this.commit, response.data.data)
 				}

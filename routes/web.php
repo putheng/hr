@@ -4,12 +4,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
 
-Route::group(['prefix' => 'api'], function(){
-	Route::get('listing/publish', 'Api\ListingController@publish');
-	Route::get('listing/unpublish', 'Api\ListingController@unpublish');
-	Route::get('listing/expired', 'Api\ListingController@expired');
-});
-
 Route::group(['middleware' => ['guest']], function(){
 
 	Route::get('/register/employer', 'Employer\RegisterController@index')
@@ -53,9 +47,15 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => ['role:employer']], function(){
 
+		Route::get('/api/listing/publish', 'Api\ListingController@publish');
+		Route::get('/api/listing/unpublish', 'Api\ListingController@unpublish');
+		Route::get('/api/listing/expired', 'Api\ListingController@expired');
+
 		Route::get('/api/employer/profile', 'Employer\ProfileController@show');
 
 		Route::post('/api/package/buy', 'Api\PackageController@buy');
+		Route::get('/api/package/my', 'Api\PackageController@my');
+
 		Route::post('/api/profile/edit', 'Api\ProfileController@store');
 		
 		Route::post('/api/listing/create', 'Api\ListingController@store');

@@ -14,7 +14,7 @@
 					<p v-if="errors" class="text-danger">{{ errors }}</p>
 				</div>
 				<div class="modal-footer">
-					<app-form :action="option.url" method="post" :redirect="option.redirect">
+					<app-form :hide-modal="id" :action="option.url" method="post" :redirect="option.redirect">
 						
 							<template v-for="(item, key, index) in data">
 								<app-input type="hidden" :name="key" :value="item" />
@@ -23,7 +23,7 @@
 						<app-button type="submit">{{ option.title }}</app-button>
 					</app-form>
 
-					<button 
+					<button
 						type="button"
 						@click="resetLoading"
 						class="btn btn-warning"
@@ -70,13 +70,16 @@ export default {
 	computed: {
 		...mapGetters({
 			loading: 'getLoading',
-			'errors': 'getError'
+			errors: 'getError'
 		})
 	},
 	methods: {
 		...mapActions({
 			'resetLoading': 'resetLoading'
 		})
+	},
+	mounted(){
+		
 	}
 }
 </script>

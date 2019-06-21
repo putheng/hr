@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PackageResources;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -33,5 +34,12 @@ class PackageController extends Controller
         return response()->json([
             'success' => true,
         ]);
+    }
+
+    public function my(Request $request)
+    {
+        return PackageResources::collection(
+            $request->user()->packages()->orderBy('package_user.id', 'desc')->get()
+        );
     }
 }

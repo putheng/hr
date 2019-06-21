@@ -68,3 +68,11 @@ export const fetchExpiredListing = ({commit}) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchMyPackages = ({commit}) => {
+	return axios.get('/api/package/my').then((response) => {
+		commit('setPackages', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}

@@ -25,3 +25,7 @@ export const setListing = (state, listing) => {
 export const clearUserState = (state) => {
 	return state.user = []
 }
+
+export const setPackages = (state, packages) => {
+	return state.packages = packages
+}

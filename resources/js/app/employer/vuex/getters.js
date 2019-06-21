@@ -17,3 +17,7 @@ export const getCompany = (state) => {
 export const getListing = (state) => {
 	return state.listing
 }
+
+export const getPackages = (state) => {
+	return state.packages
+}

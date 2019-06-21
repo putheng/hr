@@ -72,7 +72,7 @@
 	export default {
 		methods: {
 			...mapActions({
-				fetch: 'employer/fetchPublishListing'
+				fetch: 'employer/fetchListing'
 			})
 		},
 		computed: {
