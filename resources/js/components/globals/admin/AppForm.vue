@@ -59,6 +59,7 @@ export default {
 				payload: this.form,
 				method: this.method
 			}).then((response) => {
+
 				if(this.hideModal != undefined){
 					$('#'+ this.hideModal).modal('hide')
 				}
@@ -72,6 +73,7 @@ export default {
 				}
 
 				if (response.data.success && this.redirect != undefined){
+
 					this.$router.replace(this.redirect);
 				}
 			})

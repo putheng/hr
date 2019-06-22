@@ -57,21 +57,6 @@ export default{
 		formatedInputName(){
 			return this.name.replace(/\s+/g, '_').toLowerCase()
 		}
-	},
-	computed: {
-		...mapGetters({
-			validation: 'getValidationErrors',
-		}),
-		...mapState({
-            values (state, getters) {
-                return getters[`admin/get${this.commit}`]
-            }
-        })
-	},
-	mounted(){
-		const param = this.commit.split("/")
-
-		this.$store.dispatch('admin/fetch'+ this.commit)
 	}
 
 }

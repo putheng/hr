@@ -29,3 +29,7 @@ export const clearUserState = (state) => {
 export const setPackages = (state, packages) => {
 	return state.packages = packages
 }
+
+export const setDeposits = (state, deposits) => {
+	return state.deposits = deposits
+}

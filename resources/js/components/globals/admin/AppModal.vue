@@ -1,27 +1,24 @@
 <template>
 	<div class="modal modal-alert fade" :id="id" data-backdrop="static" tabindex="-1" role="dialog" :aria-labelledby="id" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
+				<app-form :hide-modal="id" :action="option.url" method="post" :redirect="option.redirect">
 				<div class="modal-header">
 					<h5 :id="id" class="modal-title">
 						{{ title }}
 					</h5>
 				</div>
 				<div class="modal-body">
-					<p class="text-center">
-						<slot/>
-					</p>
+					<slot/>
 					<p v-if="errors" class="text-danger">{{ errors }}</p>
 				</div>
 				<div class="modal-footer">
-					<app-form :hide-modal="id" :action="option.url" method="post" :redirect="option.redirect">
 						
-							<template v-for="(item, key, index) in data">
-								<app-input type="hidden" :name="key" :value="item" />
-							</template>
+					<template v-for="(item, key, index) in data">
+						<app-input type="hidden" :name="key" :value="item" />
+					</template>
 						
-						<app-button type="submit">{{ option.title }}</app-button>
-					</app-form>
+					<app-button type="submit">{{ option.title }}</app-button>
 
 					<button
 						type="button"
@@ -32,6 +29,7 @@
 						{{ cancel }}
 					</button>
 				</div>
+				</app-form>
 			</div>
 		</div>
 	</div>
@@ -75,8 +73,15 @@ export default {
 	},
 	methods: {
 		...mapActions({
-			'resetLoading': 'resetLoading'
-		})
+			clearValidationErrors: 'clearValidationErrors',
+			clearMessage: 'clearMessage',
+			clearErrors: 'clearErrors'
+		}),
+		resetLoading(){
+			this.clearValidationErrors()
+			this.clearMessage()
+			this.clearErrors()
+		}
 	},
 	mounted(){
 		

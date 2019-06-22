@@ -76,3 +76,11 @@ export const fetchMyPackages = ({commit}) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchDeposits = ({commit}) => {
+	return axios.get('/api/payments/transaction').then((response) => {
+		commit('setDeposits', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}

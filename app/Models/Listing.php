@@ -8,6 +8,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Level;
 use App\Models\Location;
+use App\Models\Package;
 use App\Models\Salary;
 use App\Models\Term;
 use App\User;
@@ -86,5 +87,10 @@ class Listing extends Model
     public function location()
     {
     	return $this->belongsTo(Location::class);
+    }
+
+    public function packages()
+    {
+        return $this->belongsToMany(Package::class);
     }
 }

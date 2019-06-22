@@ -62,9 +62,6 @@
 						<router-link class="menu-link" :to="{ name:'my-deposit' }">
 							Deposit
 						</router-link>
-						<router-link class="menu-link" :to="{ name:'my-transaction' }">
-							Transactions
-						</router-link>
 					</li>
 				</ul>
 				<!-- /child menu -->

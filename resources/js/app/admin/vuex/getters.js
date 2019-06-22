@@ -49,3 +49,7 @@ export const getEmployeeType = (state) => {
 export const getPaymentGateway = (state) => {
     return state.paymentGatway
 }
+
+export const getMyPackages = (state) => {
+    return state.packages
+}

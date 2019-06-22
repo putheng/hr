@@ -5,4 +5,5 @@ export default {
 	company: [],
 	listing: [],
 	packages: [],
+	deposits: [],
 }

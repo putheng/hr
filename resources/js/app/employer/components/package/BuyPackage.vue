@@ -23,7 +23,7 @@
 					>
 						Purchase Now
 					</a>
-					<app-modal :data="{id:item.id,price:item.price}" :option="options" cancel="Close" :id="convertToID(item.title)" title="Purchase order confirmation">
+					<app-modal :key="item.id" :data="{id:item.id,price:item.price}" :option="options" cancel="Close" :id="convertToID(item.title)" title="Purchase order confirmation">
 						<table class="table table-bordered">
 							<tbody>
 								<tr>

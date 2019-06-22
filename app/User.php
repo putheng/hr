@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Models\Company;
+use App\Models\Deposit;
+use App\Models\Listing;
 use App\Models\Package;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,14 +63,24 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function listings()
+    {
+        return $this->hasMany(Listing::class);
+    }
+
     public function packages()
     {
-        return $this->belongsToMany(Package::class)->withTimestamps();
+        return $this->belongsToMany(Package::class)->withTimestamps()->withPivot('id');
     }
 
     public function company()
     {
         return $this->hasOne(Company::class);
+    }
+
+    public function deposits()
+    {
+        return $this->hasMany(Deposit::class);
     }
 
     public function dashboard()

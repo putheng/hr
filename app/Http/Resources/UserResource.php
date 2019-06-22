@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\ListingResource;
 use App\Http\Resources\RoleResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,7 +22,9 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'usd' => $this->usd,
             'role' => $this->roles()->first()->name,
-            'roles' => RoleResource::collection($this->roles)
+            'roles' => RoleResource::collection($this->roles),
+            'listings' => $this->listings->count(),
+            'packages' => $this->packages->count(),
         ];
     }
 }

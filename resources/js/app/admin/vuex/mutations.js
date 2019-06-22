@@ -53,3 +53,7 @@ export const setEmployeeType = (state, employee) => {
 export const setPaymentGateway = (state, gatways) => {
 	state.paymentGatway = gatways
 }
+
+export const setPackages = (state, packages) => {
+	state.packages = packages
+}

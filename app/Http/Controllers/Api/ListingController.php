@@ -38,7 +38,7 @@ class ListingController extends Controller
         $listing->save();
 
         return response()->json([
-            'status' => true,
+            'success' => true,
             'message' => 'Listing created successfully'
         ]);
     }

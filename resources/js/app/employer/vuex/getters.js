@@ -21,3 +21,7 @@ export const getListing = (state) => {
 export const getPackages = (state) => {
 	return state.packages
 }
+
+export const getDeposits = (state) => {
+	return state.deposits
+}

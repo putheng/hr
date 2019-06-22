@@ -1,5 +1,19 @@
 <?php
 
+Route::get('/api/routes', function(){
+	$routes = collect(\Route::getRoutes())
+		->map(function ($route) {
+			return [
+				'uri' => $route->uri(),
+				'name' => $route->getName(),
+				'middleware' => $route->middleware(),
+				'methods' => $route->methods()[0],
+			];
+		});
+
+	return response()->json(['data' => $routes]);
+});
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
@@ -27,6 +41,7 @@ Route::group(['prefix' => 'api'], function(){
 	Route::get('term/all', 'Admin\TermController@show');
 	Route::get('industry/all', 'Admin\IndustryController@show');
 	Route::get('employee-type/all', 'Admin\EmployeeTypeController@show');
+
 });
 
 Route::group(['middleware' => 'auth'], function(){
@@ -59,6 +74,9 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/api/profile/edit', 'Api\ProfileController@store');
 		
 		Route::post('/api/listing/create', 'Api\ListingController@store');
+
+		Route::post('/api/payments/deposit', 'Api\PaymentController@deposit');
+		Route::get('/api/payments/transaction', 'Api\PaymentController@transaction');
 
 	});
 

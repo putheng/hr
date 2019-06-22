@@ -10,17 +10,6 @@
 				<div class="card-header border-0">
 					<div class="d-flex align-items-center">
 						<span class="mr-auto">Wallet</span>
-						<div class="dropdown">
-							<button type="button" class="btn btn-icon btn-light" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>
-							<div class="dropdown-arrow"></div>
-							<div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: top, left; top: 36px; left: 36px;">
-								<a href="#" class="dropdown-item">#</a>
-								<a href="#" class="dropdown-item">Title</a>
-								<a href="#" class="dropdown-item">Location</a>
-								<a href="#" class="dropdown-item">Action</a>
-								<a href="#" class="dropdown-item">Category</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="table-responsive">

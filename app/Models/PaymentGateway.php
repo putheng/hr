@@ -14,4 +14,9 @@ class PaymentGateway extends Model
 	{
 		return '/images/payments/'. strtolower($this->name) .'.png';
 	}
+
+	public function scopeIsEnable($q)
+	{
+		return $q->where('status', 'enable');
+	}
 }

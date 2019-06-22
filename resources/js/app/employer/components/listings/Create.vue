@@ -129,24 +129,9 @@
 								<fieldset>
 									<legend>Payment Information</legend>
 									<!-- .custom-control -->
+									<app-select label="Package" name="package" commit="MyPackages"></app-select>
 									<!-- /.custom-control -->
-									<!-- .custom-control -->
-									<!-- /.custom-control -->
-									<!-- .custom-control -->
-									<div class="custom-control custom-radio mb-4">
-										<input type="radio" id="pmd3" class="custom-control-input" name="paymentMethod" value="stripe" data-parsley-multiple="paymentMethod">
-										<label class="custom-control-label" for="pmd3">
-											Basic packagek
-										</label> <!-- .custom-control-hint -->
-										<div class="custom-control-hint">
-											<button class="btn btn-primary" type="button">
-												Buy
-												<strong><em>a package</em></strong>
-											</button>
-										</div>
-										<!-- /.custom-control-hint -->
-									</div>
-									<!-- /.custom-control -->
+
 									<hr class="mt-5">
 									<div class="d-flex">
 										<button @click.prevent="previousStep" type="button" 
@@ -224,7 +209,7 @@
 	export default {
 		data(){
 			return {
-				step: 1,
+				step: 3,
 				loading: false,
 				listing: {
 					title: '',
@@ -268,9 +253,6 @@
 			},
 			previousStep(){
 				this.step--
-			},
-			submit(){
-
 			}
 		}
 	}
