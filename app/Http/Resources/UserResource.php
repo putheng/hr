@@ -32,8 +32,13 @@ class UserResource extends JsonResource
 
     public function deposit($status)
     {
-        return number_format(
-            $this->deposits()->where('status', $status)->sum('amount'), 2
-        );
+        $deposit = $this->deposits()->where('status', $status);
+        if($deposit->count()){
+            return number_format(
+                $this->deposits()->where('status', $status)->sum('amount'), 2
+            );
+        }
+
+        return '0.00';
     }
 }
