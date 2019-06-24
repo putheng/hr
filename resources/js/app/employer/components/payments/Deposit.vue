@@ -26,10 +26,10 @@
 								data-toggle="modal"
 								:data-target="convertToTarget(item.name)"
 								data-original-title="Click to deposit">
-								<i class="far fa-comment-alt"></i>
+								<i class="fa fa-hand-holding-usd"></i>
 							</button>
 							<div class="text-left">
-								<app-modal :key="item.id" :data="{id:item.id}" :option="options" cancel="Close" :id="convertToID(item.name)" :title="item.name">
+								<app-modal commit="employer/setUser" :key="item.id" :data="{id:item.id}" :option="options" cancel="Close" :id="convertToID(item.name)" :title="item.name">
 									<app-input type="text" name="amount" label="Amount($)"/>
 									<app-input type="text" name="code" label="Transaction Code"/>
 								</app-modal>

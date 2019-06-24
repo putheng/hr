@@ -15,8 +15,9 @@ class PackageResources extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
+            'id' => $this->pivot->id,
             'title' => $this->title,
+            'name' => $this->title,
             'post' => $this->post,
             'cv' => $this->cv,
             'price' => $this->price,

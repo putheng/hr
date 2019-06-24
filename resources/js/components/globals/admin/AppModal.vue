@@ -2,7 +2,7 @@
 	<div class="modal modal-alert fade" :id="id" data-backdrop="static" tabindex="-1" role="dialog" :aria-labelledby="id" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
-				<app-form :hide-modal="id" :action="option.url" method="post" :redirect="option.redirect">
+				<app-form :commit="commit" :hide-modal="id" :action="option.url" method="post" :redirect="option.redirect">
 				<div class="modal-header">
 					<h5 :id="id" class="modal-title">
 						{{ title }}
@@ -59,6 +59,10 @@ export default {
 			required: true,
 			type: String
 		},
+		commit: {
+			required: false,
+			type: String
+		},
 		body: {
 			required: false,
 			type: String,
@@ -82,9 +86,6 @@ export default {
 			this.clearMessage()
 			this.clearErrors()
 		}
-	},
-	mounted(){
-		
 	}
 }
 </script>

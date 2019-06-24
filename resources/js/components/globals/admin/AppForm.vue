@@ -74,7 +74,7 @@ export default {
 
 				if (response.data.success && this.redirect != undefined){
 
-					this.$router.replace(this.redirect);
+					this.$router.replace(this.redirect)
 				}
 			})
 		},

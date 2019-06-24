@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DepositResource;
 use App\Http\Resources\PaymentGatewayResource;
+use App\Http\Resources\UserResource;
 use App\Models\Deposit;
 use App\Models\PaymentGateway;
 use Illuminate\Http\Request;
@@ -50,10 +51,12 @@ class PaymentController extends Controller
         $deposit->user()->associate($request->user());
         $deposit->save();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Thank You for Your payment. The deposit is successfully submit and is now being processed in our system.'
-        ]);
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'Thank You for Your payment. The deposit is successfully submit and is now being processed in our system.'
+        // ]);
+        return (new UserResource($request->user())
+            )->additional(['success' => true]);
     }
 
     public function transaction(Request $request)

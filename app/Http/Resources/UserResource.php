@@ -25,6 +25,15 @@ class UserResource extends JsonResource
             'roles' => RoleResource::collection($this->roles),
             'listings' => $this->listings->count(),
             'packages' => $this->packages->count(),
+            'deposit_pending' => $this->deposit('pending'),
+            'deposit_accepted' => $this->deposit('accepted')
         ];
+    }
+
+    public function deposit($status)
+    {
+        return number_format(
+            $this->deposits()->where('status', $status)->sum('amount'), 2
+        );
     }
 }

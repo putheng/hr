@@ -13,7 +13,7 @@
 							<router-link :to="{name:'publish-listing'}" class="metric metric-bordered align-items-center">
 								<h2 class="metric-label"> Current </h2>
 								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">00</span>
+									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.usd }}</span>
 								</p>
 							</router-link>
 							<!-- /.metric -->
@@ -25,7 +25,7 @@
 							<router-link :to="{name:'my-packages'}" class="metric metric-bordered align-items-center">
 								<h2 class="metric-label"> Accepted </h2>
 								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">00</span>
+									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_accepted }}</span>
 								</p>
 							</router-link>
 							<!-- /.metric -->
@@ -37,7 +37,7 @@
 							<router-link :to="{name:'my-wallet'}" class="metric metric-bordered align-items-center">
 								<h2 class="metric-label"> Pending </h2>
 								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">00</span>
+									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_pending }}</span>
 								</p>
 							</router-link>
 							<!-- /.metric -->
@@ -103,7 +103,8 @@
 		},
 		computed: {
 			...mapGetters({
-				deposits: 'employer/getDeposits'
+				deposits: 'employer/getDeposits',
+				user: 'employer/getUser'
 			})
 		},
 		mounted(){

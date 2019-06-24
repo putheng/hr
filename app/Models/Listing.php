@@ -93,4 +93,9 @@ class Listing extends Model
     {
         return $this->belongsToMany(Package::class);
     }
+
+    public function package()
+    {
+        return \DB::table('listing_package')->where('listing_id', $this->id);
+    }
 }
