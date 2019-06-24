@@ -48018,105 +48018,75 @@ var render = function() {
     _c("div", { staticClass: "metric-row" }, [
       _c("div", { staticClass: "col-lg-12" }, [
         _c("div", { staticClass: "metric-row metric-flush" }, [
-          _c(
-            "div",
-            { staticClass: "col" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "metric metric-bordered align-items-center",
-                  attrs: { to: { name: "publish-listing" } }
-                },
-                [
-                  _c("h2", { staticClass: "metric-label" }, [
-                    _vm._v(" Current ")
-                  ]),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "a",
+              { staticClass: "metric metric-bordered align-items-center" },
+              [
+                _c("h2", { staticClass: "metric-label" }, [
+                  _vm._v(" Current ")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "metric-value h3" }, [
+                  _vm._m(0),
                   _vm._v(" "),
-                  _c("p", { staticClass: "metric-value h3" }, [
-                    _c("sub", [
-                      _c("i", { staticClass: "fa fa-hand-holding-usd" })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "value" }, [
-                      _vm._v(_vm._s(_vm.user.usd))
-                    ])
+                  _c("span", { staticClass: "value" }, [
+                    _vm._v(_vm._s(_vm.user.usd))
                   ])
-                ]
-              )
-            ],
-            1
-          ),
+                ])
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "metric metric-bordered align-items-center",
-                  attrs: { to: { name: "my-packages" } }
-                },
-                [
-                  _c("h2", { staticClass: "metric-label" }, [
-                    _vm._v(" Accepted ")
-                  ]),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "a",
+              { staticClass: "metric metric-bordered align-items-center" },
+              [
+                _c("h2", { staticClass: "metric-label" }, [
+                  _vm._v(" Accepted ")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "metric-value h3" }, [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c("p", { staticClass: "metric-value h3" }, [
-                    _c("sub", [
-                      _c("i", { staticClass: "fa fa-hand-holding-usd" })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "value" }, [
-                      _vm._v(_vm._s(_vm.user.deposit_accepted))
-                    ])
+                  _c("span", { staticClass: "value" }, [
+                    _vm._v(_vm._s(_vm.user.deposit_accepted))
                   ])
-                ]
-              )
-            ],
-            1
-          ),
+                ])
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "metric metric-bordered align-items-center",
-                  attrs: { to: { name: "my-wallet" } }
-                },
-                [
-                  _c("h2", { staticClass: "metric-label" }, [
-                    _vm._v(" Pending ")
-                  ]),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "a",
+              { staticClass: "metric metric-bordered align-items-center" },
+              [
+                _c("h2", { staticClass: "metric-label" }, [
+                  _vm._v(" Pending ")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "metric-value h3" }, [
+                  _vm._m(2),
                   _vm._v(" "),
-                  _c("p", { staticClass: "metric-value h3" }, [
-                    _c("sub", [
-                      _c("i", { staticClass: "fa fa-hand-holding-usd" })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "value" }, [
-                      _vm._v(_vm._s(_vm.user.deposit_pending))
-                    ])
+                  _c("span", { staticClass: "value" }, [
+                    _vm._v(_vm._s(_vm.user.deposit_pending))
                   ])
-                ]
-              )
-            ],
-            1
-          )
+                ])
+              ]
+            )
+          ])
         ])
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card card-fluid" }, [
-      _vm._m(0),
+      _vm._m(3),
       _vm._v(" "),
       _c("div", { staticClass: "table-responsive" }, [
         _c("table", { staticClass: "table table-hover" }, [
-          _vm._m(1),
+          _vm._m(4),
           _vm._v(" "),
           _c(
             "tbody",
@@ -48165,6 +48135,24 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("sub", [_c("i", { staticClass: "fa fa-hand-holding-usd" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("sub", [_c("i", { staticClass: "fa fa-hand-holding-usd" })])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("sub", [_c("i", { staticClass: "fa fa-hand-holding-usd" })])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
