@@ -84,3 +84,11 @@ export const fetchDeposits = ({commit}) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchPaymentGateway = ({commit}, id) => {
+	return axios.get('/api/payment/gateway/show', {id:id}).then((response) => {
+		commit('setPaymentGateway', response.data.data)
+		
+		return Promise.resolve(response)
+	})
+}

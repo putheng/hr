@@ -60,9 +60,6 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('/api/filter/all', 'Api\FilterController@all');
 
-	Route::get('/api/payment/gateway', 'Api\PaymentController@show');
-	Route::post('/api/payment/gateway', 'Api\PaymentController@store');
-
 	Route::get('/api/package/all', 'Admin\PackageController@all');
 	Route::post('/api/profile/password', 'PasswordController@store');
 
@@ -70,6 +67,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/api/user/profile', 'Employer\HomeController@store');
 
 	Route::group(['middleware' => ['role:employer']], function(){
+
+		Route::get('/api/payment/gateway/show', 'Api\PaymentController@show');
 
 		Route::get('/api/listing/publish', 'Api\ListingController@publish');
 		Route::get('/api/listing/unpublish', 'Api\ListingController@unpublish');
@@ -90,6 +89,9 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::get('/api/payment/gateway', 'Api\PaymentController@all');
+		Route::post('/api/payment/gateway', 'Api\PaymentController@store');
 
 		Route::post('/api/package/create', 'Admin\PackageController@store')->name('package.store');
 		Route::get('/api/package/all/{package}', 'Admin\PackageController@get');

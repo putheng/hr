@@ -60,7 +60,7 @@
 		},
 		methods: {
 			...mapActions({
-				fetch: 'admin/fetchPaymentGateway'
+				fetch: 'employer/fetchPaymentGateway'
 			}),
 			convertToTarget(text){
 			    return '#'+ text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')

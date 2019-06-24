@@ -19,6 +19,13 @@ class PaymentController extends Controller
     	);
     }
 
+    public function all()
+    {
+        return PaymentGatewayResource::collection(
+            PaymentGateway::orderBY('id', 'desc')->get()
+        );
+    }
+
     public function store(Request $request)
     {
     	$id = $request->id;
