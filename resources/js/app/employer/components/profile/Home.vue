@@ -15,7 +15,7 @@
 		<div class="section-block">
 			<!-- metric row -->
 			<div class="metric-row">
-				<div class="col-lg-9">
+				<div class="col-lg-12">
 					<div class="metric-row metric-flush">
 						<!-- metric column -->
 						<div class="col">
@@ -55,20 +55,6 @@
 						<!-- /metric column -->
 					</div>
 				</div>
-				<!-- metric column -->
-				<div class="col-lg-3">
-					<!-- .metric -->
-					<a href="user-tasks.html" class="metric metric-bordered">
-						<div class="metric-badge">
-							<span class="badge badge-lg badge-success"><span class="oi oi-media-record pulse mr-1"></span> ONGOING TASKS</span>
-						</div>
-						<p class="metric-value h3">
-							<sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
-						</p>
-					</a>
-					<!-- /.metric -->
-				</div>
-				<!-- /metric column -->
 			</div>
 			<!-- /metric row -->
 		</div>

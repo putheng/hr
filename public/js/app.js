@@ -4235,20 +4235,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -48489,7 +48475,7 @@ var render = function() {
     _c("div", { staticClass: "page-section" }, [
       _c("div", { staticClass: "section-block" }, [
         _c("div", { staticClass: "metric-row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
             _c("div", { staticClass: "metric-row metric-flush" }, [
               _c(
                 "div",
@@ -48577,44 +48563,13 @@ var render = function() {
                 1
               )
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
+          ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3" }, [
-      _c(
-        "a",
-        {
-          staticClass: "metric metric-bordered",
-          attrs: { href: "user-tasks.html" }
-        },
-        [
-          _c("div", { staticClass: "metric-badge" }, [
-            _c("span", { staticClass: "badge badge-lg badge-success" }, [
-              _c("span", { staticClass: "oi oi-media-record pulse mr-1" }),
-              _vm._v(" ONGOING TASKS")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "metric-value h3" }, [
-            _c("sub", [_c("i", { staticClass: "oi oi-timer" })]),
-            _vm._v(" "),
-            _c("span", { staticClass: "value" }, [_vm._v("8")])
-          ])
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
