@@ -3828,7 +3828,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
-    gateway: 'admin/getPaymentGateway'
+    gateway: 'employer/getPaymentGateway'
   })),
   mounted: function mounted() {
     this.fetch();
@@ -70502,7 +70502,7 @@ var fetchPaymentGateway = function fetchPaymentGateway(_ref12, id) {
 /*!***************************************************!*\
   !*** ./resources/js/app/employer/vuex/getters.js ***!
   \***************************************************/
-/*! exports provided: packages, getPackage, getUser, getCompany, getListing, getPackages, getDeposits */
+/*! exports provided: packages, getPackage, getUser, getCompany, getListing, getPackages, getDeposits, getPaymentGateway */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70514,6 +70514,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getListing", function() { return getListing; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPackages", function() { return getPackages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDeposits", function() { return getDeposits; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPaymentGateway", function() { return getPaymentGateway; });
 var packages = function packages(state) {
   return state.packages;
 };
@@ -70534,6 +70535,9 @@ var getPackages = function getPackages(state) {
 };
 var getDeposits = function getDeposits(state) {
   return state.deposits;
+};
+var getPaymentGateway = function getPaymentGateway(state) {
+  return state.paymentGatway;
 };
 
 /***/ }),
@@ -70569,7 +70573,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************!*\
   !*** ./resources/js/app/employer/vuex/mutations.js ***!
   \*****************************************************/
-/*! exports provided: allPackages, setPackage, clearPackage, setUser, setCompany, setListing, clearUserState, setPackages, setDeposits */
+/*! exports provided: allPackages, setPackage, clearPackage, setUser, setCompany, setListing, clearUserState, setPackages, setDeposits, setPaymentGateway */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70583,6 +70587,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearUserState", function() { return clearUserState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPackages", function() { return setPackages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setDeposits", function() { return setDeposits; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPaymentGateway", function() { return setPaymentGateway; });
 var allPackages = function allPackages(state, packages) {
   state.packages = packages;
 };
@@ -70610,6 +70615,9 @@ var setPackages = function setPackages(state, packages) {
 var setDeposits = function setDeposits(state, deposits) {
   return state.deposits = deposits;
 };
+var setPaymentGateway = function setPaymentGateway(state, gatways) {
+  state.paymentGatway = gatways;
+};
 
 /***/ }),
 
@@ -70632,7 +70640,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   user: [],
   company: [],
   listing: []
-}, _defineProperty(_packages$package$use, "packages", []), _defineProperty(_packages$package$use, "deposits", []), _packages$package$use);
+}, _defineProperty(_packages$package$use, "packages", []), _defineProperty(_packages$package$use, "deposits", []), _defineProperty(_packages$package$use, "paymentGatway", []), _packages$package$use);
 
 /***/ }),
 

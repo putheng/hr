@@ -33,3 +33,7 @@ export const setPackages = (state, packages) => {
 export const setDeposits = (state, deposits) => {
 	return state.deposits = deposits
 }
+
+export const setPaymentGateway = (state, gatways) => {
+	state.paymentGatway = gatways
+}

@@ -71,7 +71,7 @@
 		},
 		computed: {
 			...mapGetters({
-				gateway: 'admin/getPaymentGateway'
+				gateway: 'employer/getPaymentGateway'
 			})
 		},
 		mounted(){

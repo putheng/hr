@@ -25,3 +25,7 @@ export const getPackages = (state) => {
 export const getDeposits = (state) => {
 	return state.deposits
 }
+
+export const getPaymentGateway = (state) => {
+    return state.paymentGatway
+}

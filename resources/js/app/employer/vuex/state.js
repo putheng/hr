@@ -6,4 +6,5 @@ export default {
 	listing: [],
 	packages: [],
 	deposits: [],
+	paymentGatway: [],
 }
