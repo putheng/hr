@@ -5,7 +5,7 @@ use App\Models\Listing;
 Route::get('/test', function(){
 	$listing = Listing::find(2);
 
-	dump($listing->package()->get());
+	dump($listing->package);
 
 });
 

@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Level;
+use App\Models\ListingPackage;
 use App\Models\Location;
 use App\Models\Package;
 use App\Models\Salary;
@@ -14,6 +15,7 @@ use App\Models\Term;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Listing extends Model
@@ -96,6 +98,6 @@ class Listing extends Model
 
     public function package()
     {
-        return \DB::table('listing_package')->where('listing_id', $this->id);
+        return $this->hasOne(ListingPackage::class);
     }
 }

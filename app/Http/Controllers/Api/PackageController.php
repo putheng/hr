@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\PackageResources;
+use App\Http\Resources\MyPackageResources;
 use App\Models\Package;
 use Illuminate\Http\Request;
 
@@ -38,7 +38,7 @@ class PackageController extends Controller
 
     public function my(Request $request)
     {
-        return PackageResources::collection(
+        return MyPackageResources::collection(
             $request->user()->packages()->orderBy('package_user.id', 'desc')->get()
         );
     }

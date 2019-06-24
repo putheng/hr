@@ -37,6 +37,11 @@ class ListingController extends Controller
 
         $listing->save();
 
+        \DB::table('listing_package')->insert([
+            'listing_id' => $listing->id,
+            'package_id' => $request->package,
+        ]);
+
         return response()->json([
             'success' => true,
             'message' => 'Listing created successfully'

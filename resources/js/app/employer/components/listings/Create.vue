@@ -209,7 +209,7 @@
 	export default {
 		data(){
 			return {
-				step: 3,
+				step: 1,
 				loading: false,
 				listing: {
 					title: '',
@@ -230,10 +230,14 @@
 			}
 		},
 		methods: {
+			...mapActions({
+				clearMessage: 'clearMessage'
+			}),
 			nextStep(){
 				this.loading = true
 				axios.post('/api/listing/create/a', this.listing).then((response) => {
 					this.loading = false
+					this.clearMessage()
 					this.step++
 				}).catch((error) => {
 					this.loading = false

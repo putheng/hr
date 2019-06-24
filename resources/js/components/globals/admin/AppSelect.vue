@@ -11,7 +11,7 @@
 			:value="value"
 			v-bind:class="{'is-invalid': validation[inputName]}">
 			<option value=""> Choose... </option>
-			<option :value="item.id" v-for="item in values">{{ item.name }}</option>
+			<option v-if="item.status != false" :key="key" :value="item.id" v-for="(item, key) in values">{{ item.name }}</option>
 		</select>
 		<div class="invalid-feedback">
             <i class="fa fa-exclamation-circle fa-fw"></i>

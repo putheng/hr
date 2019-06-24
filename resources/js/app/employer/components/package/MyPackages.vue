@@ -9,7 +9,7 @@
 			<div class="card card-fluid">
 				<div class="card-header border-0">
 					<div class="d-flex align-items-center">
-						<span class="mr-auto">Wallet</span>
+						<span class="mr-auto">Packages</span>
 					</div>
 				</div>
 				<div class="table-responsive">
@@ -18,6 +18,7 @@
 							<tr>
 								<th>Title</th>
 								<th>Listings</th>
+								<th>Remain Listings</th>
 								<th>CV</th>
 								<th>Price</th>
 								<th>Expire Days</th>
@@ -28,6 +29,7 @@
 								<tr v-for="(item, index, key) in listings">
 									<td>{{ item.title }}</td>
 									<td>{{ item.post }}</td>
+									<td>{{ item.remain_post }}</td>
 									<td>{{ item.cv }}</td>
 									<td>{{ item.price }}</td>
 									<td>{{ item.days }}</td>
