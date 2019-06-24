@@ -30,7 +30,7 @@ class PaymentController extends Controller
     	$geteway->update(['status' => $status]);
 
     	return PaymentGatewayResource::collection(
-    		PaymentGateway::get()
+    		PaymentGateway::orderBY('id', 'desc')->get()
     	);
     }
 
