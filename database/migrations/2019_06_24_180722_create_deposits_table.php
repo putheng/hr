@@ -17,7 +17,7 @@ class CreateDepositsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('gateway_id')->unsigned();
-            $table->string('amount');
+            $table->float('amount');
             $table->string('transaction');
             $table->string('status')->default('pending');
             $table->timestamps();
