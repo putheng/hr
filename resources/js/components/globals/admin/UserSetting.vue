@@ -18,10 +18,10 @@
 				<span class="dropdown-icon oi oi-person"></span>
 				Profile
 			</router-link>
-			<a class="dropdown-item" href="#">
+			<router-link :to="{name: 'my-wallet'}" class="dropdown-item">
 				<span class="dropdown-icon fa fa-hand-holding-usd"></span>
 				$ {{ users.usd }}
-			</a>
+			</router-link>
 			<app-log-out></app-log-out>
 		</div>
 		<!-- /.dropdown-menu -->

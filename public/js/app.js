@@ -51477,10 +51477,17 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _c("span", { staticClass: "dropdown-icon fa fa-hand-holding-usd" }),
-          _vm._v("\n\t\t\t$ " + _vm._s(_vm.users.usd) + "\n\t\t")
-        ]),
+        _c(
+          "router-link",
+          {
+            staticClass: "dropdown-item",
+            attrs: { to: { name: "my-wallet" } }
+          },
+          [
+            _c("span", { staticClass: "dropdown-icon fa fa-hand-holding-usd" }),
+            _vm._v("\n\t\t\t$ " + _vm._s(_vm.users.usd) + "\n\t\t")
+          ]
+        ),
         _vm._v(" "),
         _c("app-log-out")
       ],
