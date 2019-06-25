@@ -129,7 +129,7 @@
 								<fieldset>
 									<legend>Payment Information</legend>
 									<!-- .custom-control -->
-									<app-select label="Package" name="package" commit="MyPackages"></app-select>
+									<app-select v-model="payment.package" label="Package" name="package" commit="MyPackages"></app-select>
 									<!-- /.custom-control -->
 
 									<hr class="mt-5">
@@ -138,10 +138,18 @@
 											class="prev btn btn-secondary">
 											Previous
 										</button>
+										&nbsp;&nbsp;&nbsp;
+										<button @click.prevent="formSave"
+											type="submit"
+											class="submit btn btn-secondary">
+											Save
+										</button>
 
-										<button @click.prevent="thirdStep" type="button" 
-											class="next btn btn-primary ml-auto"
-											data-validate="fieldset03">
+										<button @click.prevent="submitPayment"
+											class="btn btn-primary ml-auto" :disabled="loading">
+											<span v-if="loading" 
+												class="spinner-border spinner-border-sm"
+												role="status" aria-hidden="true"></span>
 											Next step
 										</button>
 									</div>
@@ -176,12 +184,6 @@
 											type="button"
 											class="prev btn btn-secondary">
 											Previous
-										</button>
-										&nbsp;&nbsp;&nbsp;
-										<button @click.prevent="submit"
-											type="submit"
-											class="submit btn btn-secondary">
-											Save
 										</button>
 
 										<app-button class="ml-auto" type="submit">Publish</app-button>
@@ -226,6 +228,9 @@
 					education: '',
 					salary: '',
 					experience: '',
+				},
+				payment: {
+					package: ''
 				}
 			}
 		},
@@ -247,6 +252,7 @@
 				this.loading = true
 				axios.post('/api/listing/create/b', this.second).then((response) => {
 					this.loading = false
+					this.clearMessage()
 					this.step++
 				}).catch((error) => {
 					this.loading = false
@@ -254,6 +260,25 @@
 			},
 			thirdStep(){
 				this.step++
+			},
+			submitPayment(){
+				this.loading = true
+				axios.post('/api/listing/create/c', this.payment).then((response) => {
+					this.loading = false
+					this.clearMessage()
+					this.step++
+				}).catch((error) => {
+					this.loading = false
+				})
+			},
+			formSave(){
+				this.loading = true
+				axios.post('/api/listing/create/save', [ this.payment, this.second, this.listing ]).then((response) => {
+					this.loading = false
+
+				}).catch((error) => {
+					this.loading = false
+				})
 			},
 			previousStep(){
 				this.step--

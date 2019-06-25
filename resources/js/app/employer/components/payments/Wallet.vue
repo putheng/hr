@@ -4,48 +4,48 @@
 	<p>The Advertiser's Wallet allows you to make a larger deposit to your account and use these funds to purchase multiple packages. You can also transfer funds from previous package back to your wallet balance ready to fund a different package. It gives you complete control over the money in your advertising account and is ideal for testing many small packages.</p>
 
 			<!-- metric row -->
-			<div class="metric-row">
-				<div class="col-lg-12">
-					<div class="metric-row metric-flush">
-						<!-- metric column -->
-						<div class="col">
-							<!-- .metric -->
-							<a class="metric metric-bordered align-items-center">
-								<h2 class="metric-label"> Current </h2>
-								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.usd }}</span>
-								</p>
-							</a>
-							<!-- /.metric -->
-						</div>
-						<!-- /metric column -->
-						<!-- metric column -->
-						<div class="col">
-							<!-- .metric -->
-							<a class="metric metric-bordered align-items-center">
-								<h2 class="metric-label"> Accepted </h2>
-								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_accepted }}</span>
-								</p>
-							</a>
-							<!-- /.metric -->
-						</div>
-						<!-- /metric column -->
-						<!-- metric column -->
-						<div class="col">
-							<!-- .metric -->
-							<a class="metric metric-bordered align-items-center">
-								<h2 class="metric-label"> Pending </h2>
-								<p class="metric-value h3">
-									<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_pending }}</span>
-								</p>
-							</a>
-							<!-- /.metric -->
-						</div>
-						<!-- /metric column -->
-					</div>
+	<div class="metric-row">
+		<div class="col-lg-12">
+			<div class="metric-row metric-flush">
+				<!-- metric column -->
+				<div class="col">
+					<!-- .metric -->
+					<a class="metric metric-bordered align-items-center">
+						<h2 class="metric-label"> Current </h2>
+						<p class="metric-value h3">
+							<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.usd }}</span>
+						</p>
+					</a>
+					<!-- /.metric -->
 				</div>
+				<!-- /metric column -->
+				<!-- metric column -->
+				<div class="col">
+					<!-- .metric -->
+					<a class="metric metric-bordered align-items-center">
+						<h2 class="metric-label"> Accepted </h2>
+						<p class="metric-value h3">
+							<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_accepted }}</span>
+						</p>
+					</a>
+					<!-- /.metric -->
+				</div>
+				<!-- /metric column -->
+				<!-- metric column -->
+				<div class="col">
+					<!-- .metric -->
+					<a class="metric metric-bordered align-items-center">
+						<h2 class="metric-label"> Pending </h2>
+						<p class="metric-value h3">
+							<sub><i class="fa fa-hand-holding-usd"></i></sub> <span class="value">{{ user.deposit_pending }}</span>
+						</p>
+					</a>
+					<!-- /.metric -->
+				</div>
+				<!-- /metric column -->
 			</div>
+		</div>
+	</div>
 
 
 	<div class="card card-fluid">

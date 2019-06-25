@@ -58,6 +58,18 @@ class ListingController extends Controller
     	
     }
 
+    public function save(Request $request)
+    {
+        dd(array_flatten(array_flatten($request->all())));
+    }
+
+    public function paymentStep(Request $request)
+    {
+        $this->validate($request, [
+            'package' => 'required|exists:package_user,id'
+        ]);
+    }
+
     public function publish(Request $request)
     {
         return ListingResource::collection(

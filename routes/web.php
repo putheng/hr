@@ -57,6 +57,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('/api/listing/create/a', 'Api\ListingController@firstStep');
 	Route::post('/api/listing/create/b', 'Api\ListingController@secondStep');
+	Route::post('/api/listing/create/c', 'Api\ListingController@paymentStep');
+	Route::post('/api/listing/create/save', 'Api\ListingController@save');
 
 	Route::get('/api/filter/all', 'Api\FilterController@all');
 

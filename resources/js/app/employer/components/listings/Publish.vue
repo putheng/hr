@@ -10,7 +10,7 @@
 			<div class="card card-fluid">
 				<div class="card-header border-0">
 					<div class="d-flex align-items-center">
-						<span class="mr-auto">Wallet</span>
+						<span class="mr-auto">listings</span>
 						<div class="dropdown">
 							<button type="button" class="btn btn-icon btn-light" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>
 							<div class="dropdown-arrow"></div>
