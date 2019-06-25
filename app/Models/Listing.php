@@ -26,14 +26,29 @@ class Listing extends Model
 		'start', 'closing'
 	];
 
-    public function scopeIslive($q)
+    public function scopeIslive($query)
     {
-        return $this->where('live', 1);
+        return $query->where('live', 1);
     }
 
-    public function scopeIsNotlive($q)
+    public function scopeLatest($query)
     {
-        return $this->where('live', 0);
+        return $query->orderBy('id', 'desc');
+    }
+
+    public function scopeIsNotlive($query)
+    {
+        return $query->where('live', 0);
+    }
+
+    public function scopeIsExpired($query)
+    {
+        return $query->whereDate('expires_at', '<=', Carbon::now());
+    }
+
+    public function scopeIsNotExpired($query)
+    {
+        return $query->whereDate('expires_at', '>=', Carbon::now());
     }
 
 	public function getStartDateAttribute()

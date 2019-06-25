@@ -2,6 +2,10 @@ export const allPackages = (state, packages) => {
     state.packages = packages
 }
 
+export const setUser = (state, user) => {
+    state.user = user
+}
+
 export const setPackage = (state, packages) => {
     state.package = packages
 }
@@ -56,4 +60,24 @@ export const setPaymentGateway = (state, gatways) => {
 
 export const setPackages = (state, packages) => {
 	state.packages = packages
+}
+
+export const setListings = (state, listings) => {
+	state.listings = listings
+}
+
+export const resetListings = (state) => {
+	state.listings = []
+}
+
+export const setCompany = (state, company) => {
+	state.company = company
+}
+
+export const setDeposits = (state, deposits) => {
+	state.deposits = deposits
+}
+
+export const resetDeposits = (state) => {
+	state.deposits = []
 }

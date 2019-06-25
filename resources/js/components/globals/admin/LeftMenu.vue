@@ -68,14 +68,39 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
+				<a href="#" class="menu-link"><span class="menu-icon fa fa-tasks"></span> <span class="menu-text">Listings</span></a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'listings' }">
+							Publish
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'unpublish' }">
+							Unpublish
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'expired' }">
+							Expired
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fas fa-money-check-alt"></span> <span class="menu-text">Payments</span></a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">
 						<router-link class="menu-link" :to="{ name:'add-payment-gateway' }">
 							Gateway
 						</router-link>
-						<router-link class="menu-link" :to="{ name:'admin-change-password' }">
-							Deposit
+						<router-link class="menu-link" :to="{ name:'add-payment-pending' }">
+							Pending
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'add-payment-accepted' }">
+							Accepted
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'add-payment-rejected' }">
+							Rejected
 						</router-link>
 					</li>
 				</ul>

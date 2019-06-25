@@ -1,8 +1,17 @@
 import axios from 'axios'
 
+export const fetchUser = ({commit}) => {
+	return axios.get('/api/admin/profile/all').then((response) => {
+		commit('setUser', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchPackages = ({commit}) => {
 	return axios.get('/api/package/all').then((response) => {
 		commit('allPackages', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }
@@ -11,6 +20,7 @@ export const getPackage = ({commit}, id) => {
 	commit('clearPackage')
 	return axios.get('/api/package/all/'+ id).then((response) => {
 		commit('setPackage', response.data.data)
+
 		return Promise.resolve(response)
 	})
 }
@@ -111,10 +121,89 @@ export const updatePaymentOption = ({commit}, id) => {
 	})
 }
 
-
 export const fetchMyPackages = ({commit}) => {
 	return axios.get('/api/package/my').then((response) => {
 		commit('setPackages', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchListings = ({commit}) => {
+	commit('resetListings')
+	return axios.get('/api/admin/listings/all').then((response) => {
+		commit('setListings', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchPublishListings = ({commit}) => {
+	commit('resetListings')
+	return axios.get('/api/admin/listings/publish').then((response) => {
+		commit('setListings', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchUnPublishListings = ({commit}) => {
+	commit('resetListings')
+	return axios.get('/api/admin/listings/unpublish').then((response) => {
+		commit('setListings', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchExpiredListings = ({commit}) => {
+	commit('resetListings')
+	return axios.get('/api/admin/listings/expired').then((response) => {
+		commit('setListings', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchCompany = ({commit}) => {
+	return axios.get('/api/admin/employers/all').then((response) => {
+		commit('setCompany', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchDeposit = ({commit}) => {
+	commit('resetDeposits')
+	return axios.get('/api/admin/deposits/all').then((response) => {
+		commit('setDeposits', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchPendingDeposit = ({commit}) => {
+	commit('resetDeposits')
+	return axios.get('/api/admin/deposits/pending').then((response) => {
+		commit('setDeposits', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchAcceptedDeposit = ({commit}) => {
+	commit('resetDeposits')
+	return axios.get('/api/admin/deposits/accepted').then((response) => {
+		commit('setDeposits', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchRejectedDeposit = ({commit}) => {
+	commit('resetDeposits')
+	return axios.get('/api/admin/deposits/rejcted').then((response) => {
+		commit('setDeposits', response.data.data)
 
 		return Promise.resolve(response)
 	})

@@ -85,7 +85,7 @@
 	export default {
 		methods: {
 			...mapActions({
-				fetchUser: 'employer/fetchUser'
+				fetchUser: 'admin/fetchUser'
 			})
 		},
 		mounted(){

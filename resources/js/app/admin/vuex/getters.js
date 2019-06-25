@@ -2,6 +2,10 @@ export const packages = (state) => {
     return state.packages
 }
 
+export const getUser = (state) => {
+    return state.user
+}
+
 export const getPackage = (state) => {
     return state.package
 }
@@ -52,4 +56,16 @@ export const getPaymentGateway = (state) => {
 
 export const getMyPackages = (state) => {
     return state.packages
+}
+
+export const getListings = (state) => {
+    return state.listings
+}
+
+export const getCompany = (state) => {
+    return state.company
+}
+
+export const getDeposits = (state) => {
+    return state.deposits
 }

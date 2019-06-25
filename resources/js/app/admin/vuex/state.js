@@ -1,4 +1,5 @@
 export default {
+	user: {},
 	packages: [],
 	package: [],
 	categories: [],
@@ -7,9 +8,12 @@ export default {
 	experiences: [],
 	levels: [],
 	locations: [],
+	company: [],
 	salaries: [],
 	terms: [],
 	employee: [],
 	paymentGatway: [],
 	industries: [],
+	listings: [],
+	deposits: [],
 }

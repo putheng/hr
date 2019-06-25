@@ -1,11 +1,9 @@
 <?php
 
-use App\Models\Listing;
+use Carbon\Carbon;
 
 Route::get('/test', function(){
-	$listing = Listing::find(2);
-
-	dump($listing->package);
+	
 
 });
 
@@ -91,6 +89,19 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::get('/api/admin/listings/all', 'Admin\ListingController@all');
+		Route::get('/api/admin/listings/publish', 'Admin\ListingController@publish');
+		Route::get('/api/admin/listings/unpublish', 'Admin\ListingController@unpublish');
+		Route::get('/api/admin/listings/expired', 'Admin\ListingController@expired');
+
+		Route::get('/api/admin/profile/all', 'Admin\ProfileController@all');
+		Route::get('/api/admin/employers/all', 'Admin\CompanyController@all');
+
+		Route::get('/api/admin/deposits/all', 'Admin\DepositController@all');
+		Route::get('/api/admin/deposits/pending', 'Admin\DepositController@pending');
+		Route::get('/api/admin/deposits/accepted', 'Admin\DepositController@accepted');
+		Route::get('/api/admin/deposits/rejected', 'Admin\DepositController@rejected');
 
 		Route::get('/api/payment/gateway', 'Api\PaymentController@all');
 		Route::post('/api/payment/gateway', 'Api\PaymentController@store');

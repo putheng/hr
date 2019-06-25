@@ -20,3 +20,10 @@ export const UpdateProfile = Vue.component('employee-type', require('./profile/U
 export const ChangePassword = Vue.component('change-password', require('./profile/ChangePassword.vue').default)
 
 export const Gateway = Vue.component('gateway', require('./payment/Gateway.vue').default)
+export const Pending = Vue.component('pending', require('./payment/Pending.vue').default)
+export const Accepted = Vue.component('accepted', require('./payment/Accepted.vue').default)
+export const Rejected = Vue.component('rejected', require('./payment/Rejected.vue').default)
+
+export const Listings = Vue.component('listings', require('./listings/Publish.vue').default)
+export const Unpublish = Vue.component('unpublish', require('./listings/Unpublish.vue').default)
+export const Expired = Vue.component('expired', require('./listings/Expired.vue').default)

@@ -1,23 +1,28 @@
 import {
-    CreatePackage,
-    AllPackages,
-    EditPackage,
-    Education,
-    Category,
-    Level,
-    Location,
-    Salary,
-    Term,
-    CompanyType,
-    EmployeeType,
-    Experience,
-    UpdateProfile,
-    ChangePassword,
-    Gateway,
-    Industry
+    CreatePackage, AllPackages, EditPackage,
+    Education, Category, Level, Location, Salary, Term, Experience, 
+    CompanyType, EmployeeType, Industry,
+    UpdateProfile, ChangePassword,
+    Gateway, Pending, Accepted, Rejected,
+    Listings, Unpublish, Expired
 } from '../components'
 
 export default [
+    {
+        path: '/admin/listings/publish',
+        component: Listings,
+        name: 'listings'
+    },
+    {
+        path: '/admin/listings/unpublish',
+        component: Unpublish,
+        name: 'unpublish'
+    },
+    {
+        path: '/admin/listings/expired',
+        component: Expired,
+        name: 'expired'
+    },
     {
         path: '/admin/package/create',
         component: CreatePackage,
@@ -97,5 +102,20 @@ export default [
         path: '/admin/payment/gateway',
         component: Gateway,
         name: 'add-payment-gateway'
+    },
+    {
+        path: '/admin/payment/pending',
+        component: Pending,
+        name: 'add-payment-pending'
+    },
+    {
+        path: '/admin/payment/accepted',
+        component: Accepted,
+        name: 'add-payment-accepted'
+    },
+    {
+        path: '/admin/payment/rejected',
+        component: Rejected,
+        name: 'add-payment-rejected'
     }
 ]
