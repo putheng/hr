@@ -1,6 +1,6 @@
 <template>
 	<div class="form-group" :class="{'d-none':inputType == 'hidden' }">
-		<label :for="id" class="col-form-label">{{ label }}</label>
+		<label v-if="label" :for="id" class="col-form-label">{{ label }}</label>
 		<input
 			:name="inputName"
 			:type="inputType"

@@ -34,6 +34,7 @@ window.Vue = require('vue');
 Vue.component('AppMain', require('./components/AppMain.vue').default);
 Vue.component('App', require('./components/App.vue').default);
 Vue.component('AppEmployer', require('./components/employer/AppEmployer.vue').default);
+Vue.component('JobSeeker', require('./components/seeker/JobSeeker.vue').default);
 
 Object.keys(components).forEach((key) => {
 	Vue.component(key, components[key])

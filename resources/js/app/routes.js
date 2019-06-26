@@ -4,5 +4,6 @@ import timeline from './timeline/routes'
 import errors from './errors/routes'
 import admin from './admin/routes'
 import employer from './employer/routes'
+import seeker from './seeker/routes'
 
-export default [...home, ...auth, ...timeline, ...errors, ...admin, ...employer]
+export default [...home, ...auth, ...timeline, ...errors, ...admin, ...employer, ...seeker]

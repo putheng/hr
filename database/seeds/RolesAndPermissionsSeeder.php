@@ -44,7 +44,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Role::create(['name' => 'employer'])
         	->givePermissionTo(['create listing', 'edit listing', 'delete listing', 'buy package']);
 
-        Role::create(['name' => 'seeker'])
+        Role::create(['name' => 'jobseeker'])
         	->givePermissionTo(['create resume', 'edit resume', 'delete resume']);
 
         Role::create(['name' => 'super-admin'])

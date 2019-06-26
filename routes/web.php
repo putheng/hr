@@ -66,6 +66,15 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/api/user/profile', 'Employer\HomeController@profile');
 	Route::post('/api/user/profile', 'Employer\HomeController@store');
 
+	Route::group(['middleware' => ['role:jobseeker']], function(){
+
+		Route::get('/api/seeker/profile', 'Seeker\ProfileController@profile');
+		Route::post('/api/seeker/profile', 'Seeker\ProfileController@store');
+
+		Route::post('/api/resume/create', 'Seeker\ResumeController@store');
+
+	});
+
 	Route::group(['middleware' => ['role:employer']], function(){
 
 		Route::get('/api/payment/gateway/show', 'Api\PaymentController@show');
@@ -122,6 +131,13 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/api/term/create', 'Admin\TermController@store');
 		Route::post('/api/employee-type/create', 'Admin\EmployeeTypeController@store');
 	});
+
+});
+
+/* Jobseeker block */
+Route::group(['prefix' => 'jobseeker', 'namespace' => 'Seeker', 'as' => 'seeker.', 'middleware' => ['role:jobseeker']], function(){
+
+	Route::get('/{vue?}', 'HomeController@index')->name('index')->where('vue', '[\/\w\.-]*');
 
 });
 

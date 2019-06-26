@@ -17,6 +17,8 @@
     </div>
   </form>
   <div class="form-group">
-      <input type="button" class="form-control btn btn-success" value="Sign UP">
+      <a href="{{ url('register') }}" class="form-control btn btn-success">
+        Sign UP
+      </a>
     </div>
 </div>

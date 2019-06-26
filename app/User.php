@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\Deposit;
 use App\Models\Listing;
 use App\Models\Package;
+use App\Models\Seeker;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -76,6 +77,11 @@ class User extends Authenticatable implements JWTSubject
     public function company()
     {
         return $this->hasOne(Company::class);
+    }
+
+    public function seeker()
+    {
+        return $this->hasOne(Seeker::class);
     }
 
     public function deposits()
