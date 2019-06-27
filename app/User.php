@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Company;
 use App\Models\Deposit;
+use App\Models\Image;
 use App\Models\Listing;
 use App\Models\Package;
 use App\Models\Seeker;
@@ -82,6 +83,11 @@ class User extends Authenticatable implements JWTSubject
     public function seeker()
     {
         return $this->hasOne(Seeker::class);
+    }
+
+    public function avatar()
+    {
+        return $this->hasOne(Image::class);
     }
 
     public function deposits()

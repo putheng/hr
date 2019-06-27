@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Filters\ListingFilter;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Education;
@@ -14,9 +15,11 @@ use App\Models\Salary;
 use App\Models\Term;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 
 class Listing extends Model
 {
@@ -25,6 +28,16 @@ class Listing extends Model
 	protected $dates = [
 		'start', 'closing'
 	];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function scopeFilter(Builder $builder, Request $request, array $filters = [])
+    {
+        return (new ListingFilter($request))->add($filters)->filter($builder);
+    }
 
     public function scopeIslive($query)
     {

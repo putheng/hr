@@ -1,26 +1,26 @@
 <div class="col-md-8 col-sm-12 advance search">
   <h5>Looking for...</h5>
-  <form>
+  <form action="{{ route('home.filter') }}" method="get">
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputCity">Key Word</label>
-        <input type="text" class="form-control" id="inputCity" placeholder="Input Your Keyword...">
+        <input value="{{ request()->get('title') }}" name="title" type="text" class="form-control" id="inputCity" placeholder="Job title ...">
       </div>
       <div class="form-group col-md-4">
-        <label for="inputState">Function</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
+        <label for="inpuCategory">Function</label>
+        <select name="category" id="inpuCategory" class="form-control">
+          <option value="">Choose...</option>
           @foreach($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            <option {{ request()->category == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
           @endforeach
         </select>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Location</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
+        <select name="location" id="inputState" class="form-control">
+          <option value="">Choose...</option>
           @foreach($locations as $location)
-            <option value="{{ $location->id }}">{{ $location->name }}</option>
+            <option {{ request()->location == $location->id ? 'selected' : '' }} value="{{ $location->id }}">{{ $location->name }}</option>
           @endforeach
         </select>
       </div>

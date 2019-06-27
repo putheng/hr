@@ -86,3 +86,17 @@ a.nav-link {
 #myBtn:hover {
   background-color: #555;
 }
+
+div.table-urgent-job div a,
+.container-fluid.footer-sidebar a,
+table.table-urgent-job td a {
+  color: #fff;
+}
+
+.container-fluid.footer-sidebar p{
+  margin-bottom: 5px;
+}
+
+.navbar-nav a.nav-link:hover {
+  text-decoration: underline;
+}

@@ -54,5 +54,9 @@ class LoginController extends Controller
         if($user->hasRole('employer')){
             return redirect()->route('employer.index');
         }
+
+        if($user->hasRole('jobseeker')){
+            return redirect()->route('jobseeker.index');
+        }
     }
 }

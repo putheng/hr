@@ -3,8 +3,9 @@
 use Carbon\Carbon;
 
 Route::get('/test', function(){
-	
+	$avatar = auth()->user()->avatar();
 
+	dd(public_path($avatar->first()->path()));
 });
 
 Route::get('/api/routes', function(){
@@ -24,6 +25,9 @@ Route::get('/api/routes', function(){
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
+
+Route::get('/filter', 'ListingController@filter')->name('home.filter');
+Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');
 
 Route::group(['middleware' => ['guest']], function(){
 
@@ -52,6 +56,9 @@ Route::group(['prefix' => 'api'], function(){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+
+	Route::post('/api/seeker/avatar', 'Api\AvatarController@avatar');
+	Route::post('/api/seeker/avatar/company', 'Api\AvatarController@store');
 
 	Route::post('/api/listing/create/a', 'Api\ListingController@firstStep');
 	Route::post('/api/listing/create/b', 'Api\ListingController@secondStep');
@@ -135,7 +142,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 /* Jobseeker block */
-Route::group(['prefix' => 'jobseeker', 'namespace' => 'Seeker', 'as' => 'seeker.', 'middleware' => ['role:jobseeker']], function(){
+Route::group(['prefix' => 'jobseeker', 'namespace' => 'Seeker', 'as' => 'jobseeker.', 'middleware' => ['role:jobseeker']], function(){
 
 	Route::get('/{vue?}', 'HomeController@index')->name('index')->where('vue', '[\/\w\.-]*');
 

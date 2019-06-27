@@ -28,22 +28,11 @@
 			<div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
 				<!-- .nav -->
 				<ul class="header-nav nav">
-					<!-- activities -->
-					<!-- <activities></activities> -->
-					<!-- /activities -->
-
-					<!-- messages -->
-					<!-- <messages></messages> -->
-					<!-- /messages -->
-
-					<!-- sheets -->
-					<!-- <sheets></sheets> -->
-					<!-- /sheets -->
 				</ul>
 				<!-- /.nav -->
 
 				<!-- .btn-account -->
-				<user-setting></user-setting>
+				<employer-setting></employer-setting>
 				<!-- /.btn-account -->
 
 			</div>
@@ -83,6 +72,7 @@
 <script>
 	import { mapActions } from 'vuex'
 	import EmployerMenu from './partials/LeftMenu'
+	import EmployerSetting from './partials/EmployerSetting'
 
 	export default {
 		methods: {
@@ -94,7 +84,7 @@
 			this.fetchUser()
 		},
 		components: {
-			EmployerMenu
+			EmployerMenu, EmployerSetting
 		}
 	}
 </script>

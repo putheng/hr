@@ -3,7 +3,7 @@
 		<!-- .btn-account -->
 		<button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside">
 			<span class="user-avatar user-avatar-lg">
-				<img src="/images/avatars/profile.jpg" alt="">
+				<img :src="users.avatar" alt="">
 			</span>
 			<span class="account-icon">
 				<span class="fa fa-caret-down fa-lg"></span>
@@ -28,7 +28,7 @@
 			</div>
 			<!-- /dropdown-items -->
 		</div>
-		<!-- /.dropdown-aside -->
+		
 	</header>
 </template>
 

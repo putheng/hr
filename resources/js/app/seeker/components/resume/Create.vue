@@ -16,11 +16,11 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col">
-									<app-input name="From" />
-								</div>
-								<div class="col">
-									<app-input name="To" />
-								</div>
+								<app-input name="From" />
+							</div>
+							<div class="col">
+								<app-input name="To" />
+							</div>
 						</div>
 						<app-text name="Description" label="description" max="1000" />
 					</div>

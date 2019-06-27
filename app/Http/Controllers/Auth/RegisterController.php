@@ -91,6 +91,6 @@ class RegisterController extends Controller
             'mobile' => $request->phone,
         ]);
 
-        return redirect()->route('seeker.index');
+        return redirect()->route('jobseeker.index');
     }
 }

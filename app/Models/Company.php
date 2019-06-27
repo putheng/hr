@@ -20,4 +20,9 @@ class Company extends Model
     {
     	return $this->morphTo();
     }
+
+    public function avatar()
+    {
+        return $this->hasOne(Image::class);
+    }
 }

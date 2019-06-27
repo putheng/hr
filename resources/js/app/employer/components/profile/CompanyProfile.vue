@@ -6,6 +6,8 @@
 	<div class="page-section">
 		<div class="card">
 			<div class="card-body">
+				<company-avatar sendAs="image" endpoint="/api/seeker/avatar/company" />
+				<br>
 				<app-form action="/api/profile/edit">
 					<fieldset>
 						<template v-for="(item, index, key) in company">

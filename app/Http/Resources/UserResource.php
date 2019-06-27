@@ -21,6 +21,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'usd' => $this->usd,
+            'avatar' => $this->avatar(),
             'role' => $this->roles()->first()->name,
             'roles' => RoleResource::collection($this->roles),
             'listings' => $this->listings->count(),
@@ -40,5 +41,14 @@ class UserResource extends JsonResource
         }
 
         return '0.00';
+    }
+
+    public function avatar()
+    {
+        if($this->avatar){
+            return $this->avatar->path();
+        }
+
+        return '/images/empty-profile-picture.png';
     }
 }

@@ -25,6 +25,16 @@ class CompanyResource extends JsonResource
             'address' => $company->address,
             'website' => $company->website,
             'about' => $company->description,
+            'avatar' => $this->avatar($company),
         ];
+    }
+
+    public function avatar($company)
+    {
+        if($company->avatar){
+            return $company->avatar->path();
+        }
+
+        return '/images/empty-profile-picture.png';
     }
 }

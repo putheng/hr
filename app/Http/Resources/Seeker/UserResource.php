@@ -31,11 +31,21 @@ class UserResource extends JsonResource
             'mobile' => $seeker->mobile,
             'nationality' => $seeker->nationality,
             'address' => $seeker->address,
+            'avatar' => $this->avatar(),
         ];
     }
 
     public function seeker()
     {
         return $this->seeker;
+    }
+
+    public function avatar()
+    {
+        if($this->avatar){
+            return $this->avatar->path();
+        }
+
+        return '/images/empty-profile-picture.png';
     }
 }

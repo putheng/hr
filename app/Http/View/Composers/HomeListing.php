@@ -9,8 +9,6 @@ class HomeListing
 {
     public function compose(View $view)
     {
-        $view->with('listings', Listing::isLive()->orderBy('id', 'desc')->limit(15)->get());
-
-        $view->with('urgents', Listing::isLive()->orderBy('id', 'desc')->limit(5)->get());
+        $view->with('listings', Listing::with('location', 'company')->isLive()->orderBy('id', 'desc')->limit(15)->get());
     }
 }

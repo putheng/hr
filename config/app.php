@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Putheng\Filter\FilterServiceProvider::class,
 
         /*
          * Application Service Providers...

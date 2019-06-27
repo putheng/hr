@@ -64,16 +64,16 @@
                 <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Jobs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Candidate</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Employers</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Our Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tips</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
               </li>
             </ul>
 
@@ -118,22 +118,21 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4 col-sm-12">
-              <h3>Service hot line</h3>
+              <h5>Service hot line</h5>
               <p>069 412 971</p>
               <p>Operating Hours : Mon-Fri (8:00 am to 5:00 pm)</p>
               <p>Email : jobs@example.com</p>
             </div>
             <div class="col-md-4 col-sm-12">
-              <h3>Job Seekers</h3>
+              <h5>Job Seekers</h5>
               <p>Jobs Search</p>
               <p>Create CV</p>
               <p>Job Alert and Saved Searches</p>
               <p>Questions & Answers</p>
             </div>
             <div class="col-md-4 col-sm-12">
-              <h3>Employer</h3>
+              <h5>Employer</h5>
               <p><a href="{{ route('register.employer') }}">Post a Job</a></p>
-              <p>Post an Urgent Job</p>
               <p>CV Search</p>
               <p>Purchase Service Packages</p>
               <p>Questions & Answers</p>
