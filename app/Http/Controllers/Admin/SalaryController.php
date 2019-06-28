@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class SalaryController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Salary::find($request->id)->delete();
+
+        return SalaryResource::collection(Salary::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class SalaryController extends Controller
 
     public function show()
     {
-    	return SalaryResource::collection(Salary::get());
+    	return SalaryResource::collection(Salary::orderBy('id', 'desc')->get());
     }
 }

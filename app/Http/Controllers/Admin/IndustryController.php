@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class IndustryController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Industry::find($request->id)->delete();
+
+        return IndustryResource::collection(Industry::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class IndustryController extends Controller
 
     public function show()
     {
-    	return IndustryResource::collection(Industry::get());
+    	return IndustryResource::collection(Industry::orderBy('id', 'desc')->get());
     }
 }

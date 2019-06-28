@@ -13,11 +13,27 @@
 			<thead>
 				<th>#</th>
 				<th>Name</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr v-for="(category, key) in categories">
 					<td>{{ category.id }}</td>
 					<td>{{ category.name }}</td>
+					<td>
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+								data-toggle="modal"
+							:data-target="convertToTarget(category.name)">
+							<i class="far fa-trash-alt"></i>
+							<span class="sr-only">Remove</span>
+						</a>
+						<app-modal 
+							commit="admin/setCategories"
+							:key="category.id" :data="{id:category.id}"
+							:option="{ title: 'Delete', url: '/api/category/delete'}"
+							cancel="Close" :id="convertToID(category.name)" :title="'Delete ?'" >
+							<h6>{{ category.name }}</h6>
+						</app-modal>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -32,7 +48,13 @@ export default {
 	methods: {
 		...mapActions({
 			fetch: 'admin/fetchCategories'
-		})
+		}),
+		convertToID(text){
+		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
+		},
+		convertToTarget(text){
+	    	return '#'+ this.convertToID(text)
+		}
 	},
 	mounted(){
 		this.fetch()

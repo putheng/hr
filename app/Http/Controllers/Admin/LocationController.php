@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Location::find($request->id)->delete();
+
+        return LocationResource::collection(Location::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class LocationController extends Controller
 
     public function show()
     {
-    	return LocationResource::collection(Location::get());
+    	return LocationResource::collection(Location::orderBy('id', 'desc')->get());
     }
 }

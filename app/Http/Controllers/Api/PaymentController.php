@@ -12,6 +12,45 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
+    public function approve(Request $request)
+    {
+        $deposit = Deposit::find($request->id);
+
+        if($deposit->status == 'accepted'){
+            return response()->json([
+                'message' => 'This deposit is already accepted!'
+            ], 402);
+        }
+
+        $deposit->status = 'accepted';
+        $deposit->save();
+
+        $deposit->user()->increment('usd', $deposit->amount);
+
+        return DepositResource::collection(
+            Deposit::isPending()->orderBY('id', 'desc')->get()
+        );
+    }
+
+    public function reject(Request $request)
+    {
+        $deposit = Deposit::find($request->id);
+
+        if($deposit->status == 'rejected'){
+            return response()->json([
+                'message' => 'This deposit is already rejected!'
+            ], 402);
+        }
+
+        $deposit->description = $request->description;
+        $deposit->status = 'rejected';
+        $deposit->save();
+
+        return DepositResource::collection(
+            Deposit::isPending()->orderBY('id', 'desc')->get()
+        );
+    }
+
     public function show()
     {
     	return PaymentGatewayResource::collection(

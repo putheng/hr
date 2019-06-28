@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Level::find($request->id)->delete();
+
+        return LevelResource::collection(Level::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class LevelController extends Controller
 
     public function show()
     {
-    	return LevelResource::collection(Level::get());
+    	return LevelResource::collection(Level::orderBy('id', 'desc')->get());
     }
 }

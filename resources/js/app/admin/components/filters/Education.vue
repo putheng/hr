@@ -13,11 +13,27 @@
 			<thead>
 				<th>#</th>
 				<th>Name</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr v-for="(item, key) in educations">
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
+					<td>
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+								data-toggle="modal"
+							:data-target="convertToTarget(item.name)">
+							<i class="far fa-trash-alt"></i>
+							<span class="sr-only">Remove</span>
+						</a>
+						<app-modal 
+							commit="admin/setEducation"
+							:key="item.id" :data="{id:item.id}"
+							:option="{ title: 'Delete', url: '/api/education/delete'}"
+							cancel="Close" :id="convertToID(item.name)" :title="'Delete ?'" >
+							<h6>{{ item.name }}</h6>
+						</app-modal>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -32,7 +48,13 @@ export default {
 	methods: {
 		...mapActions({
 			fetch: 'admin/fetchEducation'
-		})
+		}),
+		convertToID(text){
+		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
+		},
+		convertToTarget(text){
+	    	return '#'+ this.convertToID(text)
+		}
 	},
 	mounted(){
 		this.fetch()

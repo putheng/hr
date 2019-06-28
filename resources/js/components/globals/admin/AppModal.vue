@@ -40,8 +40,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
 	props: {
 		id: {
-			required: true,
-			type: String
+			required: true
 		},
 		title: {
 			required: true,

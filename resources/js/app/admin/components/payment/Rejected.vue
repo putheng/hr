@@ -10,7 +10,7 @@
 				<th>Gateway</th>
 				<th>Amount</th>
 				<th>CODE</th>
-				<th>Date</th>
+				<th>Description</th>
 			</thead>
 			<tbody>
 				<template v-if="deposits.length">
@@ -20,7 +20,7 @@
 						<td>{{ item.gateway }}</td>
 						<td>{{ item.amount }}</td>
 						<td>{{ item.transaction }}</td>
-						<td>{{ item.date }}</td>
+						<td>{{ item.description }}</td>
 					</tr>
 				</template>
 

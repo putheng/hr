@@ -3,7 +3,7 @@
 		<button class="btn-account d-none d-md-flex" type="button" 
 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="user-avatar user-avatar-md">
-				<img src="/images/avatars/profile.jpg" alt="">
+				<img :src="users.avatar" :alt="users.name">
 			</span>
 			<span class="account-summary pr-lg-4 d-none d-lg-block">
 				<span class="account-name">{{ users.name }}</span>

@@ -20,11 +20,18 @@
 						<td>{{ item.cv }}</td>
 						<td>{{ item.price }}</td>
 						<td>{{ item.days }}</td>
-						<td class="align-middle text-right">
+						<td class="align-middle">
 							<router-link class="btn btn-sm btn-icon btn-secondary" :to="{ name: 'edit-package', params: { id: item.id }}">
 								<i class="fa fa-pencil-alt"></i>
 								<span class="sr-only">Edit</span>
 							</router-link>
+							<a href="#" class="btn btn-sm btn-icon btn-secondary"
+								data-toggle="modal"
+								:data-target="convertToTarget(item.title)">
+								<i class="far fa-trash-alt"></i>
+								<span class="sr-only">Remove</span>
+							</a>
+							<app-modal commit="admin/setPackages" :key="item.id" :data="{id:item.id}" :option="options" cancel="Close" :id="convertToID(item.title)" :title="'Delete '+ item.title +' package?'" />
 						</td>
 					</tr>
 				</template>
@@ -51,15 +58,29 @@
 		methods: {
 			...mapActions({
 				'fetchPackages': 'admin/fetchPackages'
-			})
+			}),
+			convertToID(text){
+			    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
+			},
+			convertToTarget(text){
+			    return '#'+ this.convertToID(text)
+			}
 		},
 		computed: {
 			...mapGetters({
-				'packages': 'admin/packages'
+				packages: 'admin/packages'
 			})
 		},
 		mounted(){
 			this.fetchPackages()
+		},
+		data(){
+			return {
+				options: {
+					title: 'Delete',
+					url: '/api/package/delete',
+				}
+			}
 		}
 	}
 </script>

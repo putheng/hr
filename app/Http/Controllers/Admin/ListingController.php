@@ -12,28 +12,28 @@ class ListingController extends Controller
     public function all(Request $request)
     {
     	return ListingResource::collection(
-    		Listing::latest()->paginate(15)
+    		Listing::with('location', 'category', 'company')->latest()->paginate(15)
     	);
     }
 
     public function publish(Request $request)
     {
     	return ListingResource::collection(
-    		Listing::latest()->isLive()->isNotExpired()->paginate(15)
+    		Listing::with('location', 'category', 'company')->latest()->isLive()->isNotExpired()->paginate(15)
     	);
     }
 
     public function unpublish(Request $request)
     {
     	return ListingResource::collection(
-    		Listing::latest()->isNotLive()->paginate(15)
+    		Listing::with('location', 'category', 'company')->latest()->isNotLive()->paginate(15)
     	);
     }
 
     public function expired(Request $request)
     {
         return ListingResource::collection(
-            Listing::latest()->isExpired()->paginate(15)
+            Listing::with('location', 'category', 'company')->latest()->isExpired()->paginate(15)
         );
     }
 }

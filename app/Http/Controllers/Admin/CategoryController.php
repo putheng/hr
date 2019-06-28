@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Category::find($request->id)->delete();
+
+        return CategoryResource::collection(Category::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class CategoryController extends Controller
 
     public function show()
     {
-    	return CategoryResource::collection(Category::get());
+    	return CategoryResource::collection(Category::orderBy('id', 'desc')->get());
     }
 }

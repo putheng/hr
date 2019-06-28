@@ -21,6 +21,7 @@ class DepositResource extends JsonResource
             'amount' => number_format($this->amount, 2),
             'transaction' => $this->transaction,
             'status' => ucfirst($this->status),
+            'description' => $this->description,
             'date' => $this->created_at->format('l dS \of F Y h:i:s A'),
         ];
     }

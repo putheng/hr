@@ -6,6 +6,7 @@
 				Update your profile
 			</h4>
 			<div class="card-text col-md-6">
+				<admin-avatar sendAs="image" endpoint="/api/seeker/avatar"/>
 				<app-form action="/api/user/profile" method="post">
 					<template v-for="(item, key, index) in user">
 						<app-input :value="item" name="name" label="Name" v-if="key == 'name'"/>
@@ -29,7 +30,7 @@
 	export default {
 		computed: {
 			...mapGetters({
-				user: 'employer/getUser'
+				user: 'admin/getUser'
 			})
 		}
 	}

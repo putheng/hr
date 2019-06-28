@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class EducationController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Education::find($request->id)->delete();
+
+        return EducationResource::collection(Education::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class EducationController extends Controller
 
     public function show()
     {
-    	return EducationResource::collection(Education::get());
+    	return EducationResource::collection(Education::orderBy('id', 'desc')->get());
     }
 }

@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class CompanyTypeController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        CompanyType::find($request->id)->delete();
+
+        return CompanyTypeResource::collection(CompanyType::orderBy('id', 'desc')->get());
+    }
+
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class CompanyTypeController extends Controller
 
     public function show()
     {
-    	return CompanyTypeResource::collection(CompanyType::get());
+    	return CompanyTypeResource::collection(CompanyType::orderBy('id', 'desc')->get());
     }
 }

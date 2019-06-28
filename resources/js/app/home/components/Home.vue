@@ -13,13 +13,10 @@
 
 	<div class="page-section">
 		<div class="section-block">
-			<!-- metric row -->
 			<div class="metric-row">
 				<div class="col-lg-12">
 					<div class="metric-row metric-flush">
-						<!-- metric column -->
 						<div class="col">
-							<!-- .metric -->
 							<div class="metric metric-bordered align-items-center">
 								<h2 class="metric-label">Listings </h2>
 								<p class="metric-value h3">
@@ -29,12 +26,8 @@
 									<span class="value">{{ user.listings }}</span>
 								</p>
 							</div>
-							<!-- /.metric -->
 						</div>
-						<!-- /metric column -->
-						<!-- metric column -->
 						<div class="col">
-							<!-- .metric -->
 							<div class="metric metric-bordered align-items-center">
 								<h2 class="metric-label">Employers</h2>
 								<p class="metric-value h3">
@@ -44,27 +37,19 @@
 									<span class="value">{{ user.employers }}</span>
 								</p>
 							</div>
-							<!-- /.metric -->
 						</div>
-						<!-- /metric column -->
-						<!-- metric column -->
 						<div class="col">
-							<!-- .metric -->
 							<div class="metric metric-bordered align-items-center">
 								<h2 class="metric-label">Candidates</h2>
 								<p class="metric-value h3">
 									<sub>
 										<i class="oi oi-people"></i>
 									</sub>
-									<span class="value">00</span>
+									<span class="value">{{ user.seekers }}</span>
 								</p>
 							</div>
-							<!-- /.metric -->
 						</div>
-						<!-- /metric column -->
-						<!-- metric column -->
 						<div class="col">
-							<!-- .metric -->
 							<div class="metric metric-bordered align-items-center">
 								<h2 class="metric-label">Deposit</h2>
 								<p class="metric-value h3">
@@ -74,13 +59,10 @@
 									<span class="value">{{ user.deposits }}</span>
 								</p>
 							</div>
-							<!-- /.metric -->
 						</div>
-						<!-- /metric column -->
 					</div>
 				</div>
 			</div>
-			<!-- /metric row -->
 
 			<div class="row">
 				<div class="col-md-12">

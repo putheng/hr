@@ -29,4 +29,7 @@ label.control-label.avatar_upload_form {
   opacity: 0
 }
 
+table.v-top tr td{
+    vertical-align: middle;
+}
 

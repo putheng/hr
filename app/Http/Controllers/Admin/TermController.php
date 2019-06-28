@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class TermController extends Controller
 {
+    public function destroy(Request $request)
+    {
+        Term::find($request->id)->delete();
+
+        return TermResource::collection(Term::orderBy('id', 'desc')->get());
+    }
+    
     public function store(Request $request)
     {
     	$this->validate($request, [
@@ -26,6 +33,6 @@ class TermController extends Controller
 
     public function show()
     {
-    	return TermResource::collection(Term::get());
+    	return TermResource::collection(Term::orderBy('id', 'desc')->get());
     }
 }

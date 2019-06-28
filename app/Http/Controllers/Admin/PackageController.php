@@ -15,6 +15,18 @@ class PackageController extends Controller
         return PackageResources::collection(Package::orderBy('id', 'desc')->get());
     }
 
+    public function destroy(Request $request)
+    {
+        Package::find($request->id)->delete();
+
+        return PackageResources::collection(
+            Package::orderBy('id', 'desc')->get()
+        )->additional([
+            'success' => true,
+            'message' => 'Package was delete.'
+        ]);
+    }
+
     public function update(Request $request, Package $package)
     {
         $this->validate($request, [

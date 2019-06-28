@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use App\Models\Seeker;
 use App\Models\{Company, Deposit, Listing};
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,10 +21,12 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'usd' => $this->usd,
+            'avatar' => $this->avatar(),
             'role' => $this->roles()->first()->name,
             'listings' => $this->listings(),
             'deposits' => $this->deposits(),
             'employers' => $this->employers(),
+            'seekers' => $this->seekers(),
         ];
     }
 
@@ -40,5 +43,19 @@ class UserResource extends JsonResource
     public function employers()
     {
         return Company::get()->count();
+    }
+
+    public function seekers()
+    {
+        return Seeker::get()->count();
+    }
+
+    public function avatar()
+    {
+        if($this->avatar){
+            return $this->avatar->path();
+        }
+
+        return '/images/empty-profile-picture.png';
     }
 }

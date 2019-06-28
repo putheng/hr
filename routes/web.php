@@ -101,10 +101,11 @@ Route::group(['middleware' => 'auth'], function(){
 
 		Route::post('/api/payments/deposit', 'Api\PaymentController@deposit');
 		Route::get('/api/payments/transaction', 'Api\PaymentController@transaction');
-
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+		Route::post('/api/payment/approve', 'Api\PaymentController@approve');
+		Route::post('/api/payment/reject', 'Api\PaymentController@reject');
 
 		Route::get('/api/admin/listings/all', 'Admin\ListingController@all');
 		Route::get('/api/admin/listings/publish', 'Admin\ListingController@publish');
@@ -122,21 +123,41 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::get('/api/payment/gateway', 'Api\PaymentController@all');
 		Route::post('/api/payment/gateway', 'Api\PaymentController@store');
 
+		Route::post('/api/package/delete', 'Admin\PackageController@destroy')->name('package.store');
+
 		Route::post('/api/package/create', 'Admin\PackageController@store')->name('package.store');
 		Route::get('/api/package/all/{package}', 'Admin\PackageController@get');
 		Route::post('/api/package/all/{package}', 'Admin\PackageController@update');
 
 		Route::post('/api/category/create', 'Admin\CategoryController@store');
+		Route::post('/api/category/delete', 'Admin\CategoryController@destroy');
+
 		Route::post('/api/company-type/create', 'Admin\CompanyTypeController@store');
+		Route::post('/api/company-type/delete', 'Admin\CompanyTypeController@destroy');
+
 		Route::post('/api/education/create', 'Admin\EducationController@store');
+		Route::post('/api/education/delete', 'Admin\EducationController@destroy');
+
 		Route::post('/api/experience/create', 'Admin\ExperienceController@store');
+		Route::post('/api/experience/delete', 'Admin\ExperienceController@destroy');
+
 		Route::post('/api/level/create', 'Admin\LevelController@store');
+		Route::post('/api/level/delete', 'Admin\LevelController@destroy');
+
 		Route::post('/api/industry/create', 'Admin\IndustryController@store');
+		Route::post('/api/industry/delete', 'Admin\IndustryController@destroy');
 
 		Route::post('/api/location/create', 'Admin\LocationController@store');
+		Route::post('/api/location/delete', 'Admin\LocationController@destroy');
+
 		Route::post('/api/salary/create', 'Admin\SalaryController@store');
+		Route::post('/api/salary/delete', 'Admin\SalaryController@destroy');
+
 		Route::post('/api/term/create', 'Admin\TermController@store');
+		Route::post('/api/term/delete', 'Admin\TermController@destroy');
+
 		Route::post('/api/employee-type/create', 'Admin\EmployeeTypeController@store');
+		Route::post('/api/employee-type/delete', 'Admin\EmployeeTypeController@destroy');
 	});
 
 });

@@ -13,11 +13,27 @@
 			<thead>
 				<th>#</th>
 				<th>Name</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr v-for="(item, key) in terms">
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
+					<td>
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+								data-toggle="modal"
+							:data-target="'#'+ convertToID(item.name)">
+							<i class="far fa-trash-alt"></i>
+							<span class="sr-only">Remove</span>
+						</a>
+						<app-modal 
+							commit="admin/setTerm"
+							:key="item.id" :data="{id:item.id}"
+							:option="{ title: 'Delete', url: '/api/term/delete'}"
+							cancel="Close" :id="convertToID(item.name)" :title="'Delete ?'" >
+							<h6>{{ item.name }}</h6>
+						</app-modal>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -32,7 +48,10 @@ export default {
 	methods: {
 		...mapActions({
 			fetch: 'admin/fetchTerm'
-		})
+		}),
+		convertToID(text){
+		    return 'ab'+ text.toLowerCase().replace(/ /g,'').replace(/[^\w-]+/g,'')+ 'ab'
+		}
 	},
 	mounted(){
 		this.fetch()

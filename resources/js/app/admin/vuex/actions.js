@@ -202,7 +202,7 @@ export const fetchAcceptedDeposit = ({commit}) => {
 
 export const fetchRejectedDeposit = ({commit}) => {
 	commit('resetDeposits')
-	return axios.get('/api/admin/deposits/rejcted').then((response) => {
+	return axios.get('/api/admin/deposits/rejected').then((response) => {
 		commit('setDeposits', response.data.data)
 
 		return Promise.resolve(response)

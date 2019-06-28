@@ -13,11 +13,27 @@
 			<thead>
 				<th>#</th>
 				<th>Name</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr v-for="(type, key) in types">
 					<td>{{ type.id }}</td>
 					<td>{{ type.name }}</td>
+					<td>
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+								data-toggle="modal"
+							:data-target="convertToTarget(type.name)">
+							<i class="far fa-trash-alt"></i>
+							<span class="sr-only">Remove</span>
+						</a>
+						<app-modal 
+							commit="admin/setCompanyType"
+							:key="type.id" :data="{id:type.id}"
+							:option="{ title: 'Delete', url: '/api/company-type/delete'}"
+							cancel="Close" :id="convertToID(type.name)" :title="'Delete ?'" >
+							<h6>{{ type.name }}</h6>
+						</app-modal>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -32,7 +48,13 @@ export default {
 	methods: {
 		...mapActions({
 			fetch: 'admin/fetchCompanyType'
-		})
+		}),
+		convertToID(text){
+		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
+		},
+		convertToTarget(text){
+	    	return '#'+ this.convertToID(text)
+		}
 	},
 	mounted(){
 		this.fetch()
