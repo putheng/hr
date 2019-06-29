@@ -81,7 +81,7 @@ export default {
 		...mapActions({
 			sendRequest: 'submit',
 			setUser: 'employer/setUser'
-		})
+		}),
 	}
 }
 </script>

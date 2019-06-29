@@ -14,7 +14,7 @@
       </div>
       <!--end col-md-8-->
       <div class="col-md-4 col-sm-12">
-        <img class="img-fluid" src="/images/Add.jpg">
+        @include('ads.four')
       </div>
       <!--end md 4-->
     </div>

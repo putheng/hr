@@ -81,3 +81,7 @@ export const setDeposits = (state, deposits) => {
 export const resetDeposits = (state) => {
 	state.deposits = []
 }
+
+export const setAds = (state, ads) => {
+	state.ads = ads
+}

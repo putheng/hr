@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composers\Advertising;
 use App\Http\View\Composers\CategoryComposer;
 use App\Http\View\Composers\HomeFilter;
 use App\Http\View\Composers\HomeListing;
@@ -46,6 +47,11 @@ class ViewComposerServicesProvider extends ServiceProvider
         View::composer(
             ['home.partials.urgent-job'], 
             UrgentJob::class
+        );
+
+        View::composer(
+            ['ads.two', 'ads.one', 'ads.three', 'ads.four'], 
+            Advertising::class
         );
     }
 }

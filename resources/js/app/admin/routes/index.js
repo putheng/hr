@@ -2,7 +2,7 @@ import {
     CreatePackage, AllPackages, EditPackage,
     Education, Category, Level, Location, Salary, Term, Experience, 
     CompanyType, EmployeeType, Industry,
-    UpdateProfile, ChangePassword,
+    UpdateProfile, ChangePassword, Adds,
     Gateway, Pending, Accepted, Rejected,
     Listings, Unpublish, Expired
 } from '../components'
@@ -117,5 +117,10 @@ export default [
         path: '/admin/payment/rejected',
         component: Rejected,
         name: 'add-payment-rejected'
+    },
+    {
+        path: '/admin/setting/advertising',
+        component: Adds,
+        name: 'admin-adds'
     }
 ]

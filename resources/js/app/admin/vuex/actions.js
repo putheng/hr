@@ -208,3 +208,11 @@ export const fetchRejectedDeposit = ({commit}) => {
 		return Promise.resolve(response)
 	})
 }
+
+export const fetchAds = ({commit}) => {
+	return axios.get('/api/advertising/show').then((response) => {
+		commit('setAds', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}

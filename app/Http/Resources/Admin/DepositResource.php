@@ -17,7 +17,7 @@ class DepositResource extends JsonResource
         return [
             'id' => $this->id,
             'company' => $this->company->name,
-            'gateway' => $this->gateway->name,
+            'gateway' => optional($this->gateway)->name,
             'amount' => number_format($this->amount, 2),
             'transaction' => $this->transaction,
             'status' => ucfirst($this->status),

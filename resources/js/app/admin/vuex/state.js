@@ -16,4 +16,5 @@ export default {
 	industries: [],
 	listings: [],
 	deposits: [],
+	ads: [],
 }

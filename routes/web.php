@@ -57,6 +57,8 @@ Route::group(['prefix' => 'api'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
 
+	Route::post('/api/files/upload', 'Api\FileController@upload');
+
 	Route::post('/api/seeker/avatar', 'Api\AvatarController@avatar');
 	Route::post('/api/seeker/avatar/company', 'Api\AvatarController@store');
 
@@ -104,6 +106,11 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::post('/api/advertising/upload', 'Api\AdvertisingController@upload');
+		Route::get('/api/advertising/show', 'Api\AdvertisingController@show');
+		Route::post('/api/advertising/delete', 'Api\AdvertisingController@desroy');
+
 		Route::post('/api/payment/approve', 'Api\PaymentController@approve');
 		Route::post('/api/payment/reject', 'Api\PaymentController@reject');
 

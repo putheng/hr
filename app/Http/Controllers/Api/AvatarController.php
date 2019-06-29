@@ -30,10 +30,10 @@ class AvatarController extends Controller
         
         $imageFile = $processedImage->__toString();
         
-        Storage::disk('public_dir')->put('avatar'. $path, $imageFile);
+        Storage::disk('public_dir')->put('uploads/avatar'. $path, $imageFile);
 
         $avatar = $request->user()->avatar();
-        if($avatar->count()){
+        if($avatar->count() && file_exists(public_path($avatar->first()->path()))){
             unlink(public_path($avatar->first()->path()));
             
         	$avatar->delete();

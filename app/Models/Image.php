@@ -22,7 +22,7 @@ class Image extends Model
 
     public function path()
     {
-        return '/images/avatar' . $this->path;
+        return asset('/uploads/avatar' . $this->path);
     }
 
     public function cover()

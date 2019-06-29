@@ -31,4 +31,6 @@
       </a>
     </div>
 </div>
+@else
+  @include('ads.two')
 @endguest

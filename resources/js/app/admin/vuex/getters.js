@@ -69,3 +69,7 @@ export const getCompany = (state) => {
 export const getDeposits = (state) => {
     return state.deposits
 }
+
+export const getAds = (state) => {
+    return state.ads
+}
