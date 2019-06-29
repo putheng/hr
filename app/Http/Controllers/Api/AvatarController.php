@@ -34,7 +34,7 @@ class AvatarController extends Controller
 
         $avatar = $request->user()->avatar();
         if($avatar->count()){
-            unlink(public_path($avatar->first()->path()));
+            unlink(public_path($avatar->first()->file()));
             
         	$avatar->delete();
         }
