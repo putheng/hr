@@ -53,7 +53,7 @@ class UserResource extends JsonResource
     public function avatar()
     {
         if($this->avatar){
-            return $this->avatar()->orderBy('id', 'desc')->first()->path();
+            return $this->avatar->path();
         }
 
         return '/images/empty-profile-picture.png';
