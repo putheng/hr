@@ -25,6 +25,11 @@ class Image extends Model
         return asset('/uploads/avatar' . $this->path);
     }
 
+    public function file()
+    {
+        return public_path('/uploads/avatar' . $this->path);
+    }
+
     public function cover()
     {
         return config('image.path.cover') . $this->path;
