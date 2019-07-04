@@ -25,7 +25,7 @@ class CompanyTypeController extends Controller
     	CompanyType::create(['name' => $request->type]);
 
     	return CompanyTypeResource::collection(
-    		CompanyType::get()
+    		CompanyType::latest()->get()
     	)->additional([
     		'success' => true
     	]);
@@ -33,6 +33,23 @@ class CompanyTypeController extends Controller
 
     public function show()
     {
-    	return CompanyTypeResource::collection(CompanyType::orderBy('id', 'desc')->get());
+    	return CompanyTypeResource::collection(
+            CompanyType::latest()->get()
+        );
+    }
+    
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        CompanyType::find($request->id)->update($request->only('name'));
+
+        return CompanyTypeResource::collection(
+            CompanyType::latest()->get()
+        )->additional([
+            'success' => true
+        ]);
     }
 }

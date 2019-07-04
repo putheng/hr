@@ -13,7 +13,9 @@ class CategoryController extends Controller
     {
         Category::find($request->id)->delete();
 
-        return CategoryResource::collection(Category::orderBy('id', 'desc')->get());
+        return CategoryResource::collection(
+            Category::latest()->get()
+        );
     }
     
     public function store(Request $request)
@@ -25,7 +27,7 @@ class CategoryController extends Controller
     	Category::create(['name' => $request->category]);
 
     	return CategoryResource::collection(
-    		Category::get()
+    		Category::latest()->get()
     	)->additional([
     		'success' => true
     	]);
@@ -33,6 +35,23 @@ class CategoryController extends Controller
 
     public function show()
     {
-    	return CategoryResource::collection(Category::orderBy('id', 'desc')->get());
+    	return CategoryResource::collection(
+            Category::latest()->get()
+        );
+    }
+    
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Category::find($request->id)->update($request->only('name'));
+
+        return CategoryResource::collection(
+            Category::latest()->get()
+        )->additional([
+            'success' => true
+        ]);
     }
 }

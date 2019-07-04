@@ -13,4 +13,9 @@ class EmployeeType extends Model
     {
     	return $this->morphMany(Company::class, 'variation');
     }
+	
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('id', 'desc');
+    }
 }

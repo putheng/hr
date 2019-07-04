@@ -19,6 +19,8 @@ export const EmployeeType = Vue.component('employee-type', require('./filters/Em
 export const UpdateProfile = Vue.component('employee-type', require('./profile/UpdateProfile.vue').default)
 export const ChangePassword = Vue.component('change-password', require('./profile/ChangePassword.vue').default)
 export const Adds = Vue.component('advertising', require('./profile/Adds.vue').default)
+export const Answer = Vue.component('answer', require('./profile/Answer.vue').default)
+export const Blog = Vue.component('blog', require('./profile/Blog.vue').default)
 
 export const Gateway = Vue.component('gateway', require('./payment/Gateway.vue').default)
 export const Pending = Vue.component('pending', require('./payment/Pending.vue').default)

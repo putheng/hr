@@ -115,6 +115,12 @@
 						<router-link class="menu-link" :to="{ name:'admin-adds' }">
 							Advertising
 						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-blog' }">
+							Tips
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-answer' }">
+							Answer
+						</router-link>
 						<router-link class="menu-link" :to="{ name:'update-profile' }">
 							Profile
 						</router-link>

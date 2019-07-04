@@ -17,4 +17,6 @@ export default {
 	listings: [],
 	deposits: [],
 	ads: [],
+	question: [],
+	blogs: [],
 }

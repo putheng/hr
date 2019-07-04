@@ -20,6 +20,32 @@ require('./interceptors');
 window.config = require('./config');
 window.Vue = require('vue');
 
+
+// Vue.mixin({
+//     mounted(){
+//         this.fetchRoute()
+//     },
+//     data() {
+//         return {
+//           routes: []
+//         }
+//     },
+//     methods: {
+//         fetchRoute(){
+//             axios.get('/api/routes').then((response) => {
+//                 this.routes = response.data.data
+//             })
+//         },
+//         route(name){
+//             if(this.routes.length){
+//                 return this.routes.filter((el) => {
+//                     return el.name == name
+//                 })[0].uri
+//             }
+//         }
+//     }
+// })
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

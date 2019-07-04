@@ -2,12 +2,20 @@ export const packages = (state) => {
     return state.packages
 }
 
+export const getQuestion = (state) => {
+    return state.question
+}
+
 export const getUser = (state) => {
     return state.user
 }
 
 export const getPackage = (state) => {
     return state.package
+}
+
+export const getBlog = (state) => {
+    return state.blogs
 }
 
 export const getCategories = (state) => {

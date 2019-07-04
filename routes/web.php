@@ -1,18 +1,10 @@
 <?php
 
-use Carbon\Carbon;
-
-Route::get('/test', function(){
-	$avatar = auth()->user()->avatar();
-
-	dd(public_path($avatar->first()->path()));
-});
-
 Route::get('/api/routes', function(){
 	$routes = collect(\Route::getRoutes())
 		->map(function ($route) {
 			return [
-				'uri' => $route->uri(),
+				'uri' => '/'. $route->uri(),
 				'name' => $route->getName(),
 				'middleware' => $route->middleware(),
 				'methods' => $route->methods()[0],
@@ -25,6 +17,9 @@ Route::get('/api/routes', function(){
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/about', 'HomeController@about')->name('home.about');
+Route::get('/question', 'HomeController@qa')->name('home.qa');
+Route::get('/tip', 'HomeController@tip')->name('home.tip');
 
 Route::get('/filter', 'ListingController@filter')->name('home.filter');
 Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');
@@ -107,6 +102,15 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => ['role:admin']], function(){
 
+		Route::post('/api/admin/blog', 'Api\BlogController@store');
+		Route::get('/api/admin/blog', 'Api\BlogController@show');
+		Route::post('/api/admin/blog/delete', 'Api\BlogController@destroy');
+
+		Route::post('/api/admin/question', 'Api\QuestionController@store');
+		Route::get('/api/admin/question', 'Api\QuestionController@all');
+		Route::post('/api/admin/question/delete', 'Api\QuestionController@destroy');
+		Route::post('/api/admin/question/edit', 'Api\QuestionController@edit');
+
 		Route::post('/api/advertising/upload', 'Api\AdvertisingController@upload');
 		Route::get('/api/advertising/show', 'Api\AdvertisingController@show');
 		Route::post('/api/advertising/delete', 'Api\AdvertisingController@desroy');
@@ -138,33 +142,43 @@ Route::group(['middleware' => 'auth'], function(){
 
 		Route::post('/api/category/create', 'Admin\CategoryController@store');
 		Route::post('/api/category/delete', 'Admin\CategoryController@destroy');
+		Route::post('/api/category/edit', 'Admin\CategoryController@update');
 
 		Route::post('/api/company-type/create', 'Admin\CompanyTypeController@store');
 		Route::post('/api/company-type/delete', 'Admin\CompanyTypeController@destroy');
+		Route::post('/api/company-type/edit', 'Admin\CompanyTypeController@update');
 
 		Route::post('/api/education/create', 'Admin\EducationController@store');
 		Route::post('/api/education/delete', 'Admin\EducationController@destroy');
+		Route::post('/api/education/edit', 'Admin\EducationController@edit');
 
 		Route::post('/api/experience/create', 'Admin\ExperienceController@store');
 		Route::post('/api/experience/delete', 'Admin\ExperienceController@destroy');
+		Route::post('/api/experience/edit', 'Admin\ExperienceController@edit');
 
 		Route::post('/api/level/create', 'Admin\LevelController@store');
 		Route::post('/api/level/delete', 'Admin\LevelController@destroy');
+		Route::post('/api/level/edit', 'Admin\LevelController@edit');
 
 		Route::post('/api/industry/create', 'Admin\IndustryController@store');
 		Route::post('/api/industry/delete', 'Admin\IndustryController@destroy');
+		Route::post('/api/industry/edit', 'Admin\IndustryController@edit');
 
 		Route::post('/api/location/create', 'Admin\LocationController@store');
 		Route::post('/api/location/delete', 'Admin\LocationController@destroy');
+		Route::post('/api/location/edit', 'Admin\LocationController@edit');
 
 		Route::post('/api/salary/create', 'Admin\SalaryController@store');
 		Route::post('/api/salary/delete', 'Admin\SalaryController@destroy');
+		Route::post('/api/salary/edit', 'Admin\SalaryController@edit');
 
 		Route::post('/api/term/create', 'Admin\TermController@store');
 		Route::post('/api/term/delete', 'Admin\TermController@destroy');
+		Route::post('/api/term/edit', 'Admin\TermController@edit');
 
 		Route::post('/api/employee-type/create', 'Admin\EmployeeTypeController@store');
 		Route::post('/api/employee-type/delete', 'Admin\EmployeeTypeController@destroy');
+		Route::post('/api/employee-type/edit', 'Admin\EmployeeTypeController@edit');
 	});
 
 });

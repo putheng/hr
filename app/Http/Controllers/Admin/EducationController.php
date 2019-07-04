@@ -13,7 +13,9 @@ class EducationController extends Controller
     {
         Education::find($request->id)->delete();
 
-        return EducationResource::collection(Education::orderBy('id', 'desc')->get());
+        return EducationResource::collection(
+             Education::latest()->get()
+        );
     }
     
     public function store(Request $request)
@@ -25,7 +27,7 @@ class EducationController extends Controller
     	Education::create(['name' => $request->title]);
 
     	return EducationResource::collection(
-    		Education::get()
+    		 Education::latest()->get()
     	)->additional([
     		'success' => true
     	]);
@@ -33,6 +35,23 @@ class EducationController extends Controller
 
     public function show()
     {
-    	return EducationResource::collection(Education::orderBy('id', 'desc')->get());
+    	return EducationResource::collection(
+             Education::latest()->get()
+        );
+    }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Education::find($request->id)->update($request->only('name'));
+
+        return EducationResource::collection(
+            Education::latest()->get()
+        )->additional([
+            'success' => true
+        ]);
     }
 }

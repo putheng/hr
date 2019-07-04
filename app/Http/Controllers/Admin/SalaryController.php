@@ -35,4 +35,19 @@ class SalaryController extends Controller
     {
     	return SalaryResource::collection(Salary::orderBy('id', 'desc')->get());
     }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Salary::find($request->id)->update($request->only('name'));
+
+        return SalaryResource::collection(
+            Salary::get()
+        )->additional([
+            'success' => true
+        ]);
+    }
 }

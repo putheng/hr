@@ -2,12 +2,20 @@ export const allPackages = (state, packages) => {
     state.packages = packages
 }
 
+export const setQuestion = (state, question) => {
+    state.question = question
+}
+
 export const setUser = (state, user) => {
     state.user = user
 }
 
 export const setPackage = (state, packages) => {
     state.package = packages
+}
+
+export const setBlog = (state, blogs) => {
+    state.blogs = blogs
 }
 
 export const clearPackage = (state, packages) => {

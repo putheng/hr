@@ -13,7 +13,9 @@ class EmployeeTypeController extends Controller
     {
         EmployeeType::find($request->id)->delete();
 
-        return EmployeeTypeResource::collection(EmployeeType::orderBy('id', 'desc')->get());
+        return EmployeeTypeResource::collection(
+            EmployeeType::latest()->get()
+        );
     }
     
     public function store(Request $request)
@@ -25,7 +27,7 @@ class EmployeeTypeController extends Controller
     	EmployeeType::create(['name' => $request->title]);
 
     	return EmployeeTypeResource::collection(
-    		EmployeeType::get()
+    		EmployeeType::latest()->get()
     	)->additional([
     		'success' => true
     	]);
@@ -33,6 +35,23 @@ class EmployeeTypeController extends Controller
 
     public function show()
     {
-    	return EmployeeTypeResource::collection(EmployeeType::orderBy('id', 'desc')->get());
+    	return EmployeeTypeResource::collection(
+            EmployeeType::latest()->get()
+        );
+    }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        EmployeeType::find($request->id)->update($request->only('name'));
+
+        return EmployeeTypeResource::collection(
+            EmployeeType::latest()->get()
+        )->additional([
+            'success' => true
+        ]);
     }
 }

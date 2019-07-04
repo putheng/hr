@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="/images/logo-t.png">
-    <title>Home</title>
+    @yield('title')
   </head>
   <body>
     <!--back to top button-->
@@ -41,16 +41,28 @@
                 <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{{ route('home.about') }}">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle"
+                    href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                  Our Services
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="#" class="dropdown-item">Basic Job</a>
+                    <a href="#" class="dropdown-item">Urgent Job</a>
+                    <a href="#" class="dropdown-item">Featured Employers </a>
+                    <a href="#" class="dropdown-item">Recruitment Agencies</a>
+                    <a href="#" class="dropdown-item">Banner Advertising</a>
+                  </div>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('home.tip') }}">Tips</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Our Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Tips</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Q & A</a>
+                <a class="nav-link" href="{{ route('home.qa') }}">Q & A</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact Us</a>
@@ -59,10 +71,17 @@
 
             <ul class="navbar-nav ml-auto">
               @guest
-                <li class="nav-item">
-                  <a href="{{ route('login.employer') }}" class="nav-link">Login</a>
-                </li><li class="nav-item">
-                  <a href="{{ route('register.employer') }}" class="nav-link">Register</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle"
+                    href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                  Employer
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="{{ route('login.employer') }}" class="dropdown-item">Login</a>
+                    <a href="{{ route('register.employer') }}" class="dropdown-item">Register</a>
+                  </div>
                 </li>
               @else
                 <li class="nav-item dropdown">
@@ -136,6 +155,6 @@
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('js/script.js?v=1') }}"></script>
+    <script src="{{ asset('js/script.js?v=2') }}"></script>
   </body>
 </html>

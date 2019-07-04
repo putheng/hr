@@ -35,4 +35,19 @@ class TermController extends Controller
     {
     	return TermResource::collection(Term::orderBy('id', 'desc')->get());
     }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Term::find($request->id)->update($request->only('name'));
+
+        return TermResource::collection(
+            Term::get()
+        )->additional([
+            'success' => true
+        ]);
+    }
 }

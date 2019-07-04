@@ -21,6 +21,21 @@
 					<td>{{ type.name }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+							data-toggle="modal"
+							:data-target="convertToTarget(type.name)+'edit'">
+							<i class="fa fa-pencil-alt"></i>
+							<span class="sr-only">Edit</span>
+						</a>
+						<app-modal 
+							commit="admin/setCompanyType"
+							:data="{id:type.id}"
+							:option="{ title: 'Update', url: '/api/company-type/edit'}"
+							cancel="Close" :id="convertToID(type.name) +'edit'" :title="'Update'" >
+							<h6>{{ type.name }}</h6>
+							<app-input :value="type.name" name="name" label="Name"/>
+						</app-modal>
+
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
 							:data-target="convertToTarget(type.name)">
 							<i class="far fa-trash-alt"></i>
@@ -28,11 +43,12 @@
 						</a>
 						<app-modal 
 							commit="admin/setCompanyType"
-							:key="type.id" :data="{id:type.id}"
+							:data="{id:type.id}"
 							:option="{ title: 'Delete', url: '/api/company-type/delete'}"
 							cancel="Close" :id="convertToID(type.name)" :title="'Delete ?'" >
 							<h6>{{ type.name }}</h6>
 						</app-modal>
+
 					</td>
 				</tr>
 			</tbody>

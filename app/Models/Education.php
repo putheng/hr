@@ -9,4 +9,9 @@ class Education extends Model
 	protected $fillable = [
 		'name'
 	];
+	
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('id', 'desc');
+    }
 }

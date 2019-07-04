@@ -21,6 +21,21 @@
 					<td>{{ item.name }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+							data-toggle="modal"
+							:data-target="'#'+ convertToID(item.name)+'edit'">
+							<i class="fa fa-pencil-alt"></i>
+							<span class="sr-only">Edit</span>
+						</a>
+						<app-modal 
+							commit="admin/setLocation"
+							:key="key" :data="{id:item.id}"
+							:option="{ title: 'Update', url: '/api/location/edit'}"
+							cancel="Close" :id="convertToID(item.name) +'edit'" :title="'Update'" >
+							<h6>{{ item.name }}</h6>
+							<app-input :value="item.name" name="name" label="Name"/>
+						</app-modal>
+						
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
 							:data-target="'#'+ convertToID(item.name)">
 							<i class="far fa-trash-alt"></i>

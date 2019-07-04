@@ -21,6 +21,20 @@
 					<td>{{ category.name }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
+							data-toggle="modal"
+							:data-target="convertToTarget(category.name)+'edit'">
+							<i class="fa fa-pencil-alt"></i>
+							<span class="sr-only">Edit</span>
+						</a>
+						<app-modal 
+							commit="admin/setCategories"
+							:key="key" :data="{id:category.id}"
+							:option="{ title: 'Update', url: '/api/category/edit'}"
+							cancel="Close" :id="convertToID(category.name) +'edit'" :title="'Update'" >
+							<h6>{{ category.name }}</h6>
+							<app-input :value="category.name" name="name" label="Name"/>
+						</app-modal>
+						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
 							:data-target="convertToTarget(category.name)">
 							<i class="far fa-trash-alt"></i>

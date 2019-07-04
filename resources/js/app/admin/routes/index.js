@@ -2,7 +2,7 @@ import {
     CreatePackage, AllPackages, EditPackage,
     Education, Category, Level, Location, Salary, Term, Experience, 
     CompanyType, EmployeeType, Industry,
-    UpdateProfile, ChangePassword, Adds,
+    UpdateProfile, ChangePassword, Adds, Answer, Blog,
     Gateway, Pending, Accepted, Rejected,
     Listings, Unpublish, Expired
 } from '../components'
@@ -122,5 +122,15 @@ export default [
         path: '/admin/setting/advertising',
         component: Adds,
         name: 'admin-adds'
+    },
+    {
+        path: '/admin/setting/answer',
+        component: Answer,
+        name: 'admin-answer'
+    },
+    {
+        path: '/admin/setting/tip',
+        component: Blog,
+        name: 'admin-blog'
     }
 ]

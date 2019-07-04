@@ -1,5 +1,21 @@
 import axios from 'axios'
 
+export const fetchQuestion = ({commit}) => {
+	return axios.get('/api/admin/question').then((response) => {
+		commit('setQuestion', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchBlog = ({commit}) => {
+	return axios.get('/api/admin/blog').then((response) => {
+		commit('setBlog', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchUser = ({commit}) => {
 	return axios.get('/api/admin/profile/all').then((response) => {
 		commit('setUser', response.data.data)

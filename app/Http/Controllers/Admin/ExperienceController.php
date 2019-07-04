@@ -35,4 +35,19 @@ class ExperienceController extends Controller
     {
     	return ExperienceResource::collection(Experience::orderBy('id', 'desc')->get());
     }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Experience::find($request->id)->update($request->only('name'));
+
+        return ExperienceResource::collection(
+            Experience::get()
+        )->additional([
+            'success' => true
+        ]);
+    }
 }

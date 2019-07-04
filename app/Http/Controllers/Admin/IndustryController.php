@@ -35,4 +35,19 @@ class IndustryController extends Controller
     {
     	return IndustryResource::collection(Industry::orderBy('id', 'desc')->get());
     }
+    
+    public function edit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:company_types,name'
+        ]);
+
+        Industry::find($request->id)->update($request->only('name'));
+
+        return IndustryResource::collection(
+            Industry::get()
+        )->additional([
+            'success' => true
+        ]);
+    }
 }
