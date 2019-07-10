@@ -30,3 +30,5 @@ export const Rejected = Vue.component('rejected', require('./payment/Rejected.vu
 export const Listings = Vue.component('listings', require('./listings/Publish.vue').default)
 export const Unpublish = Vue.component('unpublish', require('./listings/Unpublish.vue').default)
 export const Expired = Vue.component('expired', require('./listings/Expired.vue').default)
+
+export const About = Vue.component('about', require('./pages/About.vue').default)

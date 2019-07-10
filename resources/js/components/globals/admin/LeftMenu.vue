@@ -121,6 +121,9 @@
 						<router-link class="menu-link" :to="{ name:'admin-answer' }">
 							Answer
 						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-about' }">
+							Page
+						</router-link>
 						<router-link class="menu-link" :to="{ name:'update-profile' }">
 							Profile
 						</router-link>

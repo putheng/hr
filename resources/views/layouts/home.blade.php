@@ -51,11 +51,11 @@
                   Our Services
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="#" class="dropdown-item">Basic Job</a>
-                    <a href="#" class="dropdown-item">Urgent Job</a>
-                    <a href="#" class="dropdown-item">Featured Employers </a>
-                    <a href="#" class="dropdown-item">Recruitment Agencies</a>
-                    <a href="#" class="dropdown-item">Banner Advertising</a>
+                    <a href="{{ route('home.basic') }}" class="dropdown-item">Basic Job</a>
+                    <a href="{{ route('home.urgent') }}" class="dropdown-item">Urgent Job</a>
+                    <a href="{{ route('home.featured') }}" class="dropdown-item">Featured Employers </a>
+                    <a href="{{ route('home.recruitment') }}" class="dropdown-item">Recruitment Agencies</a>
+                    <a href="{{ route('home.banner') }}" class="dropdown-item">Banner Advertising</a>
                   </div>
                 </li>
               <li class="nav-item">

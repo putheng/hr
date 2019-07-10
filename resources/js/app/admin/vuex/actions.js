@@ -16,6 +16,14 @@ export const fetchBlog = ({commit}) => {
 	})
 }
 
+export const fetchPageType = ({commit}) => {
+	return axios.get('/api/admin/post-type').then((response) => {
+		commit('setPageType', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchUser = ({commit}) => {
 	return axios.get('/api/admin/profile/all').then((response) => {
 		commit('setUser', response.data.data)
@@ -228,6 +236,14 @@ export const fetchRejectedDeposit = ({commit}) => {
 export const fetchAds = ({commit}) => {
 	return axios.get('/api/advertising/show').then((response) => {
 		commit('setAds', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchPage = ({commit}) => {
+	return axios.get('/api/admin/page/show').then((response) => {
+		commit('setPage', response.data.data)
 
 		return Promise.resolve(response)
 	})

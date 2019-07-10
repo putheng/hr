@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('title')
-<title>About | HR Dimension</title>
+<title>Featured Employers  | HR Dimension</title>
 @endsection
 
 @section('content')

@@ -4,7 +4,7 @@ import {
     CompanyType, EmployeeType, Industry,
     UpdateProfile, ChangePassword, Adds, Answer, Blog,
     Gateway, Pending, Accepted, Rejected,
-    Listings, Unpublish, Expired
+    Listings, Unpublish, Expired, About
 } from '../components'
 
 export default [
@@ -132,5 +132,10 @@ export default [
         path: '/admin/setting/tip',
         component: Blog,
         name: 'admin-blog'
+    },
+    {
+        path: '/admin/page/all',
+        component: About,
+        name: 'admin-about'
     }
 ]

@@ -18,8 +18,16 @@ export const getBlog = (state) => {
     return state.blogs
 }
 
+export const getPages = (state) => {
+    return state.pages
+}
+
 export const getCategories = (state) => {
     return state.categories
+}
+
+export const getPageType = (state) => {
+    return state.pageTypes
 }
 
 export const getCompanyType = (state) => {

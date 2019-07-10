@@ -20,6 +20,11 @@ Route::get('/', 'HomeController@index')->name('home.index');
 Route::get('/about', 'HomeController@about')->name('home.about');
 Route::get('/question', 'HomeController@qa')->name('home.qa');
 Route::get('/tip', 'HomeController@tip')->name('home.tip');
+Route::get('/basic-job', 'HomeController@basic')->name('home.basic');
+Route::get('/urgent-job', 'HomeController@urgent')->name('home.urgent');
+Route::get('/featured-employers', 'HomeController@featured')->name('home.featured');
+Route::get('/recruitment-agencies', 'HomeController@recruitment')->name('home.recruitment');
+Route::get('/banner-advertising', 'HomeController@banner')->name('home.banner');
 
 Route::get('/filter', 'ListingController@filter')->name('home.filter');
 Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');
@@ -101,6 +106,11 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::get('/api/admin/post-type', 'Api\PostController@type');
+		Route::post('/api/admin/page/create', 'Api\PostController@store');
+		Route::get('/api/admin/page/show', 'Api\PostController@show');
+		Route::post('/api/admin/page/delete', 'Api\PostController@destroy');
 
 		Route::post('/api/admin/blog', 'Api\BlogController@store');
 		Route::get('/api/admin/blog', 'Api\BlogController@show');

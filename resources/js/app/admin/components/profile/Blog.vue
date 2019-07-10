@@ -8,7 +8,7 @@
 			<br>
 			<div class="card-text col-md-12">
 				<form @submit.prevent="submit">
-					<app-input class="col-md-6" name="Title" label="title" v-model="form.title"/>
+					<app-input class="col-md-6" name="Title" label="Title" v-model="form.title"/>
 
 					<br>
 
@@ -29,7 +29,7 @@
 
 <div class="card">
 	<div class="card-body">
-		<h3 class="card-title"> All Packages </h3>
+		<h3 class="card-title"> All Tips </h3>
 
 		<table class="table">
 			<thead>
@@ -68,7 +68,7 @@
 				<template v-else>
 					<tr>
 						<td colspan="6">
-							<p class="text-center">No any blog</p>
+							<p class="text-center">No any tip</p>
 						</td>
 					</tr>
 				</template>

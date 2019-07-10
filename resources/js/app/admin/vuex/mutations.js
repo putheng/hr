@@ -18,6 +18,14 @@ export const setBlog = (state, blogs) => {
     state.blogs = blogs
 }
 
+export const setPage = (state, pages) => {
+    state.pages = pages
+}
+
+export const setPageType = (state, pageTypes) => {
+    state.pageTypes = pageTypes
+}
+
 export const clearPackage = (state, packages) => {
     state.package = []
 }

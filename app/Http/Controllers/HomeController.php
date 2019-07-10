@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Page;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('home.about');
+        $about = Page::where('type', 1)->first();
+
+        return view('home.about', compact('about'));
     }
 
     public function qa()
@@ -30,5 +33,40 @@ class HomeController extends Controller
         $tips = Blog::orderBy('id', 'desc')->get();
 
         return view('home.tips', compact('tips'));
+    }
+
+    public function basic()
+    {
+        $about = Page::where('type', 1)->first();
+
+        return view('home.basic_job', compact('about'));
+    }
+
+    public function urgent()
+    {
+        $about = Page::where('type', 1)->first();
+
+        return view('home.urgent_job', compact('about'));
+    }
+
+    public function featured()
+    {
+        $about = Page::where('type', 1)->first();
+
+        return view('home.fe', compact('about'));
+    }
+
+    public function recruitment()
+    {
+        $about = Page::where('type', 1)->first();
+
+        return view('home.rea', compact('about'));
+    }
+
+    public function banner()
+    {
+        $about = Page::where('type', 1)->first();
+
+        return view('home.banner_add', compact('about'));
     }
 }

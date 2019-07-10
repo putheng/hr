@@ -19,4 +19,6 @@ export default {
 	ads: [],
 	question: [],
 	blogs: [],
+	pageTypes: [],
+	pages: [],
 }
