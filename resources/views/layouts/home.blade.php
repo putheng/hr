@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -38,7 +38,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url('/') }}">{{ __('general.home') }}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('home.about') }}">About</a>
@@ -65,7 +65,7 @@
                 <a class="nav-link" href="{{ route('home.qa') }}">Q & A</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="{{ route('home.contact') }}">Contact Us</a>
               </li>
             </ul>
 
@@ -103,6 +103,19 @@
                   </div>
                 </li>
               @endif
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle"
+                    href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{ strtoupper(\App::getLocale()) }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a href="/language/switch/en" class="dropdown-item">En</a>
+                    <a href="/language/switch/kh" class="dropdown-item">Kh</a>
+                    <a href="/language/switch/ch" class="dropdown-item">ch</a>
+                  </div>
+                </li>
             </ul>
           </div>
         </nav>
@@ -145,7 +158,14 @@
       <div class="container-fluid footer-credit">
         <div class="container">
           <div class="row">
-            <small>All rights reserved by , Developed by ToucanAsia</small>
+            <div class="col-md-12">
+              <small>All rights reserved by , Developed by ToucanAsia</small>
+              {{-- <div class="pull-right">
+                <a href="/language/switch/en">En</a>
+                <a href="/language/switch/kh">Kh</a>
+                <a href="/language/switch/ch">ch</a>
+              </div> --}}
+            </div>
           </div>
           <!--end row-->
         </div>

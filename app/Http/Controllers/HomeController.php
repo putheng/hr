@@ -42,6 +42,13 @@ class HomeController extends Controller
         return view('home.basic_job', compact('about'));
     }
 
+    public function contact()
+    {
+        $about = Page::where('type', 7)->first();
+
+        return view('home.contact_us', compact('about'));
+    }
+
     public function urgent()
     {
         $about = Page::where('type', 3)->first();

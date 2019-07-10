@@ -3,6 +3,9 @@ import store from './vuex'
 import localforage from 'localforage'
 import * as components from './components'
 
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
+
 localforage.config({
     driver: localforage.LOCALSTORAGE,
     storeName: 'cambodiahr'
@@ -19,40 +22,6 @@ require('./interceptors');
 
 window.config = require('./config');
 window.Vue = require('vue');
-
-
-// Vue.mixin({
-//     mounted(){
-//         this.fetchRoute()
-//     },
-//     data() {
-//         return {
-//           routes: []
-//         }
-//     },
-//     methods: {
-//         fetchRoute(){
-//             axios.get('/api/routes').then((response) => {
-//                 this.routes = response.data.data
-//             })
-//         },
-//         route(name){
-//             if(this.routes.length){
-//                 return this.routes.filter((el) => {
-//                     return el.name == name
-//                 })[0].uri
-//             }
-//         }
-//     }
-// })
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
@@ -81,8 +50,20 @@ store.dispatch('auth/setToken').then(() => {
     store.dispatch('auth/clearAuth')
 })
 
+Vue.use(VueInternationalization);
+
+const lang = document.documentElement.lang.substr(0, 2);
+
+console.log(lang)
+
+const i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
+
 const app = new Vue({
     router: router,
     store: store,
-    el: '#app'
+    el: '#app',
+    i18n
 });

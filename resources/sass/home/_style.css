@@ -95,3 +95,23 @@ table.table-urgent-job td a {
 .navbar-nav a.nav-link:hover {
   text-decoration: underline;
 }
+
+.pull-right {
+  float: right !important;
+}
+
+@media (min-width: @screen-sm-min) {
+.pull-right-sm {
+  float: right;
+}
+}
+@media (min-width: @screen-md-min) {
+.pull-right-md {
+  float: right;
+}
+}
+@media (min-width: @screen-lg-min) {
+.pull-right-lg {
+  float: right;
+}
+}

@@ -1,5 +1,13 @@
 <?php
 
+Route::get('/test', function(){
+	$locale = App::getLocale();
+
+	dd($locale);
+});
+
+Route::get('/language/switch/{locale}', 'LanguageController@switch');
+
 Route::get('/api/routes', function(){
 	$routes = collect(\Route::getRoutes())
 		->map(function ($route) {
@@ -25,6 +33,7 @@ Route::get('/urgent-job', 'HomeController@urgent')->name('home.urgent');
 Route::get('/featured-employers', 'HomeController@featured')->name('home.featured');
 Route::get('/recruitment-agencies', 'HomeController@recruitment')->name('home.recruitment');
 Route::get('/banner-advertising', 'HomeController@banner')->name('home.banner');
+Route::get('/contact-us', 'HomeController@contact')->name('home.contact');
 
 Route::get('/filter', 'ListingController@filter')->name('home.filter');
 Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');

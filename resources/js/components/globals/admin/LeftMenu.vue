@@ -6,7 +6,7 @@
 			<li class="menu-item">
 				<router-link :to="{ name: 'admin' }" class="menu-link">
 					<span class="menu-icon fas fa-home"></span>
-					<span class="menu-text">Dashboard</span>
+					<span class="menu-text">{{ $t('general.home') }}</span>
 				</router-link>
 			</li>
 			<!-- /.menu-item -->
