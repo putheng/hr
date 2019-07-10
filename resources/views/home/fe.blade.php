@@ -23,7 +23,7 @@
       <div class="col-md-8 col-sm-12 popular-search">
         <div class="col-md-12">
           <br>
-            @if($about->count())
+            @if($about)
               {!! nl2br($about->content) !!}
             @endif
         </div>
