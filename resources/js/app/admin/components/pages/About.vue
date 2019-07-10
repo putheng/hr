@@ -36,22 +36,7 @@
 					</div>
 
 					<br>
-					<div class="form-group col-md-6">
-						<label for="type">Page Type</label> 
-						<select name="type" id="type" class="custom-select" :class="{'is-invalid': validation.type}">
-							<option value=""> Choose... </option>
-							<option value="1">About</option>
-							<option value="2">Basic Job</option>
-							<option value="3">Urgent Job</option>
-							<option value="4">Featured Employers </option>
-							<option value="5">Recruitment Agencies</option>
-							<option value="6">Banner Advertising</option>
-						</select>
-						<p class="text-danger" v-if="validation.type">
-				            <i class="fa fa-exclamation-circle fa-fw"></i>
-				            {{ validation.type[0] }}
-				        </p>
-					</div>
+					<app-select class="col-md-6" v-model="form.type" commit="PageType" name="type" label="Page Type"/>
 					<app-button type="submit">Submit</app-button>
 				</form>
 			</div>
