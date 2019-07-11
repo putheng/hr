@@ -41,31 +41,31 @@
                 <a class="nav-link" href="{{ url('/') }}">{{ __('general.home') }}<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.about') }}">About</a>
+                <a class="nav-link" href="{{ route('home.about') }}">{{ __('general.about') }}</a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle"
                     href="#" id="navbarDropdown"
                     role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                  Our Services
+                    {{ __('general.Services') }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="{{ route('home.basic') }}" class="dropdown-item">Basic Job</a>
-                    <a href="{{ route('home.urgent') }}" class="dropdown-item">Urgent Job</a>
-                    <a href="{{ route('home.featured') }}" class="dropdown-item">Featured Employers </a>
-                    <a href="{{ route('home.recruitment') }}" class="dropdown-item">Recruitment Agencies</a>
-                    <a href="{{ route('home.banner') }}" class="dropdown-item">Banner Advertising</a>
+                    <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
+                    <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
+                    <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
+                    <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
+                    <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
                   </div>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.tip') }}">Tips</a>
+                <a class="nav-link" href="{{ route('home.tip') }}">{{ __('general.Tips') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.qa') }}">Q & A</a>
+                <a class="nav-link" href="{{ route('home.qa') }}">{{ __('general.qa') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.contact') }}">Contact Us</a>
+                <a class="nav-link" href="{{ route('home.contact') }}">{{ __('general.Contact') }}</a>
               </li>
             </ul>
 
@@ -76,26 +76,26 @@
                     href="#" id="navbarDropdown"
                     role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                  Employer
+                  {{ __('general.Employer') }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="{{ route('login.employer') }}" class="dropdown-item">Login</a>
-                    <a href="{{ route('register.employer') }}" class="dropdown-item">Register</a>
+                    <a href="{{ route('login.employer') }}" class="dropdown-item">{{ __('general.Login') }}</a>
+                    <a href="{{ route('register.employer') }}" class="dropdown-item">{{ __('general.Register') }}</a>
                   </div>
                 </li>
               @else
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Account
+                  {{ __('general.Account') }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}/setting/profile"> {{ Auth::user()->name }}</a>
-                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}">Dashboard</a>
+                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}">{{ __('general.Dashboard') }}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}" 
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-                      Logout
+                      {{ __('general.Logout') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -111,9 +111,9 @@
                     {{ strtoupper(\App::getLocale()) }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="/language/switch/en" class="dropdown-item">En</a>
-                    <a href="/language/switch/kh" class="dropdown-item">Kh</a>
-                    <a href="/language/switch/ch" class="dropdown-item">ch</a>
+                    <a href="/language/switch/en" class="dropdown-item">EN</a>
+                    <a href="/language/switch/kh" class="dropdown-item">KH</a>
+                    <a href="/language/switch/ch" class="dropdown-item">CH</a>
                   </div>
                 </li>
             </ul>
@@ -130,24 +130,23 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4 col-sm-12">
-              <h5>Service hot line</h5>
+              <h5>{{ __('general.Service') }}</h5>
               <p>069 412 971</p>
               <p>Operating Hours : Mon-Fri (8:00 am to 5:00 pm)</p>
               <p>Email : jobs@example.com</p>
             </div>
             <div class="col-md-4 col-sm-12">
-              <h5>Job Seekers</h5>
-              <p>Jobs Search</p>
-              <p>Create CV</p>
-              <p>Job Alert and Saved Searches</p>
-              <p>Questions & Answers</p>
+              <h5>{{ __('general.Seekers') }}</h5>
+              <p>{{ __('general.Search') }}</p>
+              <p>{{ __('general.Create') }}</p>
+              <p>{{ __('general.Alert') }}</p>
+              <p>{{ __('general.Questions') }} & {{ __('general.Answers') }}</p>
             </div>
             <div class="col-md-4 col-sm-12">
-              <h5>Employer</h5>
-              <p><a href="{{ route('register.employer') }}">Post a Job</a></p>
-              <p>CV Search</p>
-              <p>Purchase Service Packages</p>
-              <p>Questions & Answers</p>
+              <h5>{{ __('general.Employer') }}</h5>
+              <p><a href="{{ route('register.employer') }}">{{ __('general.Post') }}</a></p>
+              <p>{{ __('general.CV') }}</p>
+              <p>{{ __('general.Purchase') }}</p>
             </div>
           </div>
           <!--end row-->
@@ -159,7 +158,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <small>All rights reserved by , Developed by ToucanAsia</small>
+              <small>{{ date('Y') }} All rights reserved</small>
               {{-- <div class="pull-right">
                 <a href="/language/switch/en">En</a>
                 <a href="/language/switch/kh">Kh</a>

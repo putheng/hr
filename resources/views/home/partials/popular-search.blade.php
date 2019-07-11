@@ -4,14 +4,14 @@
       <div class="col-md-8 col-sm-12 popular-search">
         @include('home.partials.quick-filter')
         <div class="col-md-12">
-            <h4 class="mt-3">Latest Jobs</h4>
+            <h4 class="mt-3">{{ __('general.Latest') }}</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Title</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Closing Date</th>
+                  <th scope="col">{{ __('general.Title') }}</th>
+                  <th scope="col">{{ __('general.Company') }}</th>
+                  <th scope="col">{{ __('general.Location') }}</th>
+                  <th scope="col">{{ __('general.Closing') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -25,7 +25,10 @@
                 @endforeach
               </tbody>
             </table>
-            <input type="button" class="btn btn-info mx-auto" value="More Jobs">
+            <br>
+            <a href="{{ route('listing.index') }}" class="btn btn-info mx-auto">
+              {{ __('general.more_jon') }}
+            </a>
         </div>
       </div>
       <!--end  popular-search-->

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-12 job-brow">
-        <h4 class="mt-3 table-urgent-job">Browse Jobs</h4>
+        <h4 class="mt-3 table-urgent-job">{{ __('general.Browse') }}</h4>
 
         <div class="row table-urgent-job pb-3">
           @foreach($categories as $category)

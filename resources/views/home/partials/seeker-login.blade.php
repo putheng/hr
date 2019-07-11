@@ -1,7 +1,7 @@
 @guest
 <div class="col-md-4 col-sm-12 jobseeker-form">
 
-  Jobe seeker 
+  {{ __('general.Seekers') }}
   <form action="{{ url('login') }}" method="post">
     @csrf
     <div class="form-group">
@@ -27,7 +27,7 @@
   </form>
   <div class="form-group">
       <a href="{{ url('register') }}" class="form-control btn btn-success">
-        Sign UP
+        {{ __('general.sign_up') }}
       </a>
     </div>
 </div>

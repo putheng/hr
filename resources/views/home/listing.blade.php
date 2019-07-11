@@ -1,5 +1,7 @@
 @extends('layouts.home')
-
+@section('title')
+  <title>{{ $listing->title }} | HR Dimension</title>
+@endsection
 @section('content')
 <div class="container-fluid body-search">
   <div class="container">
@@ -27,40 +29,40 @@
               <div class="col-md-10">
                 <table class="table table-bordered">
                   <tr>
-                    <th>Term</th>
+                    <th>{{ __('general.Term') }}</th>
                     <td>{{ optional($listing->term)->name }}</td>
-                    <th>Category</th>
+                    <th>{{ __('general.Category') }}</th>
                     <td>{{ optional($listing->category)->name }}</td>
                   </tr>
                   <tr>
-                    <th>Level</th>
+                    <th>{{ __('general.Level') }}</th>
                     <td>{{ optional($listing->level)->name }}</td>
-                    <th>Experience</th>
+                    <th>{{ __('general.Experience') }}</th>
                     <td>{{ optional($listing->experience)->name }}</td>
                   </tr>
                   <tr>
-                    <th>Salary</th>
+                    <th>{{ __('general.Salary') }}</th>
                     <td>{{ optional($listing->salary)->name }}</td>
-                    <th>Education</th>
+                    <th>{{ __('general.Education') }}</th>
                     <td>{{ optional($listing->education)->name }}</td>
                   </tr>
                 </table>
               </div>
 
               <div class="col-md-10">
-                <h6>DESCRIPTION</h6><hr>
+                <h6>{{ __('general.DESCRIPTION') }}</h6><hr>
                 <p>{{ $listing->description }}</p>
                 
                 <br>
-                <h6>REQUIREMENTS</h6><hr>
+                <h6>{{ __('general.REQUIREMENTS') }}</h6><hr>
                 <p>{{ $listing->requirement }}</p>
 
                 <br><br>
-                <h6>CONTACT INFORMATION</h6><hr>
-                  <div><strong>Person:</strong> {{ $listing->user->name }}</div>
-                  <div><strong>Phone:</strong> {{ $listing->company->phone }}</div>
-                  <div><strong>Email:</strong> {{ $listing->user->email }}</div>
-                  <div><strong> Address:</strong> {{ $listing->company->address }}</div>
+                <h6>{{ __('general.CONTACT') }}</h6><hr>
+                  <div><strong>{{ __('general.Person') }}:</strong> {{ $listing->user->name }}</div>
+                  <div><strong>{{ __('general.Phone') }}:</strong> {{ $listing->company->phone }}</div>
+                  <div><strong>{{ __('general.Email') }}:</strong> {{ $listing->user->email }}</div>
+                  <div><strong>{{ __('general.Address') }} :</strong> {{ $listing->company->address }}</div>
                   </ul>
               </div>
             </div>

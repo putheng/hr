@@ -38,6 +38,8 @@ Route::get('/contact-us', 'HomeController@contact')->name('home.contact');
 Route::get('/filter', 'ListingController@filter')->name('home.filter');
 Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');
 
+Route::get('/listings', 'ListingController@index')->name('listing.index');
+
 Route::group(['middleware' => ['guest']], function(){
 
 	Route::get('/register/employer', 'Employer\RegisterController@index')

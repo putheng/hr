@@ -1,6 +1,6 @@
 <div class="col-4">
   <div class=" urgent-job">
-    <h2 class="table-urgent-job">Urgent Jobs</h2> 
+    <h2 class="table-urgent-job">{{ __('general.Urgent') }}</h2> 
     <table class="table table-hover table-urgent-job">
       <tbody>
         @foreach($urgents as $urgent)

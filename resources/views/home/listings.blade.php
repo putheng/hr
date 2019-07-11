@@ -1,5 +1,9 @@
 @extends('layouts.home')
 
+@section('title')
+<title>Latest Jobs  | HR Dimension</title>
+@endsection
+
 @section('content')
 <div class="container-fluid body-search">
   <div class="container">
@@ -18,7 +22,7 @@
     <div class="row">
       <div class="col-md-8 col-sm-12 popular-search">
         <div class="col-md-12">
-            <h4 class="mt-3">{{ __('general.Search_result') }}:</h4>
+          <h4 class="mt-3">{{ __('general.Latest') }}</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -31,9 +35,7 @@
               <tbody>
                 @foreach($listings as $listing)
                   <tr>
-                    <th scope="row">
-                      <a href="{{ route('listing.show', $listing) }}">{{ $listing->title }}</a>
-                    </th>
+                    <th scope="row"><a href="{{ route('listing.show', $listing) }}">{{ $listing->title }}</a></th>
                     <td>{{ $listing->company->name }}</td>
                     <td>{{ $listing->location->name }}</td>
                     <td>{{ $listing->closingDate }}</td>
@@ -41,8 +43,9 @@
                 @endforeach
               </tbody>
             </table>
+
             <br>
-            {{ $listings->appends(request()->query())->links() }}
+            {{ $listings->links() }}
         </div>
       </div>
       <!--end  popular-search-->

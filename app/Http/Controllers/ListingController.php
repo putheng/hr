@@ -18,4 +18,11 @@ class ListingController extends Controller
     {
     	return view('home.listing', compact('listing'));
     }
+
+    public function index(Request $request)
+    {
+    	$listings = Listing::with('company', 'location')->latest()->paginate(20);
+
+    	return view('home.listings', compact('listings'));
+    }
 }
