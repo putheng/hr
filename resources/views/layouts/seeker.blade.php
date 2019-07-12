@@ -27,6 +27,6 @@
 		<!-- /.app -->
 	    <!-- Scripts -->
 	    <script src="{{ asset('js/app.js?v='. time()) }}" defer></script>
-	    <script src="{{ asset('js/plugin.js') }}" defer></script>
+	    <script src="{{ asset('js/plugin.js?v=2') }}" defer></script>
 	</body>
 </html>

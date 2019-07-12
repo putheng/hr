@@ -32,3 +32,7 @@ export const Unpublish = Vue.component('unpublish', require('./listings/Unpublis
 export const Expired = Vue.component('expired', require('./listings/Expired.vue').default)
 
 export const About = Vue.component('about', require('./pages/About.vue').default)
+
+export const Employer = Vue.component('employer', require('./employer/Employers.vue').default)
+export const Featured = Vue.component('featured', require('./employer/Featured.vue').default)
+export const Blocked = Vue.component('blocked', require('./employer/Blocked.vue').default)

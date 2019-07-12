@@ -7,6 +7,7 @@ use App\Models\Deposit;
 use App\Models\Image;
 use App\Models\Listing;
 use App\Models\Package;
+use App\Models\Resume;
 use App\Models\Seeker;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -104,5 +105,10 @@ class User extends Authenticatable implements JWTSubject
         if($this->hasRole('employer')){
             return route('employer.index');
         }
+    }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class);
     }
 }

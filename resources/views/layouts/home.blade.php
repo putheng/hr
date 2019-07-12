@@ -89,8 +89,7 @@
                   {{ __('general.Account') }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}/setting/profile"> {{ Auth::user()->name }}</a>
-                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}">{{ __('general.Dashboard') }}</a>
+                    <a class="dropdown-item" href="{{ Auth::user()->dashboard() }}"> {{ Auth::user()->name }}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}" 
                       onclick="event.preventDefault();
@@ -132,7 +131,7 @@
             <div class="col-md-4 col-sm-12">
               <h5>{{ __('general.Service') }}</h5>
               <p>069 412 971</p>
-              <p>Operating Hours : Mon-Fri (8:00 am to 5:00 pm)</p>
+              <p>{{ __('general.working_hour') }}</p>
               <p>Email : jobs@example.com</p>
             </div>
             <div class="col-md-4 col-sm-12">

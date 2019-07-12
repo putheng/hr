@@ -67,6 +67,7 @@ Route::group(['prefix' => 'api'], function(){
 });
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/file/download/{resume}', 'Seeker\ResumeController@download');
 
 	Route::post('/api/files/upload', 'Api\FileController@upload');
 
@@ -92,6 +93,10 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/api/seeker/profile', 'Seeker\ProfileController@store');
 
 		Route::post('/api/resume/create', 'Seeker\ResumeController@store');
+		Route::post('/api/resume/upload', 'Seeker\ResumeController@upload');
+
+		Route::get('/api/resume/my', 'Seeker\ResumeController@show');
+		Route::post('/api/resume/destroy', 'Seeker\ResumeController@destroy');
 
 	});
 
@@ -117,6 +122,14 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::get('/api/admin/employers', 'Api\EmployerController@get');
+		Route::post('/api/admin/employer/featured', 'Api\EmployerController@featured');
+		Route::post('/api/admin/employer/remove-featured', 'Api\EmployerController@removeFeatured');
+		Route::get('/api/admin/employer/featured', 'Api\EmployerController@getFeatured');
+		Route::get('/api/admin/employer/blocked', 'Api\EmployerController@blocked');
+		Route::post('/api/admin/employer/blocked', 'Api\EmployerController@storeBlocked');
+		Route::post('/api/admin/employer/unblock', 'Api\EmployerController@unblock');
 
 		Route::get('/api/admin/post-type', 'Api\PostController@type');
 		Route::post('/api/admin/page/create', 'Api\PostController@store');

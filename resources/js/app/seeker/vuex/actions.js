@@ -4,3 +4,9 @@ export const fetchUser = ({ commit }) => {
         commit('setUser', response.data.data)
     })
 }
+
+export const fetchResumes = ({ commit }) => {
+    return axios.get('/api/resume/my').then((response) => {
+        commit('setResume', response.data.data)
+    })
+}

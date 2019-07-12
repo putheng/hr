@@ -4,7 +4,7 @@ import {
     CompanyType, EmployeeType, Industry,
     UpdateProfile, ChangePassword, Adds, Answer, Blog,
     Gateway, Pending, Accepted, Rejected,
-    Listings, Unpublish, Expired, About
+    Listings, Unpublish, Expired, About, Employer, Featured, Blocked
 } from '../components'
 
 export default [
@@ -12,6 +12,21 @@ export default [
         path: '/admin/listings/publish',
         component: Listings,
         name: 'listings'
+    },
+    {
+        path: '/admin/employer',
+        component: Employer,
+        name: 'admin-employer'
+    },
+    {
+        path: '/admin/employer/blocked',
+        component: Blocked,
+        name: 'admin-employer-blocked'
+    },
+    {
+        path: '/admin/employer/featured',
+        component: Featured,
+        name: 'admin-featured'
     },
     {
         path: '/admin/listings/unpublish',

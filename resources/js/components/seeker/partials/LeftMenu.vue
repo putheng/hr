@@ -24,6 +24,9 @@
 						<router-link class="menu-link" :to="{ name:'j-create-resume' }">
 							Create
 						</router-link>
+						<router-link class="menu-link" :to="{ name:'j-create-upload' }">
+							Upload
+						</router-link>
 					</li>
 				</ul>
 				<!-- /child menu -->

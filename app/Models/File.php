@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Resume;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,5 +16,10 @@ class File extends Model
     public function path()
     {
     	return asset($this->path);
+    }
+
+    public function resume()
+    {
+    	return $this->hasOne(Resume::class);
     }
 }

@@ -197,6 +197,21 @@ export const fetchCompany = ({commit}) => {
 	})
 }
 
+export const fetchFeaturedCompany = ({commit}) => {
+	return axios.get('/api/admin/employer/featured').then((response) => {
+		commit('setCompany', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+export const fetchBlockedCompany = ({commit}) => {
+	return axios.get('/api/admin/employer/blocked').then((response) => {
+		commit('setCompany', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchDeposit = ({commit}) => {
 	commit('resetDeposits')
 	return axios.get('/api/admin/deposits/all').then((response) => {

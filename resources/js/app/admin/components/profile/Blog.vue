@@ -8,7 +8,19 @@
 			<br>
 			<div class="card-text col-md-12">
 				<form @submit.prevent="submit">
-					<app-input class="col-md-6" name="Title" label="Title" v-model="form.title"/>
+					<div class="form-group col-md-6">
+						<label for="title" class="col-form-label">Title</label>
+						<input 
+							name="title" id="title"
+							type="text" class="form-control"
+							v-model="form.title"
+							:class="{'is-invalid': validation.title}"
+						>
+						<p class="text-danger" v-if="validation.title">
+				            <i class="fa fa-exclamation-circle fa-fw"></i>
+				            {{ validation.title[0] }}
+				        </p>
+					</div>
 
 					<br>
 
@@ -43,7 +55,7 @@
 						<td>{{ item.id }}</td>
 						<td>{{ item.title }}</td>
 						<td>
-							<a href="#" class="btn btn-sm btn-icon btn-secondary">
+							<a @click.prevent="setFormData(item)" href="#" class="btn btn-sm btn-icon btn-secondary">
 								<i class="fa fa-pencil-alt"></i>
 								<span class="sr-only">Edit</span>
 							</a>
@@ -100,6 +112,11 @@
 	        }),
 	        convertToID(text){
 			    return 'ab'+ text + 'ab'
+			},
+			setFormData(data){
+				console.log(data)
+				this.form.title = data.title
+				this.form.content = data.content
 			}
 		},
 		computed: {

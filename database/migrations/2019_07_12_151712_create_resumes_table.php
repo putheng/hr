@@ -15,12 +15,14 @@ class CreateResumesTable extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->unsignedBigInteger('user_id');
-            $table->json('information');
-            $table->timestamps();
+            $table->integer('user_id');
+            $table->integer('type')->default(true);
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('title');
+            $table->integer('file_id')->nullable();
+
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

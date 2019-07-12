@@ -1,6 +1,6 @@
 import {
 	Home, Profile, ChangePassword,
-    Resume, CreateResume
+    Resume, CreateResume, Upload
 } from '../components'
 
 export default [
@@ -28,5 +28,10 @@ export default [
         path: '/jobseeker/resume/create',
         component: CreateResume,
         name: 'j-create-resume'
+    },
+    {
+        path: '/jobseeker/resume/upload',
+        component: Upload,
+        name: 'j-create-upload'
     }
 ]

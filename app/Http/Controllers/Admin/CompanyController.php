@@ -12,7 +12,7 @@ class CompanyController extends Controller
     public function all()
     {
     	return CompanyResource::collection(
-    		Company::orderBy('id', 'desc')->limit(15)->get()
+    		Company::latest()->isNotBlocked()->get()
     	);
     }
 }

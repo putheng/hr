@@ -60,7 +60,7 @@ return [
 	'Search_result' => 'Search result',
 
 	'login' => 'Login',
+	'Login' => 'Login',
 	'Register' => 'Register',
-	'login' => 'Login',
-	'login' => 'Login',
+	'working_hour' => 'Operating Hours : Mon-Fri (8:00 am to 5:00 pm)',
 ];

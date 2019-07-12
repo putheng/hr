@@ -6,9 +6,8 @@
 				Update your profile
 			</h4>
 			<div class="card-text col-md-6">
+				<seeker-avatar sendAs="image" endpoint="/api/seeker/avatar"/>
 				<app-form commit="seeker/setUser" action="/api/seeker/profile" method="post">
-
-					<image-upload sendAs="image" endpoint="/api/seeker/avatar"/>
 
 					<template v-for="(item, key, index) in user">
 						<app-input :value="item" name="name" label="Username" v-if="key == 'name'"/>

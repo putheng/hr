@@ -109,6 +109,28 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
+				<a href="#" class="menu-link">
+					<span class="menu-icon oi oi-people"></span>
+					<span class="menu-text">Employer</span>
+				</a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'admin-employer' }">
+							All
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-featured' }">
+							Featured
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'admin-employer-blocked' }">
+							Blocked
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Setting</span></a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">
