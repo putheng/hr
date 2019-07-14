@@ -3,8 +3,8 @@
 	<h2 class="section-title"> Create Resume </h2>
 	<div class="row">
 		<div class="col-md-8">
+			
 			<form @submit.prevent="submit">
-
 				<!-- Title -->
 				<div class="card card-fluid">
 					<div class="card-header">
@@ -12,7 +12,10 @@
 						<div></div>
 					</div>
 					<div class="card-body">
-						<app-input name="title" v-model="title" />
+						<!-- <app-input v-model="title" name="title" /> -->
+						<div class="form-group">
+							<input v-model="title" name="title" id="title" type="text" class="form-control">
+						</div>
 					</div>
 				</div>
 
@@ -25,40 +28,50 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-6">
-								<app-input v-model="personal.first_name" 
-									name="first_name" label="First name"/>
+								<div class="form-group">
+									<label for="first_name" class="col-form-label">First name</label> <input name="first_name" id="first_name" type="text" class="form-control" v-model="personal.first_name">
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="last_name" class="col-form-label">Last name</label> <input name="last_name" id="last_name" type="text" class="form-control" v-model="personal.last_name">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.last_name" 
-									name="last_name" label="Last name"/>
+								<div class="form-group">
+									<label for="gender" class="col-form-label">Gender</label> <input name="gender" id="gender" type="text" class="form-control" v-model="personal.gender">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.gender" 
-									name="gender" label="Gender"/>
+								<div class="form-group">
+									<label for="dob" class="col-form-label">Date of Birth</label> <input name="dob" id="dob" type="text" class="form-control" v-model="personal.dob">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.dob" 
-									name="dob" label="Date of Birth"/>
+								<div class="form-group">
+									<label for="email" class="col-form-label">Email</label> <input name="email" id="email" type="text" class="form-control" v-model="personal.email">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.email" 
-									name="email" label="Email"/>
+								<div class="form-group">
+									<label for="marital" class="col-form-label">Marital</label> <input name="marital" id="marital" type="text" class="form-control" v-model="personal.marital">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.marital" 
-									name="marital" label="Marital"/>
+								<div class="form-group">
+									<label for="mobile" class="col-form-label">Mobile</label> <input name="mobile" id="mobile" type="text" class="form-control" v-model="personal.mobile">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.mobile" 
-									name="mobile" label="Mobile"/>
+								<div class="form-group">
+									<label for="nationality" class="col-form-label">Nationality</label> <input name="nationality" id="nationality" type="text" class="form-control" v-model="personal.nationality">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input v-model="personal.nationality" 
-									name="nationality" label="Nationality"/>
-							</div>
-							<div class="col-md-6">
-								<app-input v-model="personal.address" 
-									name="address" label="Address"/>
+								<div class="form-group">
+									<label for="address" class="col-form-label">Address</label> <input name="address" id="address" type="text" class="form-control" v-model="personal.address">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -107,8 +120,9 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
-								<app-input name="Position" label="Position" 
-									v-model="preferrences.position"/>
+								<div class="form-group">
+									<label for="position" class="col-form-label">Position</label> <input name="position" id="position" type="text" class="form-control" v-model="preferrences.position">
+								</div>
 							</div>
 							<div class="col-md-6">
 								<app-select 
@@ -118,7 +132,7 @@
 							<div class="col-md-6">
 								<app-select 
 									commit="Location" v-model="preferrences.location" 
-									name="location" label="Location"/>
+									name="location" label="Location" value="1"/>
 							</div>
 							<div class="col-md-6">
 								<app-select 
@@ -281,19 +295,30 @@
 				<!-- Training -->
 				<div class="card card-fluid">
 					<div class="card-body">
-						<app-text name="training" label="Training" max="1000" v-model="training"/>
+						<div class="form-group">
+							<label for="training">Training</label> 
+							<textarea v-model="training" id="training" rows="4" name="training" class="form-control"></textarea>
+						</div>
 					</div>
 				</div>
 
+				<!-- Reference -->
 				<div class="card card-fluid">
 					<div class="card-body">
-						<app-text name="reference" label="Reference" max="1000" v-model="reference"/>
+						<div class="form-group">
+							<label for="reference">Reference</label> 
+							<textarea v-model="reference" id="reference" rows="4" name="reference" class="form-control"></textarea>
+						</div>
 					</div>
 				</div>
 
+				<!-- Hobby -->
 				<div class="card card-fluid">
 					<div class="card-body">
-						<app-text name="hobby" label="Hobby" max="1000" v-model="hobby"/>
+						<div class="form-group">
+							<label for="hobby">Hobby</label> 
+							<textarea v-model="hobby" id="hobby" rows="4" name="hobby" class="form-control"></textarea>
+						</div>
 					</div>
 				</div>
 
@@ -315,43 +340,19 @@
 	import { mapGetters } from 'vuex'
 
 	export default {
+		props: ['id'],
+
 		data(){
 			return {
-				title: '',
+				data: [],
+				title: null,
 				training: '',
 				hobby: '',
 				reference: '',
-				experiences: [
-					{
-						company: '',
-						from: '',
-						to: '',
-						position: '',
-						description: '',
-					}
-				],
-				skills :[
-					{
-						title: '',
-						experiences: '',
-					}
-				],
-				languages :[
-					{
-						title: '',
-						level: '',
-					}
-				],
-				educations :[
-					{
-						qualification: '',
-						university: '',
-						field: '',
-						from: '',
-						to: '',
-						description: '',
-					}
-				],
+				experiences: [],
+				skills :[],
+				languages :[],
+				educations :[],
 				preferrences: {
 					industry: '',
 					location: '',
@@ -395,10 +396,11 @@
 				}
 			}
 		},
+
 		methods:{
 			submit(){
 				this.$store.commit('setLoading')
-				axios.post('/api/resume/create', {
+				axios.post(`/api/resume/edit/${this.id}`, {
 					title: this.title,
 					training: this.training,
 					hobby: this.hobby,
@@ -409,9 +411,9 @@
 					educations: this.educations,
 					preferrences: this.preferrences,
 					personal: this.personal,
-					career: this.career
+					career: this.career,
 				}).then((response) => {
-					this.$router.replace('/jobseeker/resume')
+					
 				})
 			},
 			addExperience(){
@@ -459,12 +461,31 @@
 			},
 			removeEducation(index){
 			   this.educations.splice(index, 1)
+			},
+			fetchData(){
+				axios.get(`/api/resume/my/${this.id}`).then(response => {
+					this.title = response.data.data.title
+					this.personal = response.data.data.information.personal
+					this.preferrences = response.data.data.information.preferrences
+					this.educations = response.data.data.information.educations
+					this.experiences = response.data.data.information.experiences
+					this.skills = response.data.data.information.skills
+					this.languages = response.data.data.information.languages
+					this.training = response.data.data.information.training
+					this.reference = response.data.data.information.reference
+					this.hobby = response.data.data.information.hobby
+				})
 			}
 		},
+
 		computed: {
 			...mapGetters({
 				user: 'employer/getUser'
 			})
+		},
+
+		mounted(){
+			this.fetchData()
 		}
 	}
 </script>

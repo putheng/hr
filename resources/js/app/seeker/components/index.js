@@ -7,3 +7,4 @@ export const ChangePassword = Vue.component('change-password', require('./profil
 export const Resume = Vue.component('resume', require('./resume/Resume.vue').default)
 export const CreateResume = Vue.component('create', require('./resume/Create.vue').default)
 export const Upload = Vue.component('upload', require('./resume/Upload.vue').default)
+export const Edit = Vue.component('upload', require('./resume/Edit.vue').default)

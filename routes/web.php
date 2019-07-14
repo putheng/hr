@@ -96,6 +96,8 @@ Route::group(['middleware' => 'auth'], function(){
 		Route::post('/api/resume/upload', 'Seeker\ResumeController@upload');
 
 		Route::get('/api/resume/my', 'Seeker\ResumeController@show');
+		Route::get('/api/resume/my/{resume}', 'Seeker\ResumeController@get');
+		Route::post('/api/resume/edit/{resume}', 'Seeker\ResumeController@storeUpdate');
 		Route::post('/api/resume/destroy', 'Seeker\ResumeController@destroy');
 
 	});

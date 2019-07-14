@@ -3,12 +3,11 @@
 	<div class="card-body">
 		<h3 class="card-title"> Resume </h3>
 		<br>
-		<table class="table" id="myTable2">
+		<table class="table">
 			<thead>
 				<th>#</th>
 				<th>Name</th>
-				<th>Download</th>
-				<th>Delete</th>
+				<th>Action</th>
 			</thead>
 			<tbody>
 				<template v-if="resumes.length">
@@ -16,15 +15,21 @@
 						<td>{{ resume.id }}</td>
 						<td>{{ resume.title }}</td>
 						<td>
-							<a :href="'/file/download/'+ resume.id" target="_blank">Download</a>
-						</td>
-						<td>
-
-							<a href="#" class="btn btn-sm btn-icon btn-secondary"
-									data-toggle="modal"
+							<template v-if="resume.type == 1">
+								<a :href="'/file/download/'+ resume.id" target="_blank">Download</a>
+							</template>
+							<template v-if="resume.type == 2">
+								<a href="#" target="_blank">View</a>
+								|
+								<router-link 
+									:to="{name: 'j-resume-edit', params: { id: resume.id}}">
+										Edit
+								</router-link>
+							</template>
+							|
+							<a href="#" data-toggle="modal"
 								:data-target="'#'+convertToID(resume.title)">
-								<i class="far fa-trash-alt"></i>
-								<span class="sr-only">Remove</span>
+								Delete
 							</a>
 							<app-modal 
 								commit="seeker/setResume"

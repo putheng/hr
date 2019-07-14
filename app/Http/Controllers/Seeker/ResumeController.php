@@ -11,8 +11,38 @@ use Illuminate\Http\Request;
 class ResumeController extends Controller
 {
     public function store(Request $request)
-    {
+    {  
+        $json = json_encode($request->all());
 
+        $resume = new Resume;
+        $resume->title = $request->title;
+        $resume->user()->associate($request->user());
+        $resume->type = 2;
+        $resume->information = $json;
+
+        $resume->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Resume was created'
+        ]);
+    }
+
+    public function storeUpdate(Request $request, Resume $resume)
+    {  
+        $json = json_encode($request->all());
+
+        $resume->title = $request->title;
+        $resume->user()->associate($request->user());
+        $resume->type = 2;
+        $resume->information = $json;
+
+        $resume->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Resume was updated'
+        ]);
     }
 
     public function download(Request $request, Resume $resume)
@@ -42,6 +72,13 @@ class ResumeController extends Controller
     {
         return ResumeResource::collection(
             $request->user()->resumes()->orderBy('id', 'desc')->get()
+        );
+    }
+
+    public function get(Request $request, Resume $resume)
+    {
+        return new ResumeResource(
+            $resume
         );
     }
 

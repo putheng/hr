@@ -33,3 +33,11 @@ table.v-top tr td{
     vertical-align: middle;
 }
 
+.push-right{
+    float: right !important;
+}
+
+.no-tb-padding{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}

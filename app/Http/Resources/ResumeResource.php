@@ -18,6 +18,8 @@ class ResumeResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'file' => $this->file,
+            'type' => $this->type,
+            'information' => json_decode($this->information),
         ];
     }
 }

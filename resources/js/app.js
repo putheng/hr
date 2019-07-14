@@ -54,8 +54,6 @@ Vue.use(VueInternationalization);
 
 const lang = document.documentElement.lang.substr(0, 2);
 
-console.log(lang)
-
 const i18n = new VueInternationalization({
     locale: lang,
     messages: Locale
