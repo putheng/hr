@@ -17,10 +17,7 @@
       @enderror
     </div>
     <div class="form-group row">
-      <div class="col-md-6">
-        <input type="button" class="form-control btn btn-primary" value="Login with Facebook" id="formGroupExampleInput2">
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-12 text-center">
         <input type="submit" class="form-control btn btn-danger" value="Login" id="formGroupExampleInput2">
       </div>
     </div>

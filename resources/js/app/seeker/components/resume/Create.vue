@@ -223,7 +223,7 @@
 								<app-input v-model="experience.to" name="to" label="To" type="date"/>
 							</div>
 						</div>
-						<app-text v-model="experience.descritpion" name="description" label="Description" max="1000" />
+						<app-text v-model="experience.description" name="description" label="Description" max="1000" />
 						<hr v-if="experiences.length > 1">
 					</div>
 				</div>

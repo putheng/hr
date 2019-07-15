@@ -1,8 +1,7 @@
 <template>
 <div>
 	<header class="page-title-bar">
-		<h1 class="page-title"> Expired Jobs </h1>
-		<p class="text-muted">Manage your expired jobs</p>
+		<h1 class="page-title">Purchased CV</h1>
 	</header>
 	<div class="page-section">
 		<!-- .section-block -->
@@ -10,36 +9,24 @@
 			<div class="card card-fluid">
 				<div class="card-header border-0">
 					<div class="d-flex align-items-center">
-						<span class="mr-auto">Jobs</span>
+						<span class="mr-auto">Resumes</span>
 					</div>
 				</div>
 				<div class="table-responsive">
 					<table class="table table-hover">
 						<thead class="thead-">
 							<tr>
-								<th>#</th>
 								<th>Title</th>
-								<th>Location</th>
-								<th>Category</th>
+								<th>Username</th>
 							</tr>
 						</thead>
 						<tbody>
-							<template v-if="listings.length">
-								<tr v-for="(item, index, key) in listings">
-									<td>{{ item.id }}</td>
-									<td>{{ item.title }}</td>
-									<td>{{ item.category }}</td>
-									<td>{{ item.location }}</td>
-								</tr>
-							</template>
-							<template v-else>
-								<tr>
-									<td colspan="5" class="text-center">
-										No any listing
-										<router-link :to="{name: 'create-listing'}">
-											Create listing
-										</router-link>
+							<template v-if="resume.length">
+								<tr v-for="(item, index, key) in resume" :key="key">
+									<td>
+										<a target="_blank" :href="'/resume/view/'+ item.id">{{ item.title }}</a>
 									</td>
+									<td>{{ item.user }}</td>
 								</tr>
 							</template>
 						</tbody>
@@ -57,12 +44,15 @@
 	export default {
 		methods: {
 			...mapActions({
-				fetch: 'employer/fetchExpiredListing'
-			})
+				fetch: 'employer/fetchMyResume'
+			}),
+			convertToID(text){
+			    return 'ab'+ text + 'ab'
+			}
 		},
 		computed: {
 			...mapGetters({
-				listings: 'employer/getListing'
+				resume: 'employer/getResume'
 			})
 		},
 		mounted(){

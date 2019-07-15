@@ -11,9 +11,24 @@ class Resume extends Model
 {
 	use SoftDeletes;
 
+	public function scopeLatest($query)
+	{
+		return $query->orderBy('id', 'desc');
+	}
+
+    public function scopeCv($query)
+    {
+        return $query->where('type', 2);
+    }
+
     public function user()
     {
     	return $this->belongsTo(User::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function file()

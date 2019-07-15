@@ -69,6 +69,25 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
+				<a href="#" class="menu-link">
+					<span class="menu-icon fa fa-tasks"></span>
+					<span class="menu-text">Resume</span>
+				</a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'resume-search' }">
+							Search
+						</router-link>
+						<router-link class="menu-link" :to="{ name:'resume-purchased' }">
+							Purchased
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Setting</span></a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">

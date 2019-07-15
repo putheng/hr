@@ -1,5 +1,21 @@
 import axios from 'axios'
 
+export const fetchResume = ({commit}) => {
+	return axios.get('/api/resume/show').then((response) => {
+		commit('setResume', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchMyResume = ({commit}) => {
+	return axios.get('/api/resume/show/my').then((response) => {
+		commit('setResume', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchPackages = ({commit}) => {
 	return axios.get('/api/package/all').then((response) => {
 		commit('allPackages', response.data.data)

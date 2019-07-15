@@ -29,3 +29,7 @@ export const getDeposits = (state) => {
 export const getPaymentGateway = (state) => {
     return state.paymentGatway
 }
+
+export const getResume = (state) => {
+    return state.resume
+}

@@ -37,3 +37,7 @@ export const setDeposits = (state, deposits) => {
 export const setPaymentGateway = (state, gatways) => {
 	state.paymentGatway = gatways
 }
+
+export const setResume = (state, resume) => {
+	state.resume = resume
+}

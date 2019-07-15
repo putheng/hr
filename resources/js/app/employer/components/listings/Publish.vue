@@ -1,8 +1,8 @@
 <template>
 <div>
 	<header class="page-title-bar">
-		<h1 class="page-title"> Publish Listing </h1>
-		<p class="text-muted">Manage your publish listings</p>
+		<h1 class="page-title"> Publish jobs </h1>
+		<p class="text-muted">Manage your publish jobs</p>
 	</header>
 	<div class="page-section">
 		<!-- .section-block -->
@@ -10,18 +10,7 @@
 			<div class="card card-fluid">
 				<div class="card-header border-0">
 					<div class="d-flex align-items-center">
-						<span class="mr-auto">listings</span>
-						<div class="dropdown">
-							<button type="button" class="btn btn-icon btn-light" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></button>
-							<div class="dropdown-arrow"></div>
-							<div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: top, left; top: 36px; left: 36px;">
-								<a href="#" class="dropdown-item">#</a>
-								<a href="#" class="dropdown-item">Title</a>
-								<a href="#" class="dropdown-item">Location</a>
-								<a href="#" class="dropdown-item">Action</a>
-								<a href="#" class="dropdown-item">Category</a>
-							</div>
-						</div>
+						<span class="mr-auto">Jobs</span>
 					</div>
 				</div>
 				<div class="table-responsive">
@@ -32,7 +21,6 @@
 								<th>Title</th>
 								<th>Location</th>
 								<th>Category</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -42,9 +30,6 @@
 									<td>{{ item.title }}</td>
 									<td>{{ item.category }}</td>
 									<td>{{ item.location }}</td>
-									<td>
-										edit
-									</td>
 								</tr>
 							</template>
 							<template v-else>

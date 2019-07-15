@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class ResumeController extends Controller
 {
+    public function view(Request $request, Resume $resume)
+    {
+        $cv = $resume;
+        $resume = json_decode($resume->information);
+
+        return view('resume.view', compact('resume', 'cv'));
+    }
+
     public function store(Request $request)
     {  
         $json = json_encode($request->all());

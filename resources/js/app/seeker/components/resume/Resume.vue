@@ -19,7 +19,7 @@
 								<a :href="'/file/download/'+ resume.id" target="_blank">Download</a>
 							</template>
 							<template v-if="resume.type == 2">
-								<a href="#" target="_blank">View</a>
+								<a :href="'/resume/view/'+ resume.id" target="_blank">View</a>
 								|
 								<router-link 
 									:to="{name: 'j-resume-edit', params: { id: resume.id}}">

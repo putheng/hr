@@ -7,4 +7,5 @@ export default {
 	packages: [],
 	deposits: [],
 	paymentGatway: [],
+	resume: [],
 }

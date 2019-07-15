@@ -16,3 +16,6 @@ export const CreateListing = Vue.component('create-listing', require('./listings
 export const ExpiredListing = Vue.component('create-listing', require('./listings/Expired.vue').default)
 export const PublishListing = Vue.component('create-listing', require('./listings/Publish.vue').default)
 export const UnpublishListing = Vue.component('create-listing', require('./listings/Unpublish.vue').default)
+
+export const Search = Vue.component('search', require('./resume/Search.vue').default)
+export const Purchased = Vue.component('purchased', require('./resume/Purchased.vue').default)

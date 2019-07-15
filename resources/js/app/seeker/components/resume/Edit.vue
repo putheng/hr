@@ -85,8 +85,10 @@
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-12">
-								<app-input name="position" label="Latest Position" 
-									v-model="career.position"/>
+								<div class="form-group">
+									<label for="position" class="col-form-label">Latest Position</label> 
+									<input v-model="career.position" name="position" id="position" type="text" class="form-control">
+								</div>
 							</div>
 							<div class="col-md-6">
 								<app-select commit="Education" v-model="career.qualification" name="qualification" label="Qualification"/>
@@ -101,12 +103,16 @@
 								<app-select commit="Industries" v-model="career.industry" name="industry" label="Industry"/>
 							</div>
 							<div class="col-md-6">
-								<app-input name="salary" label="Latest Salary ($)" 
-									v-model="career.salary"/>
+								<div class="form-group">
+									<label for="salary" class="col-form-label">Latest Salary ($)</label> 
+									<input v-model="career.salary" name="salary" id="salary" type="text" class="form-control">
+								</div>
 							</div>
 							<div class="col-md-6">
-								<app-input name="experience" label="Years of experience" 
-									v-model="career.experience"/>
+								<div class="form-group">
+									<label for="experience" class="col-form-label">Years of experience</label> 
+									<input v-model="career.experience" name="experience" id="experience" type="text" class="form-control">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -140,9 +146,10 @@
 									name="location" label="Function"/>
 							</div>
 							<div class="col-md-6">
-								<app-select 
-									commit="Salary" v-model="preferrences.salary" 
-									name="Salary" label="Expected Salary"/>
+								<div class="form-group">
+									<label for="salary" class="col-form-label">Expected Salary ($)</label> 
+									<input v-model="preferrences.salary" name="salary" id="salary" type="text" class="form-control">
+								</div>
 							</div>
 							<div class="col-md-6">
 								<app-select 
@@ -200,7 +207,7 @@
 								<app-input v-model="education.to" name="to" label="To" type="date"/>
 							</div>
 						</div>
-						<app-text v-model="education.descritpion" name="descritpion" label="Description" max="1000" />
+						<app-text v-model="education.description" name="descritpion" label="Description" max="1000" />
 						<hr v-if="experiences.length > 1">
 					</div>
 				</div>
@@ -474,6 +481,7 @@
 					this.training = response.data.data.information.training
 					this.reference = response.data.data.information.reference
 					this.hobby = response.data.data.information.hobby
+					this.career = response.data.data.information.career
 				})
 			}
 		},

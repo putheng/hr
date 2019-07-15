@@ -64,9 +64,15 @@ Route::group(['prefix' => 'api'], function(){
 	Route::get('industry/all', 'Admin\IndustryController@show');
 	Route::get('employee-type/all', 'Admin\EmployeeTypeController@show');
 
+	Route::get('resume/show', 'Api\ResumeController@show');
+	Route::get('resume/show/my', 'Api\ResumeController@my');
+	Route::post('resume/purchase', 'Api\ResumeController@purchase');
+
 });
 
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/resume/view/{resume}', 'Seeker\ResumeController@view')->name('resume.view');
+
 	Route::get('/file/download/{resume}', 'Seeker\ResumeController@download');
 
 	Route::post('/api/files/upload', 'Api\FileController@upload');

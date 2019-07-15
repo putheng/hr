@@ -12,6 +12,8 @@ import {
     PublishListing,
     UnpublishListing,
     ExpiredListing,
+    Search,
+    Purchased,
 } from '../components'
 
 export default [
@@ -79,5 +81,15 @@ export default [
         path: '/employer/listing/expired',
         component: ExpiredListing,
         name: 'expired-listing'
+    },
+    {
+        path: '/employer/resume/search',
+        component: Search,
+        name: 'resume-search'
+    },
+    {
+        path: '/employer/resume/purchased',
+        component: Purchased,
+        name: 'resume-purchased'
     }
 ]
