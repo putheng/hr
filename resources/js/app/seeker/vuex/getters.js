@@ -5,3 +5,7 @@ export const getUser = (state) => {
 export const getResumes = (state) => {
     return state.resumes
 }
+
+export const getFavorite = (state) => {
+    return state.listing
+}

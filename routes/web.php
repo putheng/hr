@@ -1,13 +1,5 @@
 <?php
 
-use App\Models\Urgent;
-
-Route::get('/test', function(){
-	$listings = Urgent::isLive()->get()->pluck('listing_id')->toArray();
-
-	dd($listings);
-});
-
 Route::get('/language/switch/{locale}', 'LanguageController@switch');
 
 Route::get('/api/routes', function(){
@@ -97,6 +89,11 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('/api/user/profile', 'Employer\HomeController@store');
 
 	Route::group(['middleware' => ['role:jobseeker']], function(){
+		Route::get('/api/seeker/listings/favorite', 'Seeker\ListingController@favorite');
+		Route::post('/api/seeker/listings/favorite/remove', 'Seeker\ListingController@remove');
+
+		Route::get('/listing/favorite/{listing}/save', 'Seeker\FavoriteController@save')->name('listing.favorite');
+		Route::get('/listing/favorite/{listing}/remove', 'Seeker\FavoriteController@remove')->name('listing.favorite.remove');
 
 		Route::get('/api/seeker/profile', 'Seeker\ProfileController@profile');
 		Route::post('/api/seeker/profile', 'Seeker\ProfileController@store');

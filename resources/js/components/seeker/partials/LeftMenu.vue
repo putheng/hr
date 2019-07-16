@@ -34,6 +34,19 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
+				<a href="#" class="menu-link"><span class="menu-icon fa fa-tasks"></span> <span class="menu-text">Jobs</span></a> <!-- child menu -->
+				<ul class="menu">
+					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'j-listing-favorite' }">
+							Favorite
+						</router-link>
+					</li>
+				</ul>
+				<!-- /child menu -->
+			</li>
+			<!-- /.menu-item -->
+			<!-- .menu-item -->
+			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fas fa-wrench"></span> <span class="menu-text">Setting</span></a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">

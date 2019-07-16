@@ -67,11 +67,13 @@
                   {{ __('general.Seekers') }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
-                  <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
-                  <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
-                  <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
-                  <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
+                  <a href="#" class="dropdown-item">{{ __('general.Create') }}</a>
+                  <a href="{{ url('/register') }}" class="dropdown-item">{{ __('general.create_account') }}</a>
+                  <a href="{{ url('/listings') }}" class="dropdown-item">{{ __('general.Search') }} </a>
+                  <a href="{{ route('home.qa') }}" class="dropdown-item">
+                    {{ __('general.Questions') }} &
+                    {{ __('general.Answers') }}
+                  </a>
                 </div>
               </li>
               <li class="nav-item">

@@ -26,7 +26,7 @@
             <h6>: {{ $listing->startDate }} - {{ $listing->closingDate }}</h6>
 
             <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-12">
                 <table class="table table-bordered">
                   <tr>
                     <th>{{ __('general.Term') }}</th>
@@ -49,7 +49,7 @@
                 </table>
               </div>
 
-              <div class="col-md-10">
+              <div class="col-md-12">
                 <h6>{{ __('general.DESCRIPTION') }}</h6><hr>
                 <p>{{ $listing->description }}</p>
                 
@@ -59,11 +59,24 @@
 
                 <br><br>
                 <h6>{{ __('general.CONTACT') }}</h6><hr>
-                  <div><strong>{{ __('general.Person') }}:</strong> {{ $listing->user->name }}</div>
-                  <div><strong>{{ __('general.Phone') }}:</strong> {{ $listing->company->phone }}</div>
-                  <div><strong>{{ __('general.Email') }}:</strong> {{ $listing->user->email }}</div>
-                  <div><strong>{{ __('general.Address') }} :</strong> {{ $listing->company->address }}</div>
-                  </ul>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div><strong>{{ __('general.Person') }}:</strong> {{ $listing->user->name }}</div>
+                    <div><strong>{{ __('general.Phone') }}:</strong> {{ $listing->company->phone }}</div>
+                    <div><strong>{{ __('general.Email') }}:</strong> {{ $listing->user->email }}</div>
+                    <div><strong>{{ __('general.Address') }} :</strong> {{ $listing->company->address }}</div>
+                  </div>
+                  @if(auth()->user()->hasRole('jobseeker'))
+                    <div class="col-md-4">
+                      <br>
+                      @can('favorite', $listing)
+                        <a href="{{ route('listing.favorite', $listing) }}" class="btn btn-info btn-sm">Add to Favorite</a>
+                      @else
+                        <a href="{{ route('listing.favorite.remove', $listing) }}" class="btn btn-info btn-sm">Remove Favorite</a>
+                      @endcan
+                    </div>
+                  @endif
+                </div>
               </div>
             </div>
         </div>

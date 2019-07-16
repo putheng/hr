@@ -1,4 +1,5 @@
 export default {
 	user: {},
-	resumes: []
+	resumes: [],
+	listing: []
 }

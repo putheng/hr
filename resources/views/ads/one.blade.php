@@ -9,7 +9,13 @@
     <div class="carousel-inner">
       @foreach($one as $key => $item)
         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-          <img style="max-height: 90px;" src="{{ $item->file->path() }}" class="d-block w-100" alt="{{ $item->name }}">
+          @if(!empty($item->link))
+            <a href="{{ $item->link }}" target="_blank">
+              <img style="max-height: 90px;" src="{{ $item->file->path() }}" class="d-block w-100" alt="{{ $item->name }}">
+            </a>
+          @else
+            <img style="max-height: 90px;" src="{{ $item->file->path() }}" class="d-block w-100" alt="{{ $item->name }}">
+          @endif
         </div>
       @endforeach
     </div>

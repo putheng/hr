@@ -71,6 +71,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Listing::class);
     }
 
+    public function favorite()
+    {
+        return $this->belongsToMany(Listing::class)->withTimestamps();
+    }
+
     public function packages()
     {
         return $this->belongsToMany(Package::class)->withTimestamps()->withPivot('id');
@@ -114,6 +119,11 @@ class User extends Authenticatable implements JWTSubject
         if($this->hasRole('employer')){
             return route('employer.index');
         }
+    }
+
+    public function myresumes()
+    {
+        return $this->hasMany(Resume::class);
     }
 
     public function resumes()

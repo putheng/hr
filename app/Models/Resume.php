@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\File;
+use App\Models\Listing;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -29,6 +30,11 @@ class Resume extends Model
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
+    }
+
+    public function listings()
+    {
+        return $this->belongsToMany(Listing::class)->withTimestamps();
     }
 
     public function file()

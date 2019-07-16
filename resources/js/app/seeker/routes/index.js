@@ -1,6 +1,6 @@
 import {
 	Home, Profile, ChangePassword,
-    Resume, CreateResume, Upload, Edit
+    Resume, CreateResume, Upload, Edit, Favorite
 } from '../components'
 
 export default [
@@ -39,5 +39,10 @@ export default [
         component: Edit,
         name: 'j-resume-edit',
         props: true
+    },
+    {
+        path: '/jobseeker/listing/favorite',
+        component: Favorite,
+        name: 'j-listing-favorite'
     }
 ]

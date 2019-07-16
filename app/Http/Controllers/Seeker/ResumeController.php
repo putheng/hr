@@ -79,7 +79,7 @@ class ResumeController extends Controller
     public function show(Request $request)
     {
         return ResumeResource::collection(
-            $request->user()->resumes()->orderBy('id', 'desc')->get()
+            $request->user()->myresumes()->orderBy('id', 'desc')->get()
         );
     }
 

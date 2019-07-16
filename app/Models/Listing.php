@@ -11,6 +11,7 @@ use App\Models\Level;
 use App\Models\ListingPackage;
 use App\Models\Location;
 use App\Models\Package;
+use App\Models\Resume;
 use App\Models\Salary;
 use App\Models\Term;
 use App\User;
@@ -81,7 +82,12 @@ class Listing extends Model
 
     public function company()
     {
-    	return $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class);
+    }
+
+    public function favorite()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function term()
@@ -132,5 +138,10 @@ class Listing extends Model
     public function package()
     {
         return $this->hasOne(ListingPackage::class);
+    }
+
+    public function resumes()
+    {
+        return $this->belongsToMany(Resume::class)->withTimestamps();
     }
 }

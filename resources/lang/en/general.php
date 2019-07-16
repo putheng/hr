@@ -64,4 +64,6 @@ return [
 	'Login' => 'Login',
 	'Register' => 'Register',
 	'working_hour' => 'Operating Hours : Mon-Fri (8:00 am to 5:00 pm)',
+	'create_account' => 'Create Account',
+	'job_search' => 'Jobs Search',
 ];

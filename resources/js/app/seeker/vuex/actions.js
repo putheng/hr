@@ -10,3 +10,9 @@ export const fetchResumes = ({ commit }) => {
         commit('setResume', response.data.data)
     })
 }
+
+export const fetchFavorite = ({ commit }) => {
+    return axios.get('/api/seeker/listings/favorite').then((response) => {
+        commit('setFavorite', response.data.data)
+    })
+}

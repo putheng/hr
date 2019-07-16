@@ -8,3 +8,5 @@ export const Resume = Vue.component('resume', require('./resume/Resume.vue').def
 export const CreateResume = Vue.component('create', require('./resume/Create.vue').default)
 export const Upload = Vue.component('upload', require('./resume/Upload.vue').default)
 export const Edit = Vue.component('upload', require('./resume/Edit.vue').default)
+
+export const Favorite = Vue.component('favorite', require('./listing/Favorite.vue').default)
