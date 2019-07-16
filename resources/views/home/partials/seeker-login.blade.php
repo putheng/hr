@@ -5,20 +5,20 @@
   <form action="{{ url('login') }}" method="post">
     @csrf
     <div class="form-group">
-      <input name="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="inputEmail" value="{{ old('email') }}" placeholder="Email">
+      <input name="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="Email">
       @error('email')
           <small class="text-danger">{{ $message }}</small>
       @enderror
     </div>
     <div class="form-group">
-      <input name="password" type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password">
+      <input name="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password">
       @error('password')
           <small class="text-danger">{{ $message }}</small>
       @enderror
     </div>
     <div class="form-group row">
       <div class="col-md-12 text-center">
-        <input type="submit" class="form-control btn btn-danger" value="Login" id="formGroupExampleInput2">
+        <input type="submit" class="form-control btn btn-primary" value="Login"/>
       </div>
     </div>
   </form>

@@ -28,7 +28,7 @@
               <div class="media">
                 <div class="media-body">
                   <h5 class="mt-0">
-                    <a href="#">{{ $tip->title }}</a>
+                    <a href="{{ route('tip.show', $tip) }}">{{ $tip->title }}</a>
                   </h5>
                   {{ str_limit(strip_tags($tip->content), 300) }}
                 </div>

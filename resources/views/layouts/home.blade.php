@@ -3,7 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> --}}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -62,7 +62,7 @@
                 <a class="nav-link" href="{{ route('home.tip') }}">{{ __('general.Tips') }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.qa') }}">{{ __('general.qa') }}</a>
+                <a class="nav-link" href="{{ route('listing.index') }}">{{ __('general.jobs') }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('home.contact') }}">{{ __('general.Contact') }}</a>
@@ -139,7 +139,7 @@
               <p>{{ __('general.Search') }}</p>
               <p>{{ __('general.Create') }}</p>
               <p>{{ __('general.Alert') }}</p>
-              <p>{{ __('general.Questions') }} & {{ __('general.Answers') }}</p>
+              <p><a href="{{ route('home.qa') }}">{{ __('general.Questions') }} & {{ __('general.Answers') }}</a></p>
             </div>
             <div class="col-md-4 col-sm-12">
               <h5>{{ __('general.Employer') }}</h5>

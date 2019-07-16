@@ -1,4 +1,5 @@
 <div class="col-md-8 col-sm-12 advance search">
+  <br>
   <h5>{{ __('general.Looking') }}</h5>
   <form action="{{ route('home.filter') }}" method="get">
     <div class="form-row">
@@ -25,8 +26,9 @@
         </select>
       </div>
     </div>
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary col-md-9 center mx-auto mb-2">{{ __('general.search_btn') }}</button>
+    <div class="col-md-12 text-center">
+      <br>
+      <button type="submit" class="btn btn-primary col-md-8 center mx-auto mb-2">{{ __('general.search_btn') }}</button>
     </div>
   </form>
 </div>
