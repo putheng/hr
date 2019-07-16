@@ -34,7 +34,9 @@ class AdvertisingController extends Controller
     	$ads->user()->associate(auth()->user());
     	$ads->save();
 
-    	return AdvertisingResource::collection(Advertising::latest()->get())
+    	return AdvertisingResource::collection(
+            Advertising::latest()->get()
+        )
     		->additional(['success' => true]);
     }
 

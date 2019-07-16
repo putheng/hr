@@ -23,7 +23,7 @@ Class FileUpload
 
     public function buildDirPath()
     {
-    	return 'uploads/'. date('Y') .'/'. date('m') .'/';
+    	return date('Y') .'/'. date('m') .'/';
     }
 
     public function getFileContent(UploadedFile $file)

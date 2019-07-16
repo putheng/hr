@@ -15,7 +15,7 @@ class File extends Model
 
     public function path()
     {
-    	return asset($this->path);
+    	return asset('uploads/'.$this->path);
     }
 
     public function resume()
