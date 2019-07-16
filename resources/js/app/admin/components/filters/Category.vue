@@ -22,7 +22,7 @@
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 							data-toggle="modal"
-							:data-target="convertToTarget(category.name)+'edit'">
+							:data-target="'#'+ convertToID(category.id)+'edit'">
 							<i class="fa fa-pencil-alt"></i>
 							<span class="sr-only">Edit</span>
 						</a>
@@ -30,13 +30,13 @@
 							commit="admin/setCategories"
 							:key="key" :data="{id:category.id}"
 							:option="{ title: 'Update', url: '/api/category/edit'}"
-							cancel="Close" :id="convertToID(category.name) +'edit'" :title="'Update'" >
+							cancel="Close" :id="convertToID(category.id) +'edit'" :title="'Update'" >
 							<h6>{{ category.name }}</h6>
 							<app-input :value="category.name" name="name" label="Name"/>
 						</app-modal>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
-							:data-target="convertToTarget(category.name)">
+							:data-target="'#'+ convertToID(category.id)">
 							<i class="far fa-trash-alt"></i>
 							<span class="sr-only">Remove</span>
 						</a>
@@ -44,7 +44,7 @@
 							commit="admin/setCategories"
 							:key="category.id" :data="{id:category.id}"
 							:option="{ title: 'Delete', url: '/api/category/delete'}"
-							cancel="Close" :id="convertToID(category.name)" :title="'Delete ?'" >
+							cancel="Close" :id="convertToID(category.id)" :title="'Delete ?'" >
 							<h6>{{ category.name }}</h6>
 						</app-modal>
 					</td>
@@ -64,10 +64,7 @@ export default {
 			fetch: 'admin/fetchCategories'
 		}),
 		convertToID(text){
-		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
-		},
-		convertToTarget(text){
-	    	return '#'+ this.convertToID(text)
+		    return 'ab'+ text + 'ab'
 		}
 	},
 	mounted(){

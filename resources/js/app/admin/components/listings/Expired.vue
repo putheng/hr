@@ -10,7 +10,7 @@
 				<th>Company</th>
 				<th>Category</th>
 				<th>Location</th>
-				<th>Closing</th>
+				<th>Expired at</th>
 			</thead>
 			<tbody>
 				<template v-if="listings.length">
@@ -20,7 +20,7 @@
 						<td>{{ item.company }}</td>
 						<td>{{ item.category }}</td>
 						<td>{{ item.location }}</td>
-						<td>{{ item.closing }}</td>
+						<td>{{ item.expired }}</td>
 					</tr>
 				</template>
 

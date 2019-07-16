@@ -22,7 +22,7 @@
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 							data-toggle="modal"
-							:data-target="convertToTarget(item.name)+'edit'">
+							:data-target="'#'+ convertToID(item.id)+'edit'">
 							<i class="fa fa-pencil-alt"></i>
 							<span class="sr-only">Edit</span>
 						</a>
@@ -30,14 +30,14 @@
 							commit="admin/setEducation"
 							:key="key" :data="{id:item.id}"
 							:option="{ title: 'Update', url: '/api/education/edit'}"
-							cancel="Close" :id="convertToID(item.name) +'edit'" :title="'Update'" >
+							cancel="Close" :id="convertToID(item.id) +'edit'" :title="'Update'" >
 							<h6>{{ item.name }}</h6>
 							<app-input :value="item.name" name="name" label="Name"/>
 						</app-modal>
 						
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
-							:data-target="convertToTarget(item.name)">
+							:data-target="'#'+ convertToID(item.id)">
 							<i class="far fa-trash-alt"></i>
 							<span class="sr-only">Remove</span>
 						</a>
@@ -45,7 +45,7 @@
 							commit="admin/setEducation"
 							:key="item.id" :data="{id:item.id}"
 							:option="{ title: 'Delete', url: '/api/education/delete'}"
-							cancel="Close" :id="convertToID(item.name)" :title="'Delete ?'" >
+							cancel="Close" :id="convertToID(item.id)" :title="'Delete ?'" >
 							<h6>{{ item.name }}</h6>
 						</app-modal>
 					</td>
@@ -65,10 +65,7 @@ export default {
 			fetch: 'admin/fetchEducation'
 		}),
 		convertToID(text){
-		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
-		},
-		convertToTarget(text){
-	    	return '#'+ this.convertToID(text)
+		    return 'ab'+ text + 'ab'
 		}
 	},
 	mounted(){

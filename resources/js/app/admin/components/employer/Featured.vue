@@ -16,8 +16,8 @@
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
 					<td>{{ item.username }}</td>
-					<td>{{ item.phone }}</td>
 					<td>{{ item.email }}</td>
+					<td>{{ item.phone }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"

@@ -1,9 +1,11 @@
 <?php
 
-Route::get('/test', function(){
-	$locale = App::getLocale();
+use App\Models\Urgent;
 
-	dd($locale);
+Route::get('/test', function(){
+	$listings = Urgent::isLive()->get()->pluck('listing_id')->toArray();
+
+	dd($listings);
 });
 
 Route::get('/language/switch/{locale}', 'LanguageController@switch');
@@ -131,6 +133,9 @@ Route::group(['middleware' => 'auth'], function(){
 	});
 
 	Route::group(['middleware' => ['role:admin']], function(){
+
+		Route::get('/api/admin/seeker', 'Api\ResumeController@seeker');
+		Route::get('/api/admin/resume', 'Api\ResumeController@adminShow');
 
 		Route::get('/api/admin/employers', 'Api\EmployerController@get');
 		Route::post('/api/admin/employer/featured', 'Api\EmployerController@featured');

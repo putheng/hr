@@ -91,6 +91,15 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne(Image::class);
     }
 
+    public function picture()
+    {
+        if($this->avatar){
+            return $this->avatar->path();
+        }
+
+        return '/images/empty-profile-picture.png';
+    }
+
     public function deposits()
     {
         return $this->hasMany(Deposit::class);

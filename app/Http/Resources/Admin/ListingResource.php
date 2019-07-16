@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListingResource extends JsonResource
@@ -31,6 +32,7 @@ class ListingResource extends JsonResource
             'description' => $this->description,
             'requirement' => $this->requirement,
             'slug' => $this->slug,
+            'expired' => Carbon::parse($this->expires_at)->format('d/m/Y'),
         ];
     }
 }

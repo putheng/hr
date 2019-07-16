@@ -35,6 +35,6 @@ class CompanyResource extends JsonResource
             return $company->avatar->path();
         }
 
-        return '/images/empty-profile-picture.png';
+        return '/images/placeholder.png';
     }
 }

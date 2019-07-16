@@ -20,6 +20,10 @@ class ResumePolicy
             return true;
         }
 
+        if($user->hasRole('admin')){
+            return true;
+        }
+
         return false;
     }
 

@@ -45,4 +45,13 @@ class Company extends Model
     {
         return $this->hasOne(Image::class);
     }
+
+    public function logo()
+    {
+        if($this->avatar){
+            return $this->avatar->path();
+        }
+
+        return '/images/placeholder.png';
+    }
 }

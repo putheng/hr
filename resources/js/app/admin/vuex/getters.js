@@ -22,6 +22,14 @@ export const getPages = (state) => {
     return state.pages
 }
 
+export const getResume = (state) => {
+    return state.resume
+}
+
+export const getSeeker = (state) => {
+    return state.seeker
+}
+
 export const getCategories = (state) => {
     return state.categories
 }

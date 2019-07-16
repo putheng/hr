@@ -22,7 +22,7 @@
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 							data-toggle="modal"
-							:data-target="convertToTarget(type.name)+'edit'">
+							:data-target="'#'+ convertToID(type.id)+'edit'">
 							<i class="fa fa-pencil-alt"></i>
 							<span class="sr-only">Edit</span>
 						</a>
@@ -30,14 +30,14 @@
 							commit="admin/setCompanyType"
 							:data="{id:type.id}"
 							:option="{ title: 'Update', url: '/api/company-type/edit'}"
-							cancel="Close" :id="convertToID(type.name) +'edit'" :title="'Update'" >
+							cancel="Close" :id="convertToID(type.id) +'edit'" :title="'Update'" >
 							<h6>{{ type.name }}</h6>
 							<app-input :value="type.name" name="name" label="Name"/>
 						</app-modal>
 
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
-							:data-target="convertToTarget(type.name)">
+							:data-target="'#'+ convertToID(type.id)">
 							<i class="far fa-trash-alt"></i>
 							<span class="sr-only">Remove</span>
 						</a>
@@ -45,7 +45,7 @@
 							commit="admin/setCompanyType"
 							:data="{id:type.id}"
 							:option="{ title: 'Delete', url: '/api/company-type/delete'}"
-							cancel="Close" :id="convertToID(type.name)" :title="'Delete ?'" >
+							cancel="Close" :id="convertToID(type.id)" :title="'Delete ?'" >
 							<h6>{{ type.name }}</h6>
 						</app-modal>
 
@@ -66,10 +66,7 @@ export default {
 			fetch: 'admin/fetchCompanyType'
 		}),
 		convertToID(text){
-		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
-		},
-		convertToTarget(text){
-	    	return '#'+ this.convertToID(text)
+		    return 'ab'+ text + 'ab'
 		}
 	},
 	mounted(){

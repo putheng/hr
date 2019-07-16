@@ -44,22 +44,35 @@
                 <a class="nav-link" href="{{ route('home.about') }}">{{ __('general.about') }}</a>
               </li>
               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle"
-                    href="#" id="navbarDropdown"
-                    role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    {{ __('general.Services') }}
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
-                    <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
-                    <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
-                    <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
-                    <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
-                  </div>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.tip') }}">{{ __('general.Tips') }}</a>
+                <a class="nav-link dropdown-toggle"
+                  href="#" id="navbarDropdown"
+                  role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  {{ __('general.Services') }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
+                  <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
+                  <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
+                  <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
+                  <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                  href="#" id="navbarDropdown"
+                  role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  {{ __('general.Seekers') }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
+                  <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
+                  <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
+                  <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
+                  <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('listing.index') }}">{{ __('general.jobs') }}</a>
@@ -138,7 +151,7 @@
               <h5>{{ __('general.Seekers') }}</h5>
               <p>{{ __('general.Search') }}</p>
               <p>{{ __('general.Create') }}</p>
-              <p>{{ __('general.Alert') }}</p>
+              <p><a href="{{ route('home.tip') }}">{{ __('general.Tips') }}</a></p>
               <p><a href="{{ route('home.qa') }}">{{ __('general.Questions') }} & {{ __('general.Answers') }}</a></p>
             </div>
             <div class="col-md-4 col-sm-12">

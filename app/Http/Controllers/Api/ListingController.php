@@ -8,6 +8,7 @@ use App\Http\Requests\StoreListingFromRequest;
 use App\Http\Requests\StoreListingSecondStep;
 use App\Http\Resources\ListingResource;
 use App\Models\Listing;
+use App\Models\Urgent;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -41,6 +42,11 @@ class ListingController extends Controller
             'listing_id' => $listing->id,
             'package_id' => $request->package,
         ]);
+
+        $urgent = new Urgent;
+        $urgent->expired_at = Carbon::now()->addMonth('1');
+        $urgent->listing()->associate($listing);
+        $urgent->save();
 
         return response()->json([
             'success' => true,

@@ -18,6 +18,14 @@ export const setBlog = (state, blogs) => {
     state.blogs = blogs
 }
 
+export const setSeeker = (state, seeker) => {
+    state.seeker = seeker
+}
+
+export const setResume = (state, data) => {
+    state.resume = data
+}
+
 export const setPage = (state, pages) => {
     state.pages = pages
 }

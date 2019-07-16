@@ -12,12 +12,12 @@
 				<th></th>
 			</thead>
 			<tbody>
-				<tr v-for="(item, key) in companies">
+				<tr v-for="(item, key) in companies" :key="item.id">
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
 					<td>{{ item.username }}</td>
-					<td>{{ item.phone }}</td>
 					<td>{{ item.email }}</td>
+					<td>{{ item.phone }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
@@ -27,7 +27,7 @@
 						</a>
 						<app-modal 
 							commit="admin/setCompany"
-							:key="item.id" :data="{id:item.id}"
+							:data="{id:item.id}"
 							:option="{ title: 'Block', url: '/api/admin/employer/blocked'}"
 							cancel="Cancel" :id="convertToID(item.name)+'block'" title="Block Company" >
 							<h6>{{ item.name }}</h6>
@@ -35,16 +35,16 @@
 
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
-							:data-target="'#'+ convertToID(item.name)">
+							:data-target="'#'+ convertToID(item.name) +'edit'">
 							<i class="oi oi-bookmark"></i>
 							<span class="sr-only">Featured</span>
 						</a>
 
 						<app-modal 
 							commit="admin/setCompany"
-							:key="item.id" :data="{id:item.id}"
+							:data="{id:item.id}"
 							:option="{ title: 'Okay', url: '/api/admin/employer/featured'}"
-							cancel="Cancel" :id="convertToID(item.name)" title="Featured Company" >
+							cancel="Cancel" :id="convertToID(item.name) + 'edit'" title="Featured Company" >
 							<h6>{{ item.name }}</h6>
 						</app-modal>
 					</td>

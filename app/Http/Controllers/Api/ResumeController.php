@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\ResumeResource;
+use App\Http\Resources\Admin\ResumeResource;
+use App\Http\Resources\Admin\SeekerResource;
 use App\Models\Resume;
+use App\Models\Seeker;
 use Illuminate\Http\Request;
 
 class ResumeController extends Controller
@@ -14,6 +16,13 @@ class ResumeController extends Controller
     	return ResumeResource::collection(
     		Resume::with('user')->cv()->latest()->get()
     	);
+    }
+
+    public function seeker()
+    {
+        return SeekerResource::collection(
+            Seeker::orderBy('id', 'desc')->get()
+        );
     }
 
     public function my(Request $request)
@@ -32,5 +41,12 @@ class ResumeController extends Controller
     	return ResumeResource::collection(
     		Resume::with('user')->cv()->latest()->get()
     	);
+    }
+
+    public function adminShow()
+    {
+        return ResumeResource::collection(
+            Resume::with('user')->latest()->get()
+        );
     }
 }

@@ -74,7 +74,7 @@
 					</div>
 					<div class="col-md-4">
 						<br><br><br>
-						<img width="200" class="img-thumbnail" src="{{ auth()->user()->avatar->path() }}">
+						<img width="200" class="img-thumbnail" src="{{ auth()->user()->picture() }}">
 					</div>
 				</div>
 

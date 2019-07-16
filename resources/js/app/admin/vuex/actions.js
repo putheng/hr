@@ -8,6 +8,22 @@ export const fetchQuestion = ({commit}) => {
 	})
 }
 
+export const fetchResume = ({commit}) => {
+	return axios.get('/api/admin/resume').then((response) => {
+		commit('setResume', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
+export const fetchSeeker = ({commit}) => {
+	return axios.get('/api/admin/seeker').then((response) => {
+		commit('setSeeker', response.data.data)
+
+		return Promise.resolve(response)
+	})
+}
+
 export const fetchBlog = ({commit}) => {
 	return axios.get('/api/admin/blog').then((response) => {
 		commit('setBlog', response.data.data)

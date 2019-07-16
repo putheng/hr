@@ -21,4 +21,6 @@ export default {
 	blogs: [],
 	pageTypes: [],
 	pages: [],
+	resume: [],
+	seeker: [],
 }

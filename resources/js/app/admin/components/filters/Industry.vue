@@ -16,36 +16,36 @@
 				<th>Delete</th>
 			</thead>
 			<tbody>
-				<tr v-for="(item, key) in industries">
+				<tr v-for="(item, key) in industries" :key="key">
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
 					<td>
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 							data-toggle="modal"
-							:data-target="'#'+ convertToID(item.name)+'edit'">
+							:data-target="'#'+ convertToID(item.id)+'edit'">
 							<i class="fa fa-pencil-alt"></i>
 							<span class="sr-only">Edit</span>
 						</a>
 						<app-modal 
 							commit="admin/setIndustries"
-							:key="key" :data="{id:item.id}"
+							:data="{id:item.id}"
 							:option="{ title: 'Update', url: '/api/industry/edit'}"
-							cancel="Close" :id="convertToID(item.name) +'edit'" :title="'Update'" >
+							cancel="Close" :id="convertToID(item.id) +'edit'" :title="'Update'" >
 							<h6>{{ item.name }}</h6>
 							<app-input :value="item.name" name="name" label="Name"/>
 						</app-modal>
 
 						<a href="#" class="btn btn-sm btn-icon btn-secondary"
 								data-toggle="modal"
-							:data-target="'#'+ convertToID(item.name)">
+							:data-target="'#'+ convertToID(item.id)">
 							<i class="far fa-trash-alt"></i>
 							<span class="sr-only">Remove</span>
 						</a>
 						<app-modal 
 							commit="admin/setIndustries"
-							:key="item.id" :data="{id:item.id}"
+							:data="{id:item.id}"
 							:option="{ title: 'Delete', url: '/api/industry/delete'}"
-							cancel="Close" :id="convertToID(item.name)" :title="'Delete ?'" >
+							cancel="Close" :id="convertToID(item.id)" :title="'Delete ?'" >
 							<h6>{{ item.name }}</h6>
 						</app-modal>
 					</td>
@@ -65,7 +65,7 @@ export default {
 			fetch: 'admin/fetchIndustries'
 		}),
 		convertToID(text){
-		    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')
+		    return 'ab'+ text +'ab'
 		}
 	},
 	mounted(){

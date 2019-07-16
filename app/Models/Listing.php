@@ -41,7 +41,7 @@ class Listing extends Model
 
     public function scopeIslive($query)
     {
-        return $query->where('live', 1);
+        return $query->where('live', true);
     }
 
     public function scopeLatest($query)
@@ -122,6 +122,11 @@ class Listing extends Model
     public function packages()
     {
         return $this->belongsToMany(Package::class);
+    }
+
+    public function urgent()
+    {
+        return $this->belongsTo(Urgent::class);
     }
 
     public function package()
