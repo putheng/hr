@@ -34,9 +34,13 @@ class ResumeController extends Controller
 
     public function purchase(Request $request)
     {
+        $user = $request->user();
+
     	$resume = Resume::find($request->id);
 
-    	$resume->users()->sync($request->user());
+    	$resume->users()->sync($user);
+
+        $user->decrement('usd', 5);
 
     	return ResumeResource::collection(
     		Resume::with('user')->cv()->latest()->get()

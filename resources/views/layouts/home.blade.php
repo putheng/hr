@@ -67,7 +67,11 @@
                   {{ __('general.Seekers') }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a href="#" class="dropdown-item">{{ __('general.Create') }}</a>
+                  @if(auth()->check() && auth()->user()->hasRole('jobseeker'))
+                    <a href="/jobseeker/resume/create" class="dropdown-item">{{ __('general.Create') }}</a>
+                  @else
+                    <a href="/login" class="dropdown-item">{{ __('general.Create') }}</a>
+                  @endif
                   <a href="{{ url('/register') }}" class="dropdown-item">{{ __('general.create_account') }}</a>
                   <a href="{{ url('/listings') }}" class="dropdown-item">{{ __('general.Search') }} </a>
                   <a href="{{ route('home.qa') }}" class="dropdown-item">
