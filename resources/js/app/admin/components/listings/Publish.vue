@@ -1,7 +1,7 @@
 <template>
 <div class="card">
 	<div class="card-body">
-		<h3 class="card-title">Publish Listings</h3>
+		<h3 class="card-title">Publish Jobs</h3>
 
 		<table class="table">
 			<thead>
@@ -27,7 +27,7 @@
 				<template v-else>
 					<tr>
 						<td colspan="5" class="text-center">
-							No any listing
+							No any Jobs
 						</td>
 					</tr>
 				</template>

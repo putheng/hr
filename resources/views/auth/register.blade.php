@@ -20,7 +20,7 @@
 			@enderror
 		</div>
 		<div class="form-group col-md-12">
-			<label for="inputEmail">Email</label>
+			<label for="inputEmail">{{ __('general.Email') }}</label>
 			<input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="inputEmail" value="{{ old('email') }}">
 			@error('email')
 			    <small class="text-danger">{{ $message }}</small>
@@ -50,7 +50,7 @@
 	<br>
 	<div class="form-row">
 		<div class="col">
-			<label for="inputPassword">Password</label>
+			<label for="inputPassword">{{ __('general.password') }}</label>
 			<input name="password" type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror">
 			@error('password')
 			    <small class="text-danger">{{ $message }}</small>

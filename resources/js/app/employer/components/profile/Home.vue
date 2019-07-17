@@ -76,7 +76,6 @@
 										<th>Title</th>
 										<th>Location</th>
 										<th>Category</th>
-										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -86,9 +85,6 @@
 											<td>{{ item.title }}</td>
 											<td>{{ item.category }}</td>
 											<td>{{ item.location }}</td>
-											<td>
-												edit
-											</td>
 										</tr>
 									</template>
 									<template v-else>

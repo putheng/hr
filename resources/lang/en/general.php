@@ -35,7 +35,7 @@ return [
 	'more_jon' => 'More Jobs',
 	'CV' => 'CV Search',
 	'search_btn' => 'Search',
-	'Purchase' => 'Purchase Service Packages',
+	'Purchase' => 'Service Packages',
 	'Term' => 'Term',
 	'Level' => 'Level',
 	'Salary' => 'Salary',
@@ -66,4 +66,5 @@ return [
 	'working_hour' => 'Operating Hours : Mon-Fri (8:00 am to 5:00 pm)',
 	'create_account' => 'Create Account',
 	'job_search' => 'Jobs Search',
+	'password' => 'Password',
 ];

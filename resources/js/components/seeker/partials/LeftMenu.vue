@@ -6,7 +6,7 @@
 			<li class="menu-item">
 				<router-link :to="{ name: 'jobseeker' }" class="menu-link">
 					<span class="menu-icon fas fa-home"></span>
-					<span class="menu-text">Dashboard</span>
+					<span class="menu-text">Home</span>
 				</router-link>
 			</li>
 			<!-- /.menu-item -->
@@ -40,6 +40,7 @@
 						<router-link class="menu-link" :to="{ name:'j-listing-favorite' }">
 							Favorite
 						</router-link>
+						<a href="/listings" target="_blank" class="menu-link">Jobs Search</a>
 					</li>
 				</ul>
 				<!-- /child menu -->

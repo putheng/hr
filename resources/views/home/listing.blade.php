@@ -20,10 +20,18 @@
     <div class="row">
       <div class="col-md-8 col-sm-12 popular-search">
         <div class="col-md-12">
-            <h4 class="mt-3">{{ $listing->title }}</h4>
-            <h6>: {{ $listing->company->name }}</h6>
-            <h6>: {{ optional($listing->location)->name }}</h6>
-            <h6>: {{ $listing->startDate }} - {{ $listing->closingDate }}</h6>
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="mt-3">{{ $listing->title }}</h4>
+              <h6>: {{ $listing->company->name }}</h6>
+              <h6>: {{ optional($listing->location)->name }}</h6>
+              <h6>Start {{ $listing->startDate }} - Closing {{ $listing->closingDate }}</h6>
+              
+            </div>
+            <div class="col-md-4">
+              <img src="{{ $listing->company->logo() }}" class="img-fluid employer-logo-list">
+            </div>
+          </div>
 
             <div class="row">
               <div class="col-md-12">
@@ -50,12 +58,13 @@
               </div>
 
               <div class="col-md-12">
+              <br>
                 <h6>{{ __('general.DESCRIPTION') }}</h6><hr>
-                <p>{{ $listing->description }}</p>
+                <p>{!! nl2br($listing->description) !!}</p>
                 
                 <br>
                 <h6>{{ __('general.REQUIREMENTS') }}</h6><hr>
-                <p>{{ $listing->requirement }}</p>
+                <p>{!! nl2br($listing->requirement) !!}</p>
 
                 <br><br>
                 <h6>{{ __('general.CONTACT') }}</h6><hr>

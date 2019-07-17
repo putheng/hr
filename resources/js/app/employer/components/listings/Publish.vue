@@ -35,9 +35,9 @@
 							<template v-else>
 								<tr>
 									<td colspan="5" class="text-center">
-										No any listing
+										No any Job
 										<router-link :to="{name: 'create-listing'}">
-											Create listing
+											Create Job
 										</router-link>
 									</td>
 								</tr>

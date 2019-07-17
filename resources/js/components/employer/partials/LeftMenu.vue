@@ -14,7 +14,7 @@
 			<li class="menu-item has-child">
 				<a href="#" class="menu-link">
 					<span class="menu-icon oi oi-list-rich"></span>
-					<span class="menu-text">Listings</span>
+					<span class="menu-text">Job</span>
 				</a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">

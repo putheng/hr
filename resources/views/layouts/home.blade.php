@@ -126,7 +126,7 @@
                     href="#" id="navbarDropdown"
                     role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    {{ strtoupper(\App::getLocale()) }}
+                    {{ strtoupper(app()->getLocale()) }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a href="/language/switch/en" class="dropdown-item">EN</a>
@@ -155,8 +155,14 @@
             </div>
             <div class="col-md-4 col-sm-12">
               <h5>{{ __('general.Seekers') }}</h5>
-              <p>{{ __('general.Search') }}</p>
-              <p>{{ __('general.Create') }}</p>
+              <p><a href="{{ url('/listings') }}">{{ __('general.Search') }}</a></p>
+              <p>
+                @if(auth()->check() && auth()->user()->hasRole('jobseeker'))
+                  <a href="/jobseeker/resume/create">{{ __('general.Create') }}</a>
+                @else
+                  <a href="/login">{{ __('general.Create') }}</a>
+                @endif
+              </p>
               <p><a href="{{ route('home.tip') }}">{{ __('general.Tips') }}</a></p>
               <p><a href="{{ route('home.qa') }}">{{ __('general.Questions') }} & {{ __('general.Answers') }}</a></p>
             </div>

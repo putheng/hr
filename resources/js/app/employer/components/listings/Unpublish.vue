@@ -2,7 +2,7 @@
 <div>
 	<header class="page-title-bar">
 		<h1 class="page-title"> Unpublish Jobs </h1>
-		<p class="text-muted">Manage your unpublished listings</p>
+		<p class="text-muted">Manage your unpublished Job</p>
 	</header>
 	<div class="page-section">
 		<!-- .section-block -->
@@ -35,9 +35,9 @@
 							<template v-else>
 								<tr>
 									<td colspan="5" class="text-center">
-										No any listing
+										No any Job
 										<router-link :to="{name: 'create-listing'}">
-											Create listing
+											Create Job
 										</router-link>
 									</td>
 								</tr>

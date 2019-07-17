@@ -1,8 +1,8 @@
 <template>
 <div>
 	<header class="page-title-bar">
-		<h1 class="page-title"> Create Listing </h1>
-		<p class="text-muted"> Please fill in the form below to create listings</p>
+		<h1 class="page-title"> Create Job</h1>
+		<p class="text-muted"> Please fill in the form below to create Job</p>
 	</header>
 	<div class="page-section">
 		<!-- .section-block -->
@@ -40,7 +40,7 @@
 							<div class="content" :class="{active: step == 1, 'dstepper-none': step !== 1, 'dstepper-block': step == 1 }">
 								<!-- fieldset -->
 								<fieldset>
-									<legend>Listing details</legend>
+									<legend>Job details</legend>
 										<div class="row">
 											<div class="col-md-12">
 												<app-input v-model="listing.title" name="title" label="Title" />
