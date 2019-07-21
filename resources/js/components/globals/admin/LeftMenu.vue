@@ -68,9 +68,12 @@
 			<!-- /.menu-item -->
 			<!-- .menu-item -->
 			<li class="menu-item has-child">
-				<a href="#" class="menu-link"><span class="menu-icon fa fa-tasks"></span> <span class="menu-text">Listings</span></a> <!-- child menu -->
+				<a href="#" class="menu-link"><span class="menu-icon fa fa-tasks"></span> <span class="menu-text">Job</span></a> <!-- child menu -->
 				<ul class="menu">
 					<li class="menu-item">
+						<router-link class="menu-link" :to="{ name:'admin-create-job' }">
+							Create
+						</router-link>
 						<router-link class="menu-link" :to="{ name:'listings' }">
 							Publish
 						</router-link>

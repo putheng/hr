@@ -5,7 +5,7 @@ import {
     UpdateProfile, ChangePassword, Adds, Answer, Blog,
     Gateway, Pending, Accepted, Rejected,
     Listings, Unpublish, Expired, About, Employer, Featured, Blocked,
-    Search, Seeker
+    Search, Seeker, CreateJob
 } from '../components'
 
 export default [
@@ -48,6 +48,11 @@ export default [
         path: '/admin/listings/expired',
         component: Expired,
         name: 'expired'
+    },
+    {
+        path: '/admin/listings/create',
+        component: CreateJob,
+        name: 'admin-create-job'
     },
     {
         path: '/admin/package/create',

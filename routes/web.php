@@ -131,6 +131,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::group(['middleware' => ['role:admin']], function(){
 
+		Route::post('/api/admin/job/create', 'Admin\ListingController@store');
+
 		Route::get('/api/admin/seeker', 'Api\ResumeController@seeker');
 		Route::get('/api/admin/resume', 'Api\ResumeController@adminShow');
 

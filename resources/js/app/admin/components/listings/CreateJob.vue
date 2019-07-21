@@ -20,13 +20,11 @@
 									<a href="#" class="step-trigger" tabindex="-1" aria-selected="true"><span class="step-indicator step-indicator-icon"><i class="oi oi-account-login"></i></span> <span class="d-none d-sm-inline">Job</span></a>
 								</li>
 								<li class="step" :class="{active: step == 2, success: step > 2 }">
-									<a @click.prevent="step == 2" href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-person"></i></span> <span class="d-none d-sm-inline">Detail</span></a>
+									<a @click.prevent="step == 2" href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-credit-card"></i></span> <span class="d-none d-sm-inline">Detail</span></a>
 								</li>
 								<li @click.prevent="step == 3" class="step" :class="{active: step == 3, success: step > 3 }">
-									<a href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-credit-card"></i></span> <span class="d-none d-sm-inline">Payment</span></a>
-								</li>
-								<li @click.prevent="step == 4" class="step" :class="{active: step == 4, success: step > 4 }">
-									<a href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon"><i class="oi oi-check"></i></span> <span class="d-none d-sm-inline">Confirm</span></a>
+									<a href="#" class="step-trigger" tabindex="-1" aria-selected="false"><span class="step-indicator step-indicator-icon">
+										<i class="oi oi-person"></i></span> <span class="d-none d-sm-inline">Employer</span></a>
 								</li>
 							</ul>
 						</div>
@@ -35,7 +33,7 @@
 					<!-- /.card-header -->
 					<!-- .card-body -->
 					<div class="card-body">
-						<app-form id="create-listing-form" action="/api/listing/create" class="p-lg-4 p-sm-3 p-0" redirect="/employer/listing/publish">
+						<form id="create-listing-form" class="p-lg-4 p-sm-3 p-0" @submit.prevent="submit">
 							<!-- .content -->
 							<div class="content" :class="{active: step == 1, 'dstepper-none': step !== 1, 'dstepper-block': step == 1 }">
 								<!-- fieldset -->
@@ -123,13 +121,46 @@
 								<!-- /fieldset -->
 							</div>
 							<!-- /.content -->
+
 							<!-- .content -->
 							<div class="content" :class="{active: step == 3, 'dstepper-none': step !== 3, 'dstepper-block': step == 3}">
 								<!-- fieldset -->
 								<fieldset>
-									<legend>Payment Information</legend>
+									<legend>Employer Information</legend>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-group">
+												<label>Company Logo</label>
+												<input class="form-control" type="file" @change="imageSet" accept="image/*">
+											</div>
+										</div>
+										<div class="col-md-8">
+											<div v-if="show" class="avatar-preview">
+										        <div id="imagePreview">
+										        </div>
+										    </div>
+										</div>
+									</div>
 									<!-- .custom-control -->
-									<app-select v-model="payment.package" label="Package" name="package" commit="MyPackages"></app-select>
+									<app-input v-model="company.name" name="company" label="Company"/>
+
+									<div class="row">
+										<div class="col-md-6">
+											<app-input v-model="company.phone" name="phone" label="Phone"/>
+										</div>
+										<div class="col-md-6">
+											<app-input v-model="company.person" name="person" label="Person"/>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-md-6">
+											<app-input v-model="company.email" name="email" label="Email"/>
+										</div>
+										<div class="col-md-6">
+											<app-input v-model="company.address" name="address" label="Company address"/>
+										</div>
+									</div>
 									<!-- /.custom-control -->
 
 									<hr class="mt-5">
@@ -138,61 +169,20 @@
 											class="prev btn btn-secondary">
 											Previous
 										</button>
-										<!-- &nbsp;&nbsp;&nbsp;
-										<button @click.prevent="formSave"
-											type="submit"
-											class="submit btn btn-secondary">
-											Save
-										</button> -->
 
-										<button @click.prevent="submitPayment"
+										<button @click.prevent="submit"
 											class="btn btn-primary ml-auto" :disabled="loading">
 											<span v-if="loading" 
 												class="spinner-border spinner-border-sm"
 												role="status" aria-hidden="true"></span>
-											Next step
+											Submit
 										</button>
 									</div>
 								</fieldset>
 								<!-- /fieldset -->
 							</div>
 							<!-- /.content -->
-							<!-- .content -->
-							<div class="content" :class="{active: step == 4, 'dstepper-none': step !== 4, 'dstepper-block': step == 4 }">
-								<fieldset>
-									<legend>Terms Agreement</legend>
-									<!-- .card -->
-									<div class="card bg-light">
-										<div class="card-body overflow-auto" style="height: 260px">
-											<p>HR Dimension operates as a talent solutions company with expertise in specialised permanent and contracting recruitment, using database and websites. Our solutions are built on trust and privacy. This is why we are committed to protecting the personal information of employers and candidates. We encourage you to review the statements below explaining how we collect and use information you share with us.</p>
-											<p>The HR Dimension Privacy Policy outlines how HR Dimension collects, discloses, uses, stores or otherwise handles your personal information.</p>
-
-											<h6>CONSENT</h6>
-											<p>By accessing HR Dimension websites and/or submitting your personal information to HR Dimension through any means, you consent to the use of your information as set out in the Policy. If you do not agree with any term of the Policy, please do not use HR Dimension's services or website.</p>
-
-											<h6>DATA SECURITY AND STORAGE</h6>
-											<p>HR Dimension takes reasonable steps to protect the personal information we hold from loss, unauthorised access, and misuse. The use of locks and security systems assist HR Dimension in protecting your personal information. Your personal information may be stored in hard copy documents, or electronically on HR Dimension's software or systems. When no longer required, personal information is destroyed in a secure manner or deleted.</p>
-										</div>
-									</div>
-									<!-- /.card -->
-									<!-- .form-group -->
-									<app-checkbox name="terms_conditions" label="Agree to terms and conditions"/>
-									<!-- /.form-group -->
-									<hr class="mt-5">
-									<div class="d-flex">
-										<button @click.prevent="previousStep"
-											type="button"
-											class="prev btn btn-secondary">
-											Previous
-										</button>
-
-										<app-button class="ml-auto" type="submit">Publish</app-button>
-									</div>
-								</fieldset>
-								<!-- /fieldset -->
-							</div>
-							<!-- /.content -->
-						</app-form>
+						</form>
 						<!-- /form -->
 					</div>
 					<!-- /.card-body -->
@@ -213,6 +203,7 @@
 			return {
 				step: 1,
 				loading: false,
+				show: false,
 				listing: {
 					title: '',
 					description: '',
@@ -229,15 +220,33 @@
 					salary: '',
 					experience: '',
 				},
-				payment: {
-					package: ''
-				}
+				company: {
+					name: '',
+					person: '',
+					phone: '',
+					email: '',
+					address: '',
+				},
+				file: '',
 			}
 		},
 		methods: {
 			...mapActions({
 				clearMessage: 'clearMessage'
 			}),
+			imageSet(e){
+				this.file = e.target.files[0]
+
+				var reader = new FileReader()
+				reader.onload = function(e) {
+		            $('#imagePreview').css('background-image', 'url('+ e.target.result +')')
+		            $('#imagePreview').hide()
+		            $('#imagePreview').fadeIn(650)
+		        }
+
+		        reader.readAsDataURL(e.target.files[0])
+		        this.show = true
+			},
 			nextStep(){
 				this.loading = true
 				axios.post('/api/listing/create/a', this.listing).then((response) => {
@@ -261,24 +270,40 @@
 			thirdStep(){
 				this.step++
 			},
-			submitPayment(){
-				this.loading = true
-				axios.post('/api/listing/create/c', this.payment).then((response) => {
-					this.loading = false
-					this.clearMessage()
-					this.step++
-				}).catch((error) => {
-					this.loading = false
-				})
-			},
-			formSave(){
-				this.loading = true
-				axios.post('/api/listing/create/save', [ this.payment, this.second, this.listing ]).then((response) => {
-					this.loading = false
+			submit(e){
+				this.$store.commit('setLoading')
+				let formData = new FormData();
 
-				}).catch((error) => {
-					this.loading = false
-				})
+                formData.append('logo', this.file)
+                formData.append('title', this.listing.title)
+                formData.append('description', this.listing.description)
+                formData.append('requirements', this.listing.requirements)
+                formData.append('start_date', this.listing.start_date)
+                formData.append('closing_date', this.listing.closing_date)
+
+                formData.append('location', this.second.location)
+                formData.append('category', this.second.category)
+                formData.append('term', this.second.term)
+                formData.append('level', this.second.level)
+                formData.append('education', this.second.education)
+                formData.append('salary', this.second.salary)
+                formData.append('experience', this.second.experience)
+
+                formData.append('name', this.company.name)
+                formData.append('person', this.company.person)
+                formData.append('phone', this.company.phone)
+                formData.append('email', this.company.email)
+                formData.append('address', this.company.address)
+
+				return axios.post('/api/admin/job/create', formData).then((response) => {
+
+					this.$router.replace('/admin/listings/publish')
+
+	                return Promise.resolve(response)
+	            }).catch((error) => {
+
+	                return Promise.reject(error)
+	            })
 			},
 			previousStep(){
 				this.step--
@@ -286,3 +311,12 @@
 		}
 	}
 </script>
+
+<style scoped>
+	#imagePreview{
+		width: 180px;
+		height: 100px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+</style>
