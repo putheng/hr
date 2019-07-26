@@ -29,7 +29,7 @@ class PackageFormRequest extends FormRequest
             'price' => 'required',
             'post' => 'required',
             'days' => 'required',
-            'description' => 'required|max:500',
+            'description' => 'required',
         ];
     }
 }
