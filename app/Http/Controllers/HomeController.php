@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Package;
 use App\Models\Page;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -75,5 +76,10 @@ class HomeController extends Controller
         $about = Page::where('type', 6)->first();
 
         return view('home.banner_add', compact('about'));
+    }
+
+    public function packages(Request $request, Package $package)
+    {
+        return view('home.package', compact('package'));
     }
 }

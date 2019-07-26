@@ -7,6 +7,7 @@ use App\Http\View\Composers\CategoryComposer;
 use App\Http\View\Composers\FeaturedEmployer;
 use App\Http\View\Composers\HomeFilter;
 use App\Http\View\Composers\HomeListing;
+use App\Http\View\Composers\PackageComposer;
 use App\Http\View\Composers\UrgentJob;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -30,6 +31,11 @@ class ViewComposerServicesProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer(
+            ['layouts.home'], 
+            PackageComposer::class
+        );
+
         View::composer(
             ['home.partials.browse-job'], 
             CategoryComposer::class

@@ -63,7 +63,8 @@ class PackageController extends Controller
     	$package->post = $request->post;
     	$package->cv = $request->cv;
     	$package->price = $request->price;
-    	$package->days = $request->days;
+        $package->days = $request->days;
+    	$package->description = $request->description;
     	$package->user()->associate($request->user());
     	$package->save();
 

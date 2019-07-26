@@ -1,7 +1,7 @@
 <template>
 <div class="card">
 	<div class="card-body">
-		<h3 class="card-title"> Category </h3>
+		<h3 class="card-title">Job Category </h3>
 
 		<app-form action="/api/category/create" method="post" class="col-md-6" commit="admin/setCategories">
 			<app-input name="category" label="Category"/>

@@ -18,8 +18,18 @@ class PageResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content,
-            'type_id' => $this->types->id,
-            'type_name' => $this->types->title,
+            'type_id' => $this->type_id(),
+            'type_name' => $this->type_title(),
         ];
+    }
+
+    public function type_id()
+    {
+        return $this->types ? $this->types->id : null;
+    }
+
+    public function type_title()
+    {
+        return $this->types ? $this->types->title : null;
     }
 }

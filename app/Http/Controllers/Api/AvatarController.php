@@ -5,30 +5,19 @@ namespace App\Http\Controllers\Api;
 use Storage;
 use App\Models\Image;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManager;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Account\StoreAvatarFormRequest;
 
 class AvatarController extends Controller
 {
-    protected $imageManager;
-
-    public function __construct(ImageManager $imageManager)
-    {
-        $this->imageManager = $imageManager;
-    }
-
     public function avatar(StoreAvatarFormRequest $request)
     {
         $path = '/' . uniqid(true).time() . '.png';
 
-        $processedImage = $this->imageManager->make($request->file('image')->getPathName())
-            ->resize(250, 250, function ($c) {
-                $c->aspectRatio();
-            })
-            ->encode('png')->stream();
-        
-        $imageFile = $processedImage->__toString();
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $imageFile = file_get_contents($file->getRealPath());
+
         
         Storage::disk('public_dir')->put('avatar'. $path, $imageFile);
 
@@ -60,27 +49,13 @@ class AvatarController extends Controller
         $unique = str_slug($request->user()->company->name) .'-' .time();
 
         $path = '/' . $unique . '.png';
-        $covername = '/' . $unique . '.jpg';
         
-        $processedImage = $this->imageManager->make($request->file('image')->getPathName())
-            ->resize(350, 250, function ($c) {
-                $c->aspectRatio();
-            })
-            ->encode('png')->stream();
-        
-        $imageFile = $processedImage->__toString();
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $imageFile = file_get_contents($file->getRealPath());
         
         Storage::disk('public_dir')->put('avatar'. $path, $imageFile);
-        
-        $cover_path = public_path('images/cover.png');
-        $cover = $this->imageManager
-            ->make($cover_path)
-            ->insert($imageFile, 'center')
-            ->encode('jpeg')->stream();
 
-        $cover_file = $cover->__toString();
-
-        Storage::disk('public_dir')->put('cover'. $covername, $cover_file);
 
         $avatar = $request->user()->company->avatar();
         if($avatar->count()){

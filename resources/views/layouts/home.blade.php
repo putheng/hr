@@ -51,8 +51,14 @@
                   {{ __('general.Services') }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a href="{{ route('home.basic') }}" class="dropdown-item">{{ __('general.Basic') }}</a>
-                  <a href="{{ route('home.urgent') }}" class="dropdown-item">{{ __('general.Urgent') }}</a>
+                  @if($packages->count())
+                    @foreach($packages as $package)
+                      <a href="{{ route('home.package', $package) }}" class="dropdown-item">
+                        {{ $package->title }}
+                      </a>
+                    @endforeach
+                  @endif
+                  
                   <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
                   <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
                   <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>

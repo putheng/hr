@@ -8,7 +8,7 @@
 		<app-form :action="url" method="post" redirect="/admin/package/all">
 			<template v-for="(item, key, index) in package">
 				<div class="col-md-7 mb-7" v-if="index != 0">
-					<app-input :name="key" :label="formatedText(key)" :value="item"/>
+					<app-input v-if="key != 'name'" :name="key" :label="formatedText(key)" :value="item"/>
 				</div>
 			</template>
 

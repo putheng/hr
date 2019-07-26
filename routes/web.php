@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/language/switch/{locale}', 'LanguageController@switch');
 
 Route::get('/api/routes', function(){
@@ -16,6 +18,14 @@ Route::get('/api/routes', function(){
 	return response()->json(['data' => $routes]);
 });
 
+Route::get('/foo', function () {
+	$exitCode = Artisan::call('migrate:refresh', [
+	    '--force' => true,
+	]);
+
+	dd($exitCode);
+});
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home.index');
@@ -29,6 +39,7 @@ Route::get('/featured-employers', 'HomeController@featured')->name('home.feature
 Route::get('/recruitment-agencies', 'HomeController@recruitment')->name('home.recruitment');
 Route::get('/banner-advertising', 'HomeController@banner')->name('home.banner');
 Route::get('/contact-us', 'HomeController@contact')->name('home.contact');
+Route::get('/package/{package}', 'HomeController@packages')->name('home.package');
 
 Route::get('/filter', 'ListingController@filter')->name('home.filter');
 Route::get('/listing/{listing}', 'ListingController@show')->name('listing.show');

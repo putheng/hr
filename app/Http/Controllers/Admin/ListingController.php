@@ -12,16 +12,9 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
 
 class ListingController extends Controller
 {
-    protected $imageManager;
-
-    public function __construct(ImageManager $imageManager)
-    {
-        $this->imageManager = $imageManager;
-    }
 
     public function store(Request $request)
     {
@@ -108,27 +101,13 @@ class ListingController extends Controller
         $unique = str_slug($company->name) .'-' .time();
 
         $path = '/' . $unique . '.png';
-        $covername = '/' . $unique . '.jpg';
-        
-        $processedImage = $this->imageManager->make($request->file('logo')->getPathName())
-            ->resize(350, 250, function ($c) {
-                $c->aspectRatio();
-            })
-            ->encode('png')->stream();
-        
-        $imageFile = $processedImage->__toString();
+
+        $file = $request->file('logo');
+        $fileName = $file->getClientOriginalName();
+        $imageFile = file_get_contents($file->getRealPath());
         
         Storage::disk('public_dir')->put('avatar'. $path, $imageFile);
         
-        $cover_path = public_path('images/cover.png');
-        $cover = $this->imageManager
-            ->make($cover_path)
-            ->insert($imageFile, 'center')
-            ->encode('jpeg')->stream();
-
-        $cover_file = $cover->__toString();
-
-        Storage::disk('public_dir')->put('cover'. $covername, $cover_file);
 
         $image = new Image;
         $image->path = $path;

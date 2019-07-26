@@ -26,6 +26,10 @@
 				<app-input name="days" label="Days"/>
 			</div>
 
+			<div class="col-md-7 mb-7">
+				<app-text name="description" max="500" label="Description"/>
+			</div>
+
 			<br>
 			<div class="col-md-7 mb-7 text-center">
 				<app-button type="submit">Submit</app-button>
