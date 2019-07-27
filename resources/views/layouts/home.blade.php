@@ -59,9 +59,18 @@
                     @endforeach
                   @endif
                   
-                  <a href="{{ route('home.featured') }}" class="dropdown-item">{{ __('general.Featured') }} </a>
-                  <a href="{{ route('home.recruitment') }}" class="dropdown-item">{{ __('general.Recruitment') }}</a>
-                  <a href="{{ route('home.banner') }}" class="dropdown-item">{{ __('general.Banner') }}</a>
+                  <a href="{{ route('home.featured') }}" class="dropdown-item">
+                    {{ __('general.Featured') }}
+                  </a>
+                  <a href="{{ route('home.services') }}" class="dropdown-item">
+                    Services
+                  </a>
+                  <a href="{{ route('home.recruitment') }}" class="dropdown-item">
+                    {{ __('general.Recruitment') }}
+                  </a>
+                  <a href="{{ route('home.banner') }}" class="dropdown-item">
+                    {{ __('general.Banner') }}
+                  </a>
                 </div>
               </li>
 

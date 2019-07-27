@@ -38,7 +38,7 @@ class HomeController extends Controller
 
     public function basic()
     {
-        $about = Page::where('type', 2)->first();
+        $about = Page::where('type', 8)->first();
 
         return view('home.basic_job', compact('about'));
     }

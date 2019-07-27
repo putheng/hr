@@ -33,7 +33,7 @@ Route::get('/about', 'HomeController@about')->name('home.about');
 Route::get('/question', 'HomeController@qa')->name('home.qa');
 Route::get('/tip', 'HomeController@tip')->name('home.tip');
 Route::get('/tip/{blog}', 'BlogController@show')->name('tip.show');
-Route::get('/basic-job', 'HomeController@basic')->name('home.basic');
+Route::get('/services', 'HomeController@basic')->name('home.services');
 Route::get('/urgent-job', 'HomeController@urgent')->name('home.urgent');
 Route::get('/featured-employers', 'HomeController@featured')->name('home.featured');
 Route::get('/recruitment-agencies', 'HomeController@recruitment')->name('home.recruitment');
